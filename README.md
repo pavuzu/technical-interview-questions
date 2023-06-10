@@ -6,14 +6,14 @@ The primary purpose of this repository is to help individuals prepare for job in
 
 ## Content
 The repository covers various topics within the .NET, including but not limited to:
-- [C# & OOP](docs/C#.md)
-- [.NET fundamentals](docs/.Net.md)
+- [C# & OOP](docs/C%23.md)
+- [.NET](docs/.Net.md)
 - [ASP.NET Web Forms](docs/ASP.NET%20Web%20Forms.md)
 - [ASP.NET MVC](docs/ASP.NET%20MVC.md)
 - [Web API](docs/Web%20API.md)
-- [ADO.NET](docs/ADO.NET.md)
-- [EF (Entity Framework)](docs/Entity%20Framework.md)
 - [SQL](docs/SQL.md)
+- [ADO.NET](docs/ADO.NET.md)
+- [EF (Entity Framework)](docs/EF.md)
 - [SOLID Principles](docs/SOLID%20Principles.md)
 - [Design Patterns](docs/Design%20Patterns.md)
 - [Software Architecture](docs/Architecture.md)
