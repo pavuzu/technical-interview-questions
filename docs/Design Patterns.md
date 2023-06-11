@@ -39,6 +39,29 @@
     - [When would you consider using the Facade pattern in software development? Can you explain its benefits and potential drawbacks?](#when-would-you-consider-using-the-facade-pattern-in-software-development-can-you-explain-its-benefits-and-potential-drawbacks)
   - [Questions and Answers: Behavioral Patterns](#questions-and-answers-behavioral-patterns)
     - [What are Behavioral Design Patterns?](#what-are-behavioral-design-patterns)
+    - [What is Observer design pattern?](#what-is-observer-design-pattern)
+    - [Can you explain the purpose of the Observer design pattern? Provide a real-world scenario where the Observer pattern can be applied effectively.](#can-you-explain-the-purpose-of-the-observer-design-pattern-provide-a-real-world-scenario-where-the-observer-pattern-can-be-applied-effectively)
+    - [Discuss the Observer pattern in terms of its implementation and the relationships between the subject and observer objects. How does the Observer pattern support loose coupling and event-driven systems?](#discuss-the-observer-pattern-in-terms-of-its-implementation-and-the-relationships-between-the-subject-and-observer-objects-how-does-the-observer-pattern-support-loose-coupling-and-event-driven-systems)
+    - [What is Strategy design pattern?](#what-is-strategy-design-pattern)
+    - [What is the difference between the Strategy and State design patterns? How would you decide which pattern to use in a given situation?](#what-is-the-difference-between-the-strategy-and-state-design-patterns-how-would-you-decide-which-pattern-to-use-in-a-given-situation)
+    - [What is Command design pattern?](#what-is-command-design-pattern)
+    - [What is the purpose of the Command pattern? Provide a practical scenario where the Command pattern can be used effectively to decouple sender and receiver objects.](#what-is-the-purpose-of-the-command-pattern-provide-a-practical-scenario-where-the-command-pattern-can-be-used-effectively-to-decouple-sender-and-receiver-objects)
+    - [What is Iterator design pattern?](#what-is-iterator-design-pattern)
+    - [Can you differentiate between the Iterator and Composite patterns? When would you choose one over the other?](#can-you-differentiate-between-the-iterator-and-composite-patterns-when-would-you-choose-one-over-the-other)
+    - [What is State design pattern?](#what-is-state-design-pattern)
+    - [How does the State pattern differ from other design patterns, such as the Strategy pattern or the Template Method pattern?](#how-does-the-state-pattern-differ-from-other-design-patterns-such-as-the-strategy-pattern-or-the-template-method-pattern)
+    - [What is Template Method design pattern?](#what-is-template-method-design-pattern)
+    - [Explain the concept of encapsulating algorithms in the Template Method pattern. What are the benefits of using this pattern, and when would you consider using it?](#explain-the-concept-of-encapsulating-algorithms-in-the-template-method-pattern-what-are-the-benefits-of-using-this-pattern-and-when-would-you-consider-using-it)
+    - [What is Chain of Responsibility design pattern?](#what-is-chain-of-responsibility-design-pattern)
+    - [Can you describe the Chain of Responsibility pattern and its use case in handling request flows? How does it promote loose coupling and flexibility in handling requests?](#can-you-describe-the-chain-of-responsibility-pattern-and-its-use-case-in-handling-request-flows-how-does-it-promote-loose-coupling-and-flexibility-in-handling-requests)
+    - [What is Visitor design pattern?](#what-is-visitor-design-pattern)
+    - [Explain the Visitor pattern and its advantages in separating algorithms from the structure of an object hierarchy. How does the Visitor pattern support adding new operations without modifying existing classes?](#explain-the-visitor-pattern-and-its-advantages-in-separating-algorithms-from-the-structure-of-an-object-hierarchy-how-does-the-visitor-pattern-support-adding-new-operations-without-modifying-existing-classes)
+    - [What is Interpreter design pattern?](#what-is-interpreter-design-pattern)
+    - [Can you provide an example of a real-world scenario where the Interpreter pattern can be effectively applied?](#can-you-provide-an-example-of-a-real-world-scenario-where-the-interpreter-pattern-can-be-effectively-applied)
+    - [What is Mediator design pattern?](#what-is-mediator-design-pattern)
+    - [How does the Mediator pattern differ from other design patterns, such as the Observer pattern or the Publisher-Subscriber pattern?](#how-does-the-mediator-pattern-differ-from-other-design-patterns-such-as-the-observer-pattern-or-the-publisher-subscriber-pattern)
+    - [What is Memento design pattern?](#what-is-memento-design-pattern)
+    - [Can you explain the typical use cases or scenarios where the Memento pattern is applicable?](#can-you-explain-the-typical-use-cases-or-scenarios-where-the-memento-pattern-is-applicable)
   - [Additional Resources and References](#additional-resources-and-references)
 
 ## Questions and Answers: Design Patterns
@@ -1331,8 +1354,1058 @@ Here are some commonly used behavioral design patterns:
 - **Template Method Pattern**: Defines the skeleton of an algorithm in a base class, allowing subclasses to override specific steps of the algorithm. This pattern provides a common structure while allowing customization of certain parts.
 - **Chain of Responsibility Pattern**: Establishes a chain of objects, where each object has a chance to handle a request or pass it to the next object in the chain. It decouples the sender and receiver and provides flexibility in handling requests.
 - **Visitor Pattern**: Separates an algorithm from the objects it operates on, allowing new operations to be added without modifying the object structure. It promotes extensibility by externalizing operations into visitor classes.
+- **Interpreter**: Defines a representation of a grammar and interprets sentences or expressions in that language. It is used to solve problems related to parsing or evaluating complex grammars or rules.
+- **Mediator**: Defines an object that encapsulates the communication and coordination between a group of objects. It promotes loose coupling by centralizing the communication logic.
+- **Memento**: Captures and externalizes an object's internal state, allowing the object to be restored to that state later. It enables the undo/redo functionality or checkpointing system.
 
 These behavioral design patterns offer various techniques for managing object behavior, interaction, and communication. Each pattern addresses specific challenges and provides solutions for making code more flexible, modular, and reusable.
+
+### What is Observer design pattern?
+
+The Observer design pattern is a behavioral design pattern that establishes a one-to-many dependency between objects, where one object (called the subject or observable) maintains a list of its dependents (called observers) and notifies them automatically of any state changes. The Observer pattern enables loose coupling between objects, allowing multiple observers to be notified and updated when the subject's state changes without the need for direct dependencies or tight coupling.
+
+In the Observer pattern, there are several key components:
+
+1. **Subject (Observable)**: This is the object that holds the state and maintains a list of observers. It provides methods to register, unregister, and notify observers. When the state changes, the subject notifies all registered observers automatically.
+2. **Observer**: This is the interface or abstract class that defines the contract for receiving update notifications from the subject. It typically includes a method like *update()* that is called by the subject when its state changes.
+3. **Concrete Observer**: These are the concrete implementations of the Observer interface. Each concrete observer registers with the subject and receives update notifications. It defines the specific actions to be taken when it receives an update.
+
+Here's a simplified example to illustrate the Observer pattern in C#:
+
+``` csharp
+// Subject (Observable)
+public class Subject
+{
+    private List<IObserver> observers = new List<IObserver>();
+    private int state;
+
+    public int State
+    {
+        get { return state; }
+        set
+        {
+            state = value;
+            NotifyObservers();
+        }
+    }
+
+    public void Attach(IObserver observer)
+    {
+        observers.Add(observer);
+    }
+
+    public void Detach(IObserver observer)
+    {
+        observers.Remove(observer);
+    }
+
+    private void NotifyObservers()
+    {
+        foreach (var observer in observers)
+        {
+            observer.Update();
+        }
+    }
+}
+
+// Observer
+public interface IObserver
+{
+    void Update();
+}
+
+// Concrete Observer
+public class ConcreteObserver : IObserver
+{
+    private readonly string name;
+    private readonly Subject subject;
+
+    public ConcreteObserver(string name, Subject subject)
+    {
+        this.name = name;
+        this.subject = subject;
+        subject.Attach(this);
+    }
+
+    public void Update()
+    {
+        Console.WriteLine($"{name} received an update. New state: {subject.State}");
+    }
+}
+
+// Usage
+Subject subject = new Subject();
+
+ConcreteObserver observer1 = new ConcreteObserver("Observer 1", subject);
+ConcreteObserver observer2 = new ConcreteObserver("Observer 2", subject);
+
+subject.State = 10; // Output: Observer 1 received an update. New state: 10, Observer 2 received an update. New state: 10
+
+subject.State = 20; // Output: Observer 1 received an update. New state: 20, Observer 2 received an update. New state: 20
+```
+
+In this example, we have the *Subject* class that represents the observable object. It maintains a list of observers and notifies them when its state changes. The *State* property holds the state, and whenever it is modified, the subject automatically notifies all registered observers by calling their *Update()* method.
+
+The *IObserver* interface defines the contract for receiving update notifications from the subject. The *ConcreteObserver* class is a concrete implementation of the *IObserver* interface. Each observer registers itself with the subject and defines its behavior in the *Update()* method.
+
+In the usage section, we create a subject and two concrete observers. Each observer registers itself with the subject upon creation. When the state of the subject changes, it automatically notifies all registered observers, and they perform their respective actions in the *Update()* method.
+
+The Observer pattern allows for loosely coupled communication between subjects and observers. It enables multiple observers to react to state changes independently and reduces dependencies between objects. This pattern is particularly useful in scenarios where changes in one object's state should be propagated to other objects without tightly coupling them together.
+
+### Can you explain the purpose of the Observer design pattern? Provide a real-world scenario where the Observer pattern can be applied effectively.
+
+The Observer design pattern is used to establish a one-to-many dependency between objects, so that when one object (the subject) changes its state, all dependent objects (the observers) are notified and updated automatically. For example, in a stock market application, the stock prices are the subject, and various components of the application, such as charts or analysis tools, are the observers. When the stock prices change, the observers are notified and can update their displays accordingly.
+
+### Discuss the Observer pattern in terms of its implementation and the relationships between the subject and observer objects. How does the Observer pattern support loose coupling and event-driven systems?
+
+The Observer pattern establishes a one-to-many relationship between objects, where the observers (subscribers) depend on the subject (publisher) for automatic notification of state changes. It promotes loose coupling and event-driven systems. Observers register themselves with a subject, and when the subject's state changes, it notifies all registered observers. An example scenario would be a weather monitoring system, where multiple displays (observers) are interested in receiving updates whenever the weather data (subject) changes. The observers can respond accordingly, such as updating the temperature display or displaying a weather forecast.
+
+### What is Strategy design pattern?
+
+The Strategy design pattern is a behavioral design pattern that allows you to define a family of algorithms, encapsulate each one as a separate class, and make them interchangeable at runtime. It enables the algorithm to vary independently from the clients that use it.
+
+In the Strategy pattern, you have a context or client object that needs to perform a certain task or operation. Instead of implementing the task directly within the context, the strategy pattern encapsulates different algorithms or strategies within separate strategy classes. These strategy classes implement a common interface or inherit from a common base class, defining a specific algorithm or behavior.
+
+The context object maintains a reference to the selected strategy and delegates the task to it. This allows the context object to switch between different strategies dynamically, at runtime, based on certain conditions or requirements. The client code that interacts with the context object remains unaware of the specific strategy being used and treats all strategies uniformly through the common interface.
+
+Key components of the Strategy pattern:
+
+1. **Context**: It represents the object that uses the strategy. It maintains a reference to the selected strategy object and delegates the task to it.
+2. **Strategy**: It defines the common interface or base class for all concrete strategy classes. It encapsulates the algorithm or behavior that the strategies implement.
+3. **Concrete Strategies**: These are the individual strategy classes that implement the specific algorithms or behaviors. Each concrete strategy class provides its own implementation of the strategy interface.
+
+Here's a simplified example to illustrate the Strategy pattern in C#:
+
+``` csharp
+// Strategy interface
+public interface IShippingStrategy
+{
+    void Ship();
+}
+
+// Concrete strategies
+public class FedExShippingStrategy : IShippingStrategy
+{
+    public void Ship()
+    {
+        Console.WriteLine("Shipping via FedEx");
+    }
+}
+
+public class UPSShippingStrategy : IShippingStrategy
+{
+    public void Ship()
+    {
+        Console.WriteLine("Shipping via UPS");
+    }
+}
+
+// Context
+public class ShoppingCart
+{
+    private readonly IShippingStrategy shippingStrategy;
+
+    public ShoppingCart(IShippingStrategy shippingStrategy)
+    {
+        this.shippingStrategy = shippingStrategy;
+    }
+
+    public void ShipItems()
+    {
+        // Perform some actions...
+
+        // Delegate the shipping task to the selected strategy
+        shippingStrategy.Ship();
+    }
+}
+
+// Usage
+var fedExStrategy = new FedExShippingStrategy();
+var shoppingCart = new ShoppingCart(fedExStrategy);
+
+shoppingCart.ShipItems();
+```
+
+In this example, we have the *IShippingStrategy* interface that defines the common interface for all shipping strategies. The concrete strategies, *FedExShippingStrategy* and *UPSShippingStrategy*, implement the *IShippingStrategy* interface with their specific shipping algorithms.
+
+The *ShoppingCart* class represents the context object that uses a selected shipping strategy. It maintains a reference to the chosen strategy and delegates the shipping task to it through the *ShipItems()* method.
+
+By using the Strategy pattern, we can easily switch between different shipping strategies (e.g., FedEx or UPS) by simply changing the strategy passed to the *ShoppingCart* constructor. The client code interacts with the *ShoppingCart* object without being aware of the specific shipping strategy being used.
+
+The Strategy pattern promotes encapsulation, modularity, and flexibility by allowing algorithms to vary independently from the clients that use them. It is especially useful in scenarios where multiple algorithms or behaviors need to be dynamically selected or changed at runtime.
+
+### What is the difference between the Strategy and State design patterns? How would you decide which pattern to use in a given situation?
+
+The Strategy pattern and State pattern are both behavioral patterns, but they serve different purposes. The Strategy pattern is used to encapsulate interchangeable algorithms, allowing a client to select different algorithms dynamically. It focuses on varying the behavior of an object. On the other hand, the State pattern is used to manage the behavior of an object as its internal state changes. It focuses on encapsulating different states and allowing the object's behavior to vary based on its current state. The choice between these patterns depends on whether you want to vary behavior or manage state in a given situation.
+
+### What is Command design pattern?
+
+The Command design pattern is a behavioral design pattern that aims to encapsulate a request or an operation as an object. It allows the decoupling of the sender of a request from the receiver, providing a more flexible and extensible way to handle commands.
+
+In the Command pattern, there are several key components:
+
+1. **Command**: This is an interface or abstract class that defines the contract for executing a command. It typically includes a method such as *execute()* or *executeCommand()*.
+2. **Concrete Command**: These are the concrete implementations of the Command interface. Each concrete command class encapsulates a specific operation or request. It holds the necessary information and references to the receiver to perform the requested action.
+3. **Receiver**: This is the object that performs the actual work associated with a command. It has the knowledge and capability to execute the requested operation.
+4. **Invoker**: This is the object that invokes the command and triggers the execution. It is responsible for maintaining a reference to the command object and knows how to execute it.
+5. **Client**: This is the object that creates and configures the command objects. It sets the receiver and assigns commands to invokers as needed.
+
+Here's a simplified example to illustrate the Command pattern in C#:
+
+``` csharp
+// Command interface
+public interface ICommand
+{
+    void Execute();
+}
+
+// Concrete command
+public class ConcreteCommand : ICommand
+{
+    private Receiver receiver;
+
+    public ConcreteCommand(Receiver receiver)
+    {
+        this.receiver = receiver;
+    }
+
+    public void Execute()
+    {
+        receiver.PerformAction();
+    }
+}
+
+// Receiver
+public class Receiver
+{
+    public void PerformAction()
+    {
+        Console.WriteLine("Receiver is performing an action.");
+    }
+}
+
+// Invoker
+public class Invoker
+{
+    private ICommand command;
+
+    public void SetCommand(ICommand command)
+    {
+        this.command = command;
+    }
+
+    public void ExecuteCommand()
+    {
+        command.Execute();
+    }
+}
+
+// Client
+public class Client
+{
+    public void Run()
+    {
+        Receiver receiver = new Receiver();
+        ICommand command = new ConcreteCommand(receiver);
+        
+        Invoker invoker = new Invoker();
+        invoker.SetCommand(command);
+        invoker.ExecuteCommand();
+    }
+}
+
+// Usage
+Client client = new Client();
+client.Run();
+```
+
+In this example, we have the *ICommand* interface that defines the *Execute()* method for executing a command. The *ConcreteCommand* class is a concrete implementation of the *ICommand* interface and holds a reference to the receiver (*Receiver*).
+
+The *Receiver* class represents the object that performs the actual work associated with a command. In this case, it has a method called *PerformAction()* which performs the desired action.
+
+The *Invoker* class maintains a reference to the command object and knows how to execute it. It provides methods to set the command and execute it when necessary.
+
+The *Client* class creates and configures the command object (*ConcreteCommand*) by providing it with a receiver (*Receiver*). It sets the command object in the invoker (*Invoker*) and executes the command by invoking the *ExecuteCommand()* method.
+
+By using the Command pattern, the sender (client) and receiver (receiver) are decoupled. The client can create and configure commands with different receivers, allowing flexibility in choosing which commands to execute and when. The pattern also enables the queuing of commands, logging of commands, and support for undo/redo operations.
+
+The Command pattern is useful when you want to decouple the object making a request from the object handling the request, or when you need to encapsulate and parameterize commands. It promotes flexibility, extensibility, and can simplify the design and maintenance of a system.
+
+### What is the purpose of the Command pattern? Provide a practical scenario where the Command pattern can be used effectively to decouple sender and receiver objects.
+
+The Command pattern is used to encapsulate a request as an object, allowing clients to parameterize objects with different requests, queue or log requests, and support undoable operations. It decouples the sender of a request from the receiver, providing a more flexible and extensible way to handle commands. In practice, the Command pattern can be used in scenarios such as implementing a menu system with various menu options, where each option represents a command encapsulated in an object. The sender (menu) is decoupled from the receiver (menu option), allowing easy addition or removal of menu options without affecting the menu system itself.
+
+### What is Iterator design pattern?
+
+The Iterator design pattern is a behavioral design pattern that provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation. It decouples the client code from the underlying collection structure, allowing the client to traverse the collection in a standardized and consistent manner.
+
+In the Iterator pattern, there are three key components:
+
+1. **Iterator**: This is the interface that defines the operations for traversing the elements of the collection. It typically includes methods like *next()*, *hasNext()*, *reset()*, and possibly others depending on the specific requirements.
+2. **Concrete Iterator**: This is the implementation of the Iterator interface for a specific collection. It keeps track of the current position and provides the logic for iterating over the elements.
+3. **Aggregate**: This represents the collection object that holds the elements to be traversed. It provides a method to create an iterator object that can be used to iterate over its elements.
+
+Here's a simplified example to illustrate the Iterator pattern in C#:
+
+``` csharp
+// Iterator interface
+public interface IIterator<T>
+{
+    T Next();
+    bool HasNext();
+    void Reset();
+}
+
+// Concrete Iterator
+public class ListIterator<T> : IIterator<T>
+{
+    private readonly List<T> collection;
+    private int position;
+
+    public ListIterator(List<T> collection)
+    {
+        this.collection = collection;
+        this.position = 0;
+    }
+
+    public T Next()
+    {
+        T currentItem = collection[position];
+        position++;
+        return currentItem;
+    }
+
+    public bool HasNext()
+    {
+        return position < collection.Count;
+    }
+
+    public void Reset()
+    {
+        position = 0;
+    }
+}
+
+// Aggregate
+public class ListCollection<T>
+{
+    private readonly List<T> items;
+
+    public ListCollection()
+    {
+        items = new List<T>();
+    }
+
+    public void Add(T item)
+    {
+        items.Add(item);
+    }
+
+    public IIterator<T> CreateIterator()
+    {
+        return new ListIterator<T>(items);
+    }
+}
+
+// Usage
+var collection = new ListCollection<int>();
+collection.Add(1);
+collection.Add(2);
+collection.Add(3);
+
+var iterator = collection.CreateIterator();
+while (iterator.HasNext())
+{
+    int currentItem = iterator.Next();
+    Console.WriteLine(currentItem);
+}
+```
+
+In this example, we have the *IIterator&lt;T&gt;* interface that defines the operations for iterating over elements of a collection. The *ListIterator&lt;T&gt;* class implements this interface specifically for a *List&lt;T&gt;* collection, providing the logic for traversing the list elements.
+
+The *ListCollection&lt;T&gt;* class represents the aggregate object, which is the list collection in this case. It provides a method *CreateIterator()* that returns an iterator object (*ListIterator&lt;T&gt;*) for the collection.
+
+By using the Iterator pattern, we can decouple the client code from the specific implementation of the collection. The client code can iterate over the elements using the iterator's *Next()* method and check for the presence of more elements with the *HasNext()* method.
+
+The Iterator pattern provides a standardized and consistent way to traverse collections, regardless of their underlying structure. It enhances the flexibility and reusability of the code, allows for easy extension with new collection types, and keeps the collection structure hidden from the client code.
+
+### Can you differentiate between the Iterator and Composite patterns? When would you choose one over the other?
+
+The Iterator pattern and Composite pattern are different but complementary. The Iterator pattern provides a way to access the elements of a collection sequentially without exposing its internal structure. It focuses on providing a uniform way to traverse elements. In contrast, the Composite pattern is used to treat a group of objects as a single object. It allows you to create hierarchical structures and apply operations uniformly across individual objects and compositions. You would choose the Iterator pattern when you need to traverse elements sequentially, and the Composite pattern when you want to treat a collection of objects as a single object with a hierarchical structure.
+
+### What is State design pattern?
+
+The State design pattern is a behavioral design pattern that allows an object to alter its behavior when its internal state changes. It encapsulates each state as a separate class and delegates the behavior to the current state object. This pattern promotes the "State" as an object concept rather than using conditional statements to manage the behavior transitions.
+
+In the State pattern, there are several key components:
+
+1. **Context**: This is the object that contains the state and whose behavior is affected by the state. It maintains a reference to the current state object and delegates the behavior to that state object.
+2. **State**: This is the interface or base class that defines the common methods for all concrete state classes. It represents the different states that the context object can be in. Each state class encapsulates the behavior associated with a specific state.
+3. **Concrete States**: These are the individual state classes that implement the State interface or inherit from the State base class. Each concrete state class provides its own implementation of the behavior associated with that state.
+
+Here's a simplified example to illustrate the State pattern in C#:
+
+``` csharp
+// State interface
+public interface IState
+{
+    void Handle(Context context);
+}
+
+// Concrete states
+public class StateA : IState
+{
+    public void Handle(Context context)
+    {
+        Console.WriteLine("State A is handling the request.");
+        // Change the state of the context if necessary
+        context.State = new StateB();
+    }
+}
+
+public class StateB : IState
+{
+    public void Handle(Context context)
+    {
+        Console.WriteLine("State B is handling the request.");
+        // Change the state of the context if necessary
+        context.State = new StateA();
+    }
+}
+
+// Context
+public class Context
+{
+    public IState State { get; set; }
+
+    public Context(IState initialState)
+    {
+        State = initialState;
+    }
+
+    public void Request()
+    {
+        // Delegate the request handling to the current state
+        State.Handle(this);
+    }
+}
+
+// Usage
+var context = new Context(new StateA());
+
+context.Request(); // Outputs "State A is handling the request."
+context.Request(); // Outputs "State B is handling the request."
+context.Request(); // Outputs "State A is handling the request."
+```
+
+In this example, we have the *IState* interface that defines the common method *Handle()* for all states. The concrete state classes, *StateA* and *StateB*, implement the *IState* interface with their specific behavior. Each state class can also modify the state of the context if necessary.
+
+The *Context* class represents the object whose behavior is affected by the state. It maintains a reference to the current state object and delegates the handling of requests to that state object.
+
+By using the State pattern, the behavior of the context object can vary depending on its internal state. The state transitions are managed by the state objects themselves, providing a more modular and flexible approach to handle complex behavior. The context object remains unaware of the specific states and their transitions, which leads to cleaner and more maintainable code.
+
+The State pattern is particularly useful when an object's behavior changes based on its internal state, and you want to avoid long chains of conditional statements. It promotes the single responsibility principle by separating the behavior of each state into its own class, making it easier to add or modify states without impacting other parts of the code.
+
+### How does the State pattern differ from other design patterns, such as the Strategy pattern or the Template Method pattern?
+
+The State pattern, Strategy pattern, and Template Method pattern all belong to the behavioral design pattern category, but they have distinct characteristics and usage scenarios.
+
+The State pattern focuses on managing the behavior of an object based on its internal state. It encapsulates state-specific behavior into separate classes and allows the object to change its behavior dynamically by delegating to the current state class.
+
+The Strategy pattern, on the other hand, focuses on encapsulating interchangeable algorithms or strategies and allowing the client to select and switch between different strategies at runtime. It is primarily used to achieve flexibility in algorithm selection and customization without modifying the client code.
+
+The Template Method pattern focuses on defining the skeleton of an algorithm in a base class and allowing subclasses to provide specific implementations for certain steps of the algorithm. It provides a way to define an overall algorithm structure while allowing subclasses to vary the implementation details.
+
+While all three patterns involve the management of behavior, the State pattern is specifically concerned with managing state-dependent behavior, the Strategy pattern deals with interchangeable algorithms, and the Template Method pattern focuses on defining an algorithm structure with variations in certain steps.
+
+By asking this question, you can assess the candidate's understanding of the State pattern in comparison to other related patterns and their ability to differentiate between them based on their distinct characteristics and purposes.
+
+### What is Template Method design pattern?
+
+The Template Method design pattern is a behavioral design pattern that defines the skeleton of an algorithm in a base class and allows subclasses to override specific steps of the algorithm without changing its overall structure. It promotes code reuse and provides a way to define a common algorithm while allowing variations in certain steps.
+
+In the Template Method pattern, there are two key components:
+
+1. **Abstract Class**: This is the base class that defines the template method, which represents the overall algorithm. It provides a series of steps to be executed in a specific order. Some of these steps may have default implementations, while others are declared as abstract methods that subclasses must implement.
+2. **Concrete Classes**: These are the subclasses that inherit from the abstract class and provide their own implementations for the abstract methods. They override specific steps of the algorithm to customize the behavior while keeping the overall structure intact.
+
+Here's a simplified example to illustrate the Template Method pattern in C#:
+
+``` csharp
+// Abstract class
+public abstract class AbstractClass
+{
+    public void TemplateMethod()
+    {
+        // Step 1
+        Operation1();
+
+        // Step 2
+        Operation2();
+
+        // Step 3
+        Operation3();
+    }
+
+    protected abstract void Operation1();
+    protected abstract void Operation2();
+
+    protected virtual void Operation3()
+    {
+        // Default implementation
+        Console.WriteLine("Default implementation of Operation3");
+    }
+}
+
+// Concrete class
+public class ConcreteClass : AbstractClass
+{
+    protected override void Operation1()
+    {
+        Console.WriteLine("ConcreteClass: Operation1");
+    }
+
+    protected override void Operation2()
+    {
+        Console.WriteLine("ConcreteClass: Operation2");
+    }
+
+    protected override void Operation3()
+    {
+        Console.WriteLine("ConcreteClass: Custom implementation of Operation3");
+    }
+}
+
+// Usage
+var concreteClass = new ConcreteClass();
+concreteClass.TemplateMethod();
+```
+
+In this example, we have the *AbstractClass* that represents the abstract class defining the template method. The template method itself (*TemplateMethod()*) defines the algorithm's structure by calling various operations in a specific order.
+
+The *AbstractClass* also declares* Operation1()* and *Operation2()* as abstract methods that subclasses must implement. These methods represent the steps of the algorithm that require customization.
+
+The *Operation3()* method is declared with a default implementation in the abstract class. Subclasses can choose to override this method if they want to provide a custom implementation, but it is not mandatory.
+
+The *ConcreteClass* inherits from the AbstractClass and provides its own implementations for *Operation1()* and *Operation2()*. It also overrides *Operation3()* to provide a custom implementation.
+
+By using the Template Method pattern, you can define the overall algorithm in the abstract class while allowing subclasses to customize specific steps. This promotes code reuse, avoids code duplication, and provides a standardized structure for related algorithms.
+
+The Template Method pattern is useful in scenarios where you have a common algorithm with certain variations in specific steps. It enables you to define a high-level algorithm in the base class while allowing subclasses to provide their own implementations for specific parts of the algorithm.
+
+### Explain the concept of encapsulating algorithms in the Template Method pattern. What are the benefits of using this pattern, and when would you consider using it?
+
+The Template Method pattern defines the skeleton of an algorithm in a base class, with specific steps implemented in subclasses. The purpose is to provide a common algorithm structure while allowing subclasses to override certain steps to provide their own implementations. The benefits of using this pattern include code reuse, promoting consistency across subclasses, and allowing easy extensibility by adding new subclasses. You would consider using the Template Method pattern when you have an algorithm with a fixed structure but varying implementations for certain steps.
+
+### What is Chain of Responsibility design pattern?
+
+The Chain of Responsibility design pattern is a behavioral design pattern that allows you to create a chain of objects, where each object in the chain has the ability to process a request and decide whether to handle it or pass it to the next object in the chain. This pattern promotes loose coupling between senders and receivers of a request, providing a way to decouple the sender from the specific receiver and allowing multiple objects to have a chance to handle the request.
+
+In the Chain of Responsibility pattern, there are several key components:
+
+1. **Handler**: This is the abstract base class or interface that defines the common methods for handling requests. It usually includes a method to handle the request and a reference to the next handler in the chain.
+2. **Concrete Handlers**: These are the concrete implementations of the handler interface or subclasses of the handler base class. Each concrete handler decides whether to handle a request or pass it to the next handler in the chain. It also provides its own implementation for handling the request if it chooses to handle it.
+3. **Client**: This is the object that sends requests to the first handler in the chain. It is unaware of the specific handlers in the chain and simply sends the request to the first handler.
+
+Here's a simplified example to illustrate the Chain of Responsibility pattern in C#:
+
+``` csharp
+// Handler interface
+public abstract class Handler
+{
+    protected Handler NextHandler { get; set; }
+
+    public void SetNextHandler(Handler nextHandler)
+    {
+        NextHandler = nextHandler;
+    }
+
+    public abstract void HandleRequest(int request);
+}
+
+// Concrete Handlers
+public class ConcreteHandlerA : Handler
+{
+    public override void HandleRequest(int request)
+    {
+        if (request >= 0 && request < 10)
+        {
+            Console.WriteLine($"{nameof(ConcreteHandlerA)} handled the request: {request}");
+        }
+        else if (NextHandler != null)
+        {
+            NextHandler.HandleRequest(request);
+        }
+    }
+}
+
+public class ConcreteHandlerB : Handler
+{
+    public override void HandleRequest(int request)
+    {
+        if (request >= 10 && request < 20)
+        {
+            Console.WriteLine($"{nameof(ConcreteHandlerB)} handled the request: {request}");
+        }
+        else if (NextHandler != null)
+        {
+            NextHandler.HandleRequest(request);
+        }
+    }
+}
+
+public class ConcreteHandlerC : Handler
+{
+    public override void HandleRequest(int request)
+    {
+        if (request >= 20 && request < 30)
+        {
+            Console.WriteLine($"{nameof(ConcreteHandlerC)} handled the request: {request}");
+        }
+        else if (NextHandler != null)
+        {
+            NextHandler.HandleRequest(request);
+        }
+    }
+}
+
+// Usage
+var handlerA = new ConcreteHandlerA();
+var handlerB = new ConcreteHandlerB();
+var handlerC = new ConcreteHandlerC();
+
+handlerA.SetNextHandler(handlerB);
+handlerB.SetNextHandler(handlerC);
+
+handlerA.HandleRequest(5); // Output: ConcreteHandlerA handled the request: 5
+handlerA.HandleRequest(15); // Output: ConcreteHandlerB handled the request: 15
+handlerA.HandleRequest(25); // Output: ConcreteHandlerC handled the request: 25
+handlerA.HandleRequest(35); // No handler can handle the request
+```
+
+In this example, we have the *Handler* abstract class that defines the common interface for all handlers. It includes a reference to the next handler in the chain and the *HandleRequest()* method to handle the request or pass it to the next handler.
+
+The concrete handler classes, *ConcreteHandlerA*, *ConcreteHandlerB*, and *ConcreteHandlerC*, inherit from the *Handler* class and provide their own implementations for handling the request. If a handler cannot handle the request, it passes the request to the next handler in the chain using the NextHandler reference.
+
+The client object sends requests to the first handler (*handlerA* in this case) without knowing the specific handlers in the chain. Each handler in the chain decides whether to handle the request or pass it to the next handler.
+
+By using the Chain of Responsibility pattern, you can achieve loose coupling between senders and receivers of a request. The sender does not need to know which handler will handle the request, and the receiver does not need to know which handler sent the request. This allows for flexible and dynamic handling of requests, as well as the ability to modify or extend the chain without affecting the client code.
+
+The Chain of Responsibility pattern is suitable in scenarios where there are multiple objects that can handle a request, and the sender of the request is not explicitly known or needs to be decoupled from the receiver. It promotes flexibility, extensibility, and reduces dependencies between objects.
+
+### Can you describe the Chain of Responsibility pattern and its use case in handling request flows? How does it promote loose coupling and flexibility in handling requests?
+
+The Chain of Responsibility pattern is used to create a chain of objects, where each object in the chain has the opportunity to handle a request or pass it to the next object in the chain. It promotes loose coupling and flexibility in handling requests by allowing multiple objects to have a chance to handle a request without the sender needing to know the specific receiver. The pattern supports the idea of "don't ask, let it happen." For example, in an employee leave approval system, requests can be passed through a chain of supervisors, with each supervisor having the ability to approve or pass the request to the next supervisor in the hierarchy.
+
+### What is Visitor design pattern?
+
+The Visitor design pattern is a behavioral design pattern that allows you to separate the algorithms or operations performed on a data structure from the structure itself. It enables you to define new operations without changing the classes of the elements on which the operations are performed. The Visitor pattern promotes the Open-Closed Principle by allowing new operations to be added without modifying the existing classes.
+
+In the Visitor pattern, there are several key components:
+
+1. **Visitor**: This is the interface or abstract class that defines the visit methods for each element type in the data structure. Each visit method corresponds to a specific operation that can be performed on the element.
+2. **Concrete Visitor**: These are the concrete implementations of the Visitor interface. Each concrete visitor class provides the actual implementation of the visit methods for the corresponding element types.
+3. **Element**: This is the interface or abstract class that defines the accept method, which accepts a visitor and allows the visitor to perform the desired operation on the element.
+4. **Concrete Elements**: These are the concrete implementations of the Element interface. Each concrete element class implements the accept method and passes itself as a parameter to the visitor's visit method.
+5. **Object Structure**: This represents the collection or structure of elements on which the visitor operates. It provides methods to add or remove elements and accepts visitors to perform operations on the elements.
+
+Here's a simplified example to illustrate the Visitor pattern in C#:
+
+``` csharp
+// Visitor interface
+public interface IVisitor
+{
+    void VisitElementA(ElementA element);
+    void VisitElementB(ElementB element);
+}
+
+// Concrete Visitor
+public class ConcreteVisitor : IVisitor
+{
+    public void VisitElementA(ElementA element)
+    {
+        Console.WriteLine("Visitor visits Element A");
+    }
+
+    public void VisitElementB(ElementB element)
+    {
+        Console.WriteLine("Visitor visits Element B");
+    }
+}
+
+// Element interface
+public interface IElement
+{
+    void Accept(IVisitor visitor);
+}
+
+// Concrete Elements
+public class ElementA : IElement
+{
+    public void Accept(IVisitor visitor)
+    {
+        visitor.VisitElementA(this);
+    }
+}
+
+public class ElementB : IElement
+{
+    public void Accept(IVisitor visitor)
+    {
+        visitor.VisitElementB(this);
+    }
+}
+
+// Object Structure
+public class ObjectStructure
+{
+    private readonly List<IElement> elements = new List<IElement>();
+
+    public void AddElement(IElement element)
+    {
+        elements.Add(element);
+    }
+
+    public void RemoveElement(IElement element)
+    {
+        elements.Remove(element);
+    }
+
+    public void AcceptVisitor(IVisitor visitor)
+    {
+        foreach (var element in elements)
+        {
+            element.Accept(visitor);
+        }
+    }
+}
+
+// Usage
+var objectStructure = new ObjectStructure();
+objectStructure.AddElement(new ElementA());
+objectStructure.AddElement(new ElementB());
+
+var visitor = new ConcreteVisitor();
+objectStructure.AcceptVisitor(visitor);
+```
+
+In this example, we have the *IVisitor* interface that defines the visit methods for each element type. The *ConcreteVisitor* class implements the *IVisitor* interface and provides the actual implementation of the visit methods.
+
+The *IElement* interface represents the elements in the data structure and defines the *Accept()* method to accept a visitor. The *ElementA* and *ElementB* classes are concrete implementations of the *IElement* interface and implement the *Accept()* method by passing themselves as a parameter to the visitor's visit method.
+
+The *ObjectStructure* class represents the collection of elements. It allows elements to be added or removed and provides a method to accept a visitor, which invokes the *Accept()* method on each element.
+
+By using the Visitor pattern, you can separate the logic of operations from the elements themselves. New operations can be added by implementing new visitors without modifying the existing elements. This promotes extensibility, flexibility, and maintainability of the codebase.
+
+The Visitor pattern is especially useful when you have a complex data structure and want to perform various operations on its elements without modifying the element classes. It allows you to keep the logic of operations separate and makes it easier to add new operations in the future.
+
+### Explain the Visitor pattern and its advantages in separating algorithms from the structure of an object hierarchy. How does the Visitor pattern support adding new operations without modifying existing classes?
+
+The Visitor pattern separates the algorithms or operations performed on a data structure from the structure itself. It allows new operations to be added to the structure without modifying the classes of the elements. This pattern promotes the Open-Closed Principle. For example, consider a document structure with different types of elements (paragraphs, headings, images, etc.). With the Visitor pattern, you can define a visitor that performs operations on these elements without modifying their classes. You can add new operations by creating new visitors, promoting extensibility and modularity.
+
+### What is Interpreter design pattern?
+
+The Interpreter design pattern is a behavioral design pattern that defines a representation of a grammar or language and provides a way to interpret and execute sentences or expressions in that language. It allows the definition of a domain-specific language (DSL) and provides a mechanism to evaluate and execute expressions or rules defined in that language.
+
+The Interpreter pattern involves the following key components:
+
+1. **Abstract Expression**: This is an interface or abstract class that defines the common methods for interpreting and executing expressions in the language. It typically includes an *interpret()* method that takes an input and performs the interpretation.
+2. **Terminal Expression**: These are concrete implementations of the abstract expression that represent the terminal symbols in the language grammar. They perform the actual interpretation or execution of specific elements in the language.
+3. **Non-Terminal Expression**: These are concrete implementations of the abstract expression that represent the non-terminal symbols in the language grammar. They typically encapsulate multiple terminal and non-terminal expressions and define the interpretation or execution logic for complex language constructs.
+4. **Context**: This is the object that contains the context or state in which the expressions are evaluated. It provides the necessary data or variables required for the interpretation process.
+5. **Client**: This is the object that builds the abstract syntax tree (AST) by composing the terminal and non-terminal expressions based on the language grammar. It passes the context to the expressions and triggers the interpretation or execution process.
+
+Here's a simplified example to illustrate the Interpreter pattern in C#:
+
+``` csharp
+// Abstract Expression
+public interface IExpression
+{
+    void Interpret(Context context);
+}
+
+// Terminal Expression
+public class TerminalExpression : IExpression
+{
+    public void Interpret(Context context)
+    {
+        Console.WriteLine("Terminal Expression is interpreting the context.");
+    }
+}
+
+// Non-Terminal Expression
+public class NonTerminalExpression : IExpression
+{
+    public void Interpret(Context context)
+    {
+        Console.WriteLine("Non-Terminal Expression is interpreting the context.");
+    }
+}
+
+// Context
+public class Context
+{
+    public string Data { get; set; }
+}
+
+// Client
+public class Client
+{
+    private readonly IExpression expression;
+
+    public Client()
+    {
+        // Build the abstract syntax tree
+        IExpression terminalExpression = new TerminalExpression();
+        IExpression nonTerminalExpression = new NonTerminalExpression();
+
+        // Configure the expression tree as needed
+
+        expression = nonTerminalExpression;
+    }
+
+    public void Interpret(Context context)
+    {
+        expression.Interpret(context);
+    }
+}
+
+// Usage
+Context context = new Context();
+Client client = new Client();
+client.Interpret(context);
+```
+
+In this example, we have the *IExpression* interface that defines the *Interpret()* method for interpreting and executing expressions in the language. The *TerminalExpression* and *NonTerminalExpression* classes are concrete implementations of the *IExpression* interface, representing the terminal and non-terminal symbols in the language grammar, respectively.
+
+The *Context* class represents the context or state in which the expressions are evaluated. It holds the necessary data or variables required for interpretation.
+
+The *Client* class is responsible for building the abstract syntax tree (AST) by composing the terminal and non-terminal expressions based on the language grammar. It triggers the interpretation or execution process by calling the *Interpret()* method on the expression.
+
+When the *Interpret()* method is invoked, the appropriate expressions interpret the context or perform their specific actions based on the language grammar.
+
+The Interpreter pattern is useful in scenarios where you need to define and interpret a DSL, evaluate complex expressions, or perform language-based processing. It separates the concerns of parsing and executing the language and allows for the addition of new expressions or rules without modifying the client code.
+
+### Can you provide an example of a real-world scenario where the Interpreter pattern can be effectively applied?
+
+The Interpreter pattern can be applied in various real-world scenarios. One such scenario is the development of a rule-based system or business rules engine. For example, consider a banking application that processes loan applications. The application may have a set of complex rules governing the approval or rejection of loan applications based on factors such as credit score, income level, employment history, and loan amount. Implementing these rules using if-else conditions or hardcoding them would be cumbersome and inflexible.
+
+By applying the Interpreter pattern, each rule can be represented as an expression and parsed into an expression tree. The interpreter can then evaluate the expression tree based on the defined grammar and rules, providing a flexible and extensible approach to rule evaluation. This allows for easy modification or addition of new rules without modifying the core application logic.
+
+By asking this question, you can assess the candidate's ability to identify real-world scenarios where the Interpreter pattern is applicable. It demonstrates their understanding of how the pattern can be used to implement rule-based systems or similar applications where complex expressions need to be evaluated dynamically.
+
+### What is Mediator design pattern?
+
+The Mediator design pattern is a behavioral design pattern that promotes loose coupling between objects by encapsulating their communication and coordination within a centralized mediator object. It allows objects to interact with each other indirectly, reducing direct dependencies and simplifying their communication.
+
+The Mediator pattern involves the following key components:
+
+1. **Mediator**: This is an interface or abstract class that defines the contract for communication between objects. It typically includes methods for registering, sending, and receiving messages between objects.
+2. **Concrete Mediator**: This is a concrete implementation of the Mediator interface. It coordinates and manages the communication between objects. It maintains references to the participating objects and implements the communication logic.
+3. **Colleague**: This represents the objects that need to communicate with each other but do so indirectly through the Mediator. Each colleague object holds a reference to the Mediator and uses it to send and receive messages.
+
+Here's a simplified example to illustrate the Mediator pattern in C#:
+
+``` csharp
+// Mediator interface
+public interface IMediator
+{
+    void RegisterColleague(Colleague colleague);
+    void Send(string message, Colleague sender);
+}
+
+// Concrete Mediator
+public class ConcreteMediator : IMediator
+{
+    private List<Colleague> colleagues = new List<Colleague>();
+
+    public void RegisterColleague(Colleague colleague)
+    {
+        colleagues.Add(colleague);
+    }
+
+    public void Send(string message, Colleague sender)
+    {
+        foreach (var colleague in colleagues)
+        {
+            if (colleague != sender)
+            {
+                colleague.Receive(message);
+            }
+        }
+    }
+}
+
+// Colleague
+public abstract class Colleague
+{
+    protected IMediator mediator;
+
+    public Colleague(IMediator mediator)
+    {
+        this.mediator = mediator;
+    }
+
+    public abstract void Send(string message);
+    public abstract void Receive(string message);
+}
+
+// Concrete Colleague
+public class ConcreteColleague : Colleague
+{
+    public ConcreteColleague(IMediator mediator) : base(mediator)
+    {
+    }
+
+    public override void Send(string message)
+    {
+        mediator.Send(message, this);
+    }
+
+    public override void Receive(string message)
+    {
+        Console.WriteLine("Received: " + message);
+    }
+}
+
+// Usage
+IMediator mediator = new ConcreteMediator();
+
+Colleague colleague1 = new ConcreteColleague(mediator);
+Colleague colleague2 = new ConcreteColleague(mediator);
+
+mediator.RegisterColleague(colleague1);
+mediator.RegisterColleague(colleague2);
+
+colleague1.Send("Hello!"); // Output: Received: Hello!
+```
+
+In this example, we have the *IMediator* interface that defines the contract for communication between objects. The *ConcreteMediator* class is a concrete implementation of the Mediator interface and manages the communication logic. It maintains a list of colleagues and facilitates message passing between them.
+
+The *Colleague* class represents the objects that need to communicate with each other but do so indirectly through the Mediator. Each colleague holds a reference to the Mediator and uses it to send and receive messages.
+
+In the usage section, we create a concrete mediator and two concrete colleagues. We register the colleagues with the mediator and demonstrate communication by having one colleague send a message, which is received by the other colleague.
+
+By using the Mediator pattern, objects are decoupled from each other, and their communication is abstracted through the Mediator interface. This promotes flexibility, extensibility, and better maintainability as new colleagues can be added without affecting existing ones. The Mediator pattern is particularly useful in scenarios where objects need to communicate in a loosely coupled manner and have indirect dependencies on each other.
+
+### How does the Mediator pattern differ from other design patterns, such as the Observer pattern or the Publisher-Subscriber pattern?
+
+The Mediator pattern, Observer pattern, and Publisher-Subscriber pattern are all behavioral design patterns, but they have distinct characteristics and usage scenarios.
+
+The Mediator pattern focuses on providing a centralized mediator object that encapsulates communication and coordination logic between multiple objects. It promotes loose coupling by allowing objects to interact indirectly through the mediator, simplifying their communication.
+
+The Observer pattern, on the other hand, establishes a one-to-many dependency relationship between objects, where multiple observers subscribe to changes in the state of a subject. Observers are notified directly by the subject whenever there are updates, without the need for a centralized mediator.
+
+The Publisher-Subscriber pattern is similar to the Observer pattern but with a slight difference in the communication mechanism. In the Publisher-Subscriber pattern, publishers and subscribers don't have direct knowledge of each other. Instead, they rely on a message broker or event bus, which acts as an intermediary to distribute messages between publishers and subscribers.
+
+While all three patterns deal with communication and collaboration, the Mediator pattern focuses on indirect communication through a centralized mediator, the Observer pattern establishes direct communication between subject and observers, and the Publisher-Subscriber pattern relies on a message broker for communication between publishers and subscribers.
+
+By asking this question, you can assess the candidate's understanding of the Mediator pattern and their ability to differentiate it from other related patterns. It helps evaluate their knowledge of the distinct characteristics and purposes of each pattern in facilitating communication and coordination between objects.
+
+### What is Memento design pattern?
+
+The Memento design pattern is a behavioral design pattern that provides the ability to capture and restore the internal state of an object without exposing its implementation details. It allows an object to be restored to a previous state, effectively enabling undo/redo functionality or implementing checkpoints.
+
+The Memento pattern involves the following key components:
+
+1. **Originator**: This is the object that has an internal state that needs to be captured and restored. It creates a memento object that represents its current state and can also restore its state from a memento.
+2. **Memento**: This is an object that represents the captured state of the originator. It typically provides methods for getting and setting the state, but only the originator can access or modify the state within the memento.
+3. **Caretaker**: This is an object that is responsible for storing and managing the mementos. It can request a memento from the originator and later pass it back to the originator for state restoration.
+
+Here's a simplified example to illustrate the Memento pattern in C#:
+
+``` csharp
+// Originator
+public class Originator
+{
+    private string state;
+
+    public string State
+    {
+        get { return state; }
+        set { state = value; }
+    }
+
+    public Memento CreateMemento()
+    {
+        return new Memento(state);
+    }
+
+    public void SetMemento(Memento memento)
+    {
+        state = memento.GetState();
+    }
+}
+
+// Memento
+public class Memento
+{
+    private string state;
+
+    public Memento(string state)
+    {
+        this.state = state;
+    }
+
+    public string GetState()
+    {
+        return state;
+    }
+}
+
+// Caretaker
+public class Caretaker
+{
+    private Memento memento;
+
+    public void SetMemento(Memento memento)
+    {
+        this.memento = memento;
+    }
+
+    public Memento GetMemento()
+    {
+        return memento;
+    }
+}
+
+// Usage
+Originator originator = new Originator();
+Caretaker caretaker = new Caretaker();
+
+originator.State = "State 1";
+caretaker.SetMemento(originator.CreateMemento());
+
+originator.State = "State 2";
+
+Console.WriteLine("Current state: " + originator.State);
+
+originator.SetMemento(caretaker.GetMemento());
+
+Console.WriteLine("Restored state: " + originator.State);
+```
+
+In this example, we have the *Originator* class that represents an object with an internal state that needs to be captured and restored. It has a *State* property that holds the current state and provides methods to create a memento of its state (*CreateMemento()*) and set its state from a memento (*SetMemento()*).
+
+The *Memento* class represents the captured state of the originator. It has a *GetState()* method to retrieve the state but does not expose any methods to modify the state directly.
+
+The *Caretaker* class is responsible for storing and managing the mementos. It can request a memento from the originator (*SetMemento()*) and later retrieve the memento (*GetMemento()*) to pass it back to the originator for state restoration.
+
+In the usage section, we create an originator and a caretaker. We set the state of the originator to "State 1" and create a memento. Then, we modify the state to "State 2". We can see the current state of the originator.
+
+Next, we restore the state by setting the memento from the caretaker back into the originator. After restoration, we can see that the state is reverted to "State 1".
+
+The Memento pattern provides a way to capture and restore the internal state of an object without violating encapsulation. It allows for undo/redo functionality, checkpoints, or even implementing history functionality. It can be beneficial in situations where objects need to maintain different states and revert back to previous states when required.
+
+### Can you explain the typical use cases or scenarios where the Memento pattern is applicable?
+
+1. **Undo/Redo Functionality**: The Memento pattern is commonly used to implement undo/redo functionality in applications. It allows capturing the state of an object before making changes and provides the capability to revert back to previous states.
+2. **Checkpointing or Versioning**: The Memento pattern is useful in scenarios where you need to create checkpoints or versions of an object's state. This can be valuable in applications that involve document editing, configuration management, or collaborative systems.
+3. **Snapshot or History Tracking**: The Memento pattern can be applied when you need to capture snapshots or track the history of an object's state over time. This can be helpful in scenarios where you want to analyze or compare the changes made to an object.
+4. **Transactional Systems**: In transactional systems, the Memento pattern can be used to provide the ability to rollback or commit changes based on certain conditions. It ensures data consistency and integrity by allowing the restoration of previous states in case of failures or errors.
+5. **Caching or Persistence**: The Memento pattern can be utilized in caching or persistence mechanisms where you need to store and retrieve the state of an object. It helps in improving performance by avoiding expensive computations or database queries by restoring previously cached or persisted states.
+
+Overall, the Memento pattern is useful in situations where you want to capture, store, and restore the state of an object effectively. It allows for flexibility, maintainability, and the implementation of various features related to state management in software applications.
 
 ## Additional Resources and References
 
