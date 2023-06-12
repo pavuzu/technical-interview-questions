@@ -27,9 +27,8 @@
     - [What is Composite design pattern?](#what-is-composite-design-pattern)
     - [How does the Composite pattern help in building hierarchical structures? Can you provide an example where the Composite pattern can be applied?](#how-does-the-composite-pattern-help-in-building-hierarchical-structures-can-you-provide-an-example-where-the-composite-pattern-can-be-applied)
     - [What is Proxy design pattern?](#what-is-proxy-design-pattern)
-    - [Explain the purpose of the Proxy pattern. How is it different from the Decorator pattern?](#explain-the-purpose-of-the-proxy-pattern-how-is-it-different-from-the-decorator-pattern)
+    - [What is the purpose of the Proxy pattern? How is it different from the Decorator pattern?](#what-is-the-purpose-of-the-proxy-pattern-how-is-it-different-from-the-decorator-pattern)
     - [What problem does the Proxy pattern solve? Can you explain its implementation and potential use cases?](#what-problem-does-the-proxy-pattern-solve-can-you-explain-its-implementation-and-potential-use-cases)
-    - [Describe a real-world scenario where you would use the Proxy pattern for access control or security purposes.](#describe-a-real-world-scenario-where-you-would-use-the-proxy-pattern-for-access-control-or-security-purposes)
     - [What is Bridge design pattern?](#what-is-bridge-design-pattern)
     - [Can you describe a scenario where you would use the Bridge pattern? How does it promote loose coupling between abstractions and implementations?](#can-you-describe-a-scenario-where-you-would-use-the-bridge-pattern-how-does-it-promote-loose-coupling-between-abstractions-and-implementations)
     - [Can you discuss the relationship between the Bridge pattern and the Dependency Inversion Principle? How does the Bridge pattern facilitate decoupling and flexibility in software design?](#can-you-discuss-the-relationship-between-the-bridge-pattern-and-the-dependency-inversion-principle-how-does-the-bridge-pattern-facilitate-decoupling-and-flexibility-in-software-design)
@@ -40,22 +39,22 @@
   - [Questions and Answers: Behavioral Patterns](#questions-and-answers-behavioral-patterns)
     - [What are Behavioral Design Patterns?](#what-are-behavioral-design-patterns)
     - [What is Observer design pattern?](#what-is-observer-design-pattern)
-    - [Can you explain the purpose of the Observer design pattern? Provide a real-world scenario where the Observer pattern can be applied effectively.](#can-you-explain-the-purpose-of-the-observer-design-pattern-provide-a-real-world-scenario-where-the-observer-pattern-can-be-applied-effectively)
-    - [Discuss the Observer pattern in terms of its implementation and the relationships between the subject and observer objects. How does the Observer pattern support loose coupling and event-driven systems?](#discuss-the-observer-pattern-in-terms-of-its-implementation-and-the-relationships-between-the-subject-and-observer-objects-how-does-the-observer-pattern-support-loose-coupling-and-event-driven-systems)
+    - [Can you explain the purpose of the Observer design pattern?](#can-you-explain-the-purpose-of-the-observer-design-pattern)
+    - [How does the Observer pattern support loose coupling and event-driven systems?](#how-does-the-observer-pattern-support-loose-coupling-and-event-driven-systems)
     - [What is Strategy design pattern?](#what-is-strategy-design-pattern)
     - [What is the difference between the Strategy and State design patterns? How would you decide which pattern to use in a given situation?](#what-is-the-difference-between-the-strategy-and-state-design-patterns-how-would-you-decide-which-pattern-to-use-in-a-given-situation)
     - [What is Command design pattern?](#what-is-command-design-pattern)
-    - [What is the purpose of the Command pattern? Provide a practical scenario where the Command pattern can be used effectively to decouple sender and receiver objects.](#what-is-the-purpose-of-the-command-pattern-provide-a-practical-scenario-where-the-command-pattern-can-be-used-effectively-to-decouple-sender-and-receiver-objects)
+    - [What is the purpose of the Command pattern?](#what-is-the-purpose-of-the-command-pattern)
     - [What is Iterator design pattern?](#what-is-iterator-design-pattern)
     - [Can you differentiate between the Iterator and Composite patterns? When would you choose one over the other?](#can-you-differentiate-between-the-iterator-and-composite-patterns-when-would-you-choose-one-over-the-other)
     - [What is State design pattern?](#what-is-state-design-pattern)
     - [How does the State pattern differ from other design patterns, such as the Strategy pattern or the Template Method pattern?](#how-does-the-state-pattern-differ-from-other-design-patterns-such-as-the-strategy-pattern-or-the-template-method-pattern)
     - [What is Template Method design pattern?](#what-is-template-method-design-pattern)
-    - [Explain the concept of encapsulating algorithms in the Template Method pattern. What are the benefits of using this pattern, and when would you consider using it?](#explain-the-concept-of-encapsulating-algorithms-in-the-template-method-pattern-what-are-the-benefits-of-using-this-pattern-and-when-would-you-consider-using-it)
+    - [What are the benefits of using this pattern, and when would you consider using it?](#what-are-the-benefits-of-using-this-pattern-and-when-would-you-consider-using-it)
     - [What is Chain of Responsibility design pattern?](#what-is-chain-of-responsibility-design-pattern)
     - [Can you describe the Chain of Responsibility pattern and its use case in handling request flows? How does it promote loose coupling and flexibility in handling requests?](#can-you-describe-the-chain-of-responsibility-pattern-and-its-use-case-in-handling-request-flows-how-does-it-promote-loose-coupling-and-flexibility-in-handling-requests)
     - [What is Visitor design pattern?](#what-is-visitor-design-pattern)
-    - [Explain the Visitor pattern and its advantages in separating algorithms from the structure of an object hierarchy. How does the Visitor pattern support adding new operations without modifying existing classes?](#explain-the-visitor-pattern-and-its-advantages-in-separating-algorithms-from-the-structure-of-an-object-hierarchy-how-does-the-visitor-pattern-support-adding-new-operations-without-modifying-existing-classes)
+    - [How does the Visitor pattern support adding new operations without modifying existing classes?](#how-does-the-visitor-pattern-support-adding-new-operations-without-modifying-existing-classes)
     - [What is Interpreter design pattern?](#what-is-interpreter-design-pattern)
     - [Can you provide an example of a real-world scenario where the Interpreter pattern can be effectively applied?](#can-you-provide-an-example-of-a-real-world-scenario-where-the-interpreter-pattern-can-be-effectively-applied)
     - [What is Mediator design pattern?](#what-is-mediator-design-pattern)
@@ -82,8 +81,8 @@ Design patterns are reusable solutions to common design problems encountered in 
 There are three main types of design patterns:
 
 1. **Creational Patterns**: These patterns focus on object creation mechanisms, providing ways to create objects in a flexible and controlled manner. Examples include Singleton, Factory, Abstract Factory, Builder, and Prototype patterns.
-2. **Structural Patterns**: These patterns deal with the composition of classes and objects, focusing on how they are structured and organized. Structural patterns help in building relationships between objects to form larger structures. Examples include Adapter, Decorator, Proxy, Composite, and Facade patterns.
-3. **Behavioral Patterns**: These patterns address the interaction and communication between objects, defining the patterns of communication and behavior flow. They help in designing how objects collaborate to accomplish tasks. Examples include Observer, Strategy, Template Method, Command, and Iterator patterns.
+1. **Structural Patterns**: These patterns deal with the composition of classes and objects, focusing on how they are structured and organized. Structural patterns help in building relationships between objects to form larger structures. Examples include Adapter, Decorator, Proxy, Composite, and Facade patterns.
+1. **Behavioral Patterns**: These patterns address the interaction and communication between objects, defining the patterns of communication and behavior flow. They help in designing how objects collaborate to accomplish tasks. Examples include Observer, Strategy, Template Method, Command, and Iterator patterns.
 
 ## Questions and Answers: Creational Patterns
 
@@ -107,9 +106,9 @@ The Singleton design pattern is a creational design pattern that ensures the cre
 
 Key features of the Singleton pattern:
 
-1. **Single Instance**: The Singleton pattern guarantees that only one instance of the class is created and exists at any given time.
-2. **Global Access**: The Singleton instance is typically accessed through a globally available method or property, allowing other parts of the code to use it conveniently.
-3. **Private Constructor**: The constructor of the Singleton class is made private to prevent direct instantiation of the class from outside. This ensures that the Singleton instance is controlled and limited to one.
+- **Single Instance**: The Singleton pattern guarantees that only one instance of the class is created and exists at any given time.
+- **Global Access**: The Singleton instance is typically accessed through a globally available method or property, allowing other parts of the code to use it conveniently.
+- **Private Constructor**: The constructor of the Singleton class is made private to prevent direct instantiation of the class from outside. This ensures that the Singleton instance is controlled and limited to one.
 
 Common use cases for the Singleton pattern include scenarios where you need to have a single, shared resource or manager throughout your application. Some examples include database connections, logging systems, caches, thread pools, and configuration managers.
 
@@ -146,9 +145,11 @@ The Singleton pattern allows for global access to a single instance, promoting e
 
 ### How to make Singleton pattern thread safe?
 
-To make the Singleton pattern thread-safe, you need to consider potential race conditions that may occur when multiple threads try to access or create the Singleton instance simultaneously. Here are a few approaches to ensure thread safety:
+To make the Singleton pattern thread-safe, you need to consider potential race conditions that may occur when multiple threads try to access or create the Singleton instance simultaneously.
 
-1. **Eager Initialization**: One way to achieve thread safety is by using eager initialization, where the Singleton instance is created at the time of class loading. This approach guarantees that the instance is created before any thread can access it. However, it may introduce unnecessary overhead if the instance is not always needed.
+Here are a few approaches to ensure thread safety:
+
+- **Eager Initialization**: One way to achieve thread safety is by using eager initialization, where the Singleton instance is created at the time of class loading. This approach guarantees that the instance is created before any thread can access it. However, it may introduce unnecessary overhead if the instance is not always needed.
 
     ```csharp
     public class Singleton
@@ -164,7 +165,7 @@ To make the Singleton pattern thread-safe, you need to consider potential race c
     }
     ```
 
-2. **Double-Checked Locking**: Double-checked locking is a technique that combines laziness of instantiation with thread safety. It uses a lock to ensure that only one thread creates the instance, while allowing subsequent threads to access the instance without acquiring the lock.
+- **Double-Checked Locking**: Double-checked locking is a technique that combines laziness of instantiation with thread safety. It uses a lock to ensure that only one thread creates the instance, while allowing subsequent threads to access the instance without acquiring the lock.
 
     ``` csharp
     public class Singleton
@@ -197,7 +198,7 @@ To make the Singleton pattern thread-safe, you need to consider potential race c
     }
     ```
 
-3. **Using Lazy&lt;T&gt;**: In C#, you can also use the Lazy&lt;T&gt; class to achieve thread safety and lazy initialization of the Singleton instance. The Lazy&lt;T&gt; class handles synchronization internally and ensures that only one instance is created.
+- **Using Lazy&lt;T&gt;**: In C#, you can also use the Lazy&lt;T&gt; class to achieve thread safety and lazy initialization of the Singleton instance. The Lazy&lt;T&gt; class handles synchronization internally and ensures that only one instance is created.
 
     ```csharp
     public class Singleton
@@ -213,7 +214,9 @@ To make the Singleton pattern thread-safe, you need to consider potential race c
     }
     ```
 
-These approaches ensure that the Singleton instance is created only when needed and that concurrent access is handled correctly. However, it's important to note that the performance characteristics and behavior may vary based on the specific implementation and runtime environment.
+These approaches ensure that the Singleton instance is created only when needed and that concurrent access is handled correctly.
+
+> It's important to note that the performance characteristics and behavior may vary based on the specific implementation and runtime environment.
 
 ### What is Factory pattern?
 
@@ -223,10 +226,10 @@ The Factory pattern is useful in scenarios where you want to delegate the respon
 
 Key components of the Factory pattern:
 
-1. **Factory Interface or Base Class**: Defines a common interface or abstract class for creating objects. It declares factory methods that are responsible for creating specific types of objects.
-2. **Concrete Factories**: Implement the factory interface or derive from the factory base class. Each concrete factory provides the implementation for creating a particular type of object.
-3. **Product Interface or Base Class**: Represents the common interface or abstract class for the objects that the factory creates. It defines the operations that can be performed on the objects.
-4. **Concrete Products**: Implement the product interface or derive from the product base class. Each concrete product represents a specific type of object created by the factory.
+- **Factory Interface or Base Class**: Defines a common interface or abstract class for creating objects. It declares factory methods that are responsible for creating specific types of objects.
+- **Concrete Factories**: Implement the factory interface or derive from the factory base class. Each concrete factory provides the implementation for creating a particular type of object.
+- **Product Interface or Base Class**: Represents the common interface or abstract class for the objects that the factory creates. It defines the operations that can be performed on the objects.
+- **Concrete Products**: Implement the product interface or derive from the product base class. Each concrete product represents a specific type of object created by the factory.
 
 Here's a basic example of implementing a Factory pattern in C#:
 
@@ -389,10 +392,10 @@ The Abstract Factory pattern is useful when there are multiple related product f
 
 Key components of the Abstract Factory pattern:
 
-1. **Abstract Factory**: Declares an interface or abstract class for creating the abstract product objects. It provides factory methods for creating objects of different types within a family.
-2. **Concrete Factories**: Implement the abstract factory interface or derive from the abstract factory base class. Each concrete factory is responsible for creating a family of related products.
-3. **Abstract Products**: Declare the interface or abstract class for the products created by the factory. Each abstract product represents a specific type within a family of related products.
-4. **Concrete Products**: Implement the abstract product interface or derive from the abstract product base class. Each concrete product represents a specific type of product within a family created by the factory.
+- **Abstract Factory**: Declares an interface or abstract class for creating the abstract product objects. It provides factory methods for creating objects of different types within a family.
+- **Concrete Factories**: Implement the abstract factory interface or derive from the abstract factory base class. Each concrete factory is responsible for creating a family of related products.
+- **Abstract Products**: Declare the interface or abstract class for the products created by the factory. Each abstract product represents a specific type within a family of related products.
+- **Concrete Products**: Implement the abstract product interface or derive from the abstract product base class. Each concrete product represents a specific type of product within a family created by the factory.
 
 Here's a basic example of implementing the Abstract Factory pattern in C#:
 
@@ -520,9 +523,9 @@ The main purpose of the Builder pattern is to encapsulate the construction logic
 Key components of the Builder pattern:
 
 1. **Product**: Represents the complex object being built. It typically contains a set of properties or attributes that define its configuration.
-2. **Builder**: Specifies an interface or abstract class for constructing the product. It defines methods for setting the properties of the product and a method to retrieve the final result.
-3. **Concrete Builder**: Implements the builder interface and provides the implementation for constructing the product. It holds a state of the product being constructed and provides methods to set the properties of the product.
-4. **Director**: Controls the construction process and interacts with the builder to build the product. It knows the specific steps and sequence required to create the product.
+1. **Builder**: Specifies an interface or abstract class for constructing the product. It defines methods for setting the properties of the product and a method to retrieve the final result.
+1. **Concrete Builder**: Implements the builder interface and provides the implementation for constructing the product. It holds a state of the product being constructed and provides methods to set the properties of the product.
+1. **Director**: Controls the construction process and interacts with the builder to build the product. It knows the specific steps and sequence required to create the product.
 Here's a simplified example to illustrate the Builder pattern in C#:
 
 ``` csharp
@@ -1013,7 +1016,7 @@ In this example, we have the *ISubject* interface representing the common interf
 
 By using the Proxy pattern, we can control access to an object, add security checks, provide lazy initialization, or perform additional operations around the core functionality of the RealSubject. It allows for transparently substituting the RealSubject with the Proxy, providing a level of indirection and enhancing the object's behavior.
 
-### Explain the purpose of the Proxy pattern. How is it different from the Decorator pattern?
+### What is the purpose of the Proxy pattern? How is it different from the Decorator pattern?
 
 The purpose of the Proxy pattern is to control access to an object and provide additional functionality around it, without modifying the object itself. It acts as a surrogate or placeholder for the object, allowing for fine-grained control over its access and behavior. The Proxy pattern focuses on controlling access to the object and may provide additional functionalities like caching, security checks, or lazy initialization.
 
@@ -1026,8 +1029,6 @@ The Proxy pattern solves the problem of controlling access to an object. It prov
 The implementation of the Proxy pattern involves creating a proxy class that mimics the interface of the actual object. The proxy class typically maintains a reference to the real object and intercepts the client's requests, providing additional functionality if needed.
 
 Potential use cases for the Proxy pattern include: remote proxies for accessing objects in different processes or machines, virtual proxies for delaying the creation or loading of expensive objects, protection proxies for enforcing access control or security checks, and caching proxies for providing cached results to improve performance.
-
-### Describe a real-world scenario where you would use the Proxy pattern for access control or security purposes.
 
 A real-world scenario where the Proxy pattern can be used for access control or security purposes is in a web application where certain web pages or resources need restricted access. Instead of directly exposing those resources to clients, a proxy can be implemented to handle the authentication and authorization process.
 
@@ -1452,11 +1453,11 @@ In the usage section, we create a subject and two concrete observers. Each obser
 
 The Observer pattern allows for loosely coupled communication between subjects and observers. It enables multiple observers to react to state changes independently and reduces dependencies between objects. This pattern is particularly useful in scenarios where changes in one object's state should be propagated to other objects without tightly coupling them together.
 
-### Can you explain the purpose of the Observer design pattern? Provide a real-world scenario where the Observer pattern can be applied effectively.
+### Can you explain the purpose of the Observer design pattern?
 
 The Observer design pattern is used to establish a one-to-many dependency between objects, so that when one object (the subject) changes its state, all dependent objects (the observers) are notified and updated automatically. For example, in a stock market application, the stock prices are the subject, and various components of the application, such as charts or analysis tools, are the observers. When the stock prices change, the observers are notified and can update their displays accordingly.
 
-### Discuss the Observer pattern in terms of its implementation and the relationships between the subject and observer objects. How does the Observer pattern support loose coupling and event-driven systems?
+### How does the Observer pattern support loose coupling and event-driven systems?
 
 The Observer pattern establishes a one-to-many relationship between objects, where the observers (subscribers) depend on the subject (publisher) for automatic notification of state changes. It promotes loose coupling and event-driven systems. Observers register themselves with a subject, and when the subject's state changes, it notifies all registered observers. An example scenario would be a weather monitoring system, where multiple displays (observers) are interested in receiving updates whenever the weather data (subject) changes. The observers can respond accordingly, such as updating the temperature display or displaying a weather forecast.
 
@@ -1631,7 +1632,7 @@ By using the Command pattern, the sender (client) and receiver (receiver) are de
 
 The Command pattern is useful when you want to decouple the object making a request from the object handling the request, or when you need to encapsulate and parameterize commands. It promotes flexibility, extensibility, and can simplify the design and maintenance of a system.
 
-### What is the purpose of the Command pattern? Provide a practical scenario where the Command pattern can be used effectively to decouple sender and receiver objects.
+### What is the purpose of the Command pattern?
 
 The Command pattern is used to encapsulate a request as an object, allowing clients to parameterize objects with different requests, queue or log requests, and support undoable operations. It decouples the sender of a request from the receiver, providing a more flexible and extensible way to handle commands. In practice, the Command pattern can be used in scenarios such as implementing a menu system with various menu options, where each option represents a command encapsulated in an object. The sender (menu) is decoupled from the receiver (menu option), allowing easy addition or removal of menu options without affecting the menu system itself.
 
@@ -1883,7 +1884,7 @@ concreteClass.TemplateMethod();
 
 In this example, we have the *AbstractClass* that represents the abstract class defining the template method. The template method itself (*TemplateMethod()*) defines the algorithm's structure by calling various operations in a specific order.
 
-The *AbstractClass* also declares* Operation1()* and *Operation2()* as abstract methods that subclasses must implement. These methods represent the steps of the algorithm that require customization.
+The *AbstractClass* also declares *Operation1()* and *Operation2()* as abstract methods that subclasses must implement. These methods represent the steps of the algorithm that require customization.
 
 The *Operation3()* method is declared with a default implementation in the abstract class. Subclasses can choose to override this method if they want to provide a custom implementation, but it is not mandatory.
 
@@ -1893,7 +1894,7 @@ By using the Template Method pattern, you can define the overall algorithm in th
 
 The Template Method pattern is useful in scenarios where you have a common algorithm with certain variations in specific steps. It enables you to define a high-level algorithm in the base class while allowing subclasses to provide their own implementations for specific parts of the algorithm.
 
-### Explain the concept of encapsulating algorithms in the Template Method pattern. What are the benefits of using this pattern, and when would you consider using it?
+### What are the benefits of using this pattern, and when would you consider using it?
 
 The Template Method pattern defines the skeleton of an algorithm in a base class, with specific steps implemented in subclasses. The purpose is to provide a common algorithm structure while allowing subclasses to override certain steps to provide their own implementations. The benefits of using this pattern include code reuse, promoting consistency across subclasses, and allowing easy extensibility by adding new subclasses. You would consider using the Template Method pattern when you have an algorithm with a fixed structure but varying implementations for certain steps.
 
@@ -2099,7 +2100,7 @@ By using the Visitor pattern, you can separate the logic of operations from the 
 
 The Visitor pattern is especially useful when you have a complex data structure and want to perform various operations on its elements without modifying the element classes. It allows you to keep the logic of operations separate and makes it easier to add new operations in the future.
 
-### Explain the Visitor pattern and its advantages in separating algorithms from the structure of an object hierarchy. How does the Visitor pattern support adding new operations without modifying existing classes?
+### How does the Visitor pattern support adding new operations without modifying existing classes?
 
 The Visitor pattern separates the algorithms or operations performed on a data structure from the structure itself. It allows new operations to be added to the structure without modifying the classes of the elements. This pattern promotes the Open-Closed Principle. For example, consider a document structure with different types of elements (paragraphs, headings, images, etc.). With the Visitor pattern, you can define a visitor that performs operations on these elements without modifying their classes. You can add new operations by creating new visitors, promoting extensibility and modularity.
 
