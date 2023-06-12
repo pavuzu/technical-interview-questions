@@ -14,7 +14,7 @@ The repository covers various topics within the .NET, including but not limited 
 - [SQL](docs/SQL.md)
 - [ADO.NET](docs/ADO.NET.md)
 - [EF (Entity Framework)](docs/EF.md)
-- [SOLID Principles](docs/SOLID%20Principles.md)
+- [SOLID and Other Principles](docs/SOLID%20Principles.md)
 - [Design Patterns](docs/Design%20Patterns.md)
 - [Software Architecture](docs/Architecture.md)
 
