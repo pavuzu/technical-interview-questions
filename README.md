@@ -12,7 +12,7 @@ The repository covers various topics within the .NET, including but not limited 
 - [ASP.NET Web Forms](docs/ASP.NET%20Web%20Forms.md)
 - [ASP.NET MVC](docs/ASP.NET%20MVC.md)
 - [Web API](docs/Web%20API.md)
-- [SQL](docs/SQL.md)
+- [Databases](docs/Databases.md)
 - [ADO.NET & EF](docs/ADO.NET%20%26%20EF.md)
 - [SOLID and Other Principles](docs/SOLID%20Principles.md)
 - [Design Patterns](docs/Design%20Patterns.md)
