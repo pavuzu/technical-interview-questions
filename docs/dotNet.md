@@ -3,9 +3,78 @@
 
 ## Contents
 
+- [.NET Framework \& .NET Core \& .NET 5+](#net-framework--net-core--net-5)
+  - [Contents](#contents)
+  - [.NET - Basics](#net---basics)
+    - [What are the important components of .NET Framework?](#what-are-the-important-components-of-net-framework)
+    - [What is JIT?](#what-is-jit)
+    - [What is MSIL?](#what-is-msil)
+    - [What is an Assembly? What are the different types of assembly in .NET?](#what-is-an-assembly-what-are-the-different-types-of-assembly-in-net)
+    - [What is difference between namespace and assembly?](#what-is-difference-between-namespace-and-assembly)
+    - [Where is version information stored of an assembly?](#where-is-version-information-stored-of-an-assembly)
+    - [Is versioning applicable to private assemblies?](#is-versioning-applicable-to-private-assemblies)
+    - [What is GAC?](#what-is-gac)
+    - [What is Reflection?](#what-is-reflection)
+    - [What are Serialization and Deserialization? What are the types of serialization?](#what-are-serialization-and-deserialization-what-are-the-types-of-serialization)
+    - [What is meant by Globalization and Localization?](#what-is-meant-by-globalization-and-localization)
+    - [What are Window Services?](#what-are-window-services)
+    - [What is manifest?](#what-is-manifest)
+    - [What is the Application Domain?](#what-is-the-application-domain)
+    - [What is the difference between system exceptions and application exceptions?](#what-is-the-difference-between-system-exceptions-and-application-exceptions)
+    - [What is XSD?](#what-is-xsd)
+    - [What is In-Memory caching and Distributed Caching?](#what-is-in-memory-caching-and-distributed-caching)
+    - [What is in-memory cache?](#what-is-in-memory-cache)
+    - [What is distributed caching?](#what-is-distributed-caching)
+  - [.NET - Garbage Collection (GC)](#net---garbage-collection-gc)
+    - [What is Garbage Collection?](#what-is-garbage-collection)
+    - [What are Generations in garbage collection?](#what-are-generations-in-garbage-collection)
+    - [What is the difference between `Dispose` and `Finalize`?](#what-is-the-difference-between-dispose-and-finalize)
+    - [What is the difference between `Finalize` and `Finally` methods?](#what-is-the-difference-between-finalize-and-finally-methods)
+    - [Can we force Garbage Collector to run?](#can-we-force-garbage-collector-to-run)
+    - [What is meant by managed and unmanaged code?](#what-is-meant-by-managed-and-unmanaged-code)
+    - [What is immutable object?](#what-is-immutable-object)
+    - [How managed code is executed?](#how-managed-code-is-executed)
+  - [.NET - Threading \& Asynchronous Programming](#net---threading--asynchronous-programming)
+    - [What is the difference between Process and Thread?](#what-is-the-difference-between-process-and-thread)
+    - [Explain Multithreading?](#explain-multithreading)
+    - [What is the difference between synchronous and asynchronous programming? What is the role of Task?](#what-is-the-difference-between-synchronous-and-asynchronous-programming-what-is-the-role-of-task)
+    - [What is the difference between Threads and Tasks? What are the advantages of Tasks over Threads?](#what-is-the-difference-between-threads-and-tasks-what-are-the-advantages-of-tasks-over-threads)
+    - [What is the role of Async and Await?](#what-is-the-role-of-async-and-await)
+    - [What are synchronous and asynchronous operations?](#what-are-synchronous-and-asynchronous-operations)
+    - [What is multi-tasking?](#what-is-multi-tasking)
+    - [What are the different states of a thread?](#what-are-the-different-states-of-a-thread)
+    - [Can we have multiple threads in one app domain?](#can-we-have-multiple-threads-in-one-app-domain)
+    - [Which namespace has threading?](#which-namespace-has-threading)
+    - [What is `Thread.Sleep()` in threading?](#what-is-threadsleep-in-threading)
+    - [What is suspend and resume in threading?](#what-is-suspend-and-resume-in-threading)
+    - [What the way to stop a long running thread?](#what-the-way-to-stop-a-long-running-thread)
+    - [Why we need multi-threading in our project?](#why-we-need-multi-threading-in-our-project)
+    - [How to start a thread in C#?](#how-to-start-a-thread-in-c)
+    - [What is Race condition?](#what-is-race-condition)
+    - [What is Livelock?](#what-is-livelock)
+    - [What is Task-based Asynchronous Pattern (TAP)?](#what-is-task-based-asynchronous-pattern-tap)
+    - [What is Event-based Asynchronous Pattern (EAP)?](#what-is-event-based-asynchronous-pattern-eap)
+    - [What is Asynchronous Programming Model (APM)?](#what-is-asynchronous-programming-model-apm)
+  - [.NET Core - Basics](#net-core---basics)
+    - [What is .NET Core?](#what-is-net-core)
+    - [What is .NET Standard?](#what-is-net-standard)
+    - [What are the advantages of .NET Core over .NET Framework?](#what-are-the-advantages-of-net-core-over-net-framework)
+    - [What is the role of `Program.cs` file in ASP.NET Core?](#what-is-the-role-of-programcs-file-in-aspnet-core)
+    - [What is the role of ConfigureServices method?](#what-is-the-role-of-configureservices-method)
+    - [What is the role of Configure method?](#what-is-the-role-of-configure-method)
+    - [Describe the complete Request Processing Pipeline for ASP.NET Core MVC?](#describe-the-complete-request-processing-pipeline-for-aspnet-core-mvc)
+    - [What is the difference between .NET Core and .NET 5+?](#what-is-the-difference-between-net-core-and-net-5)
+    - [What is Metapackage? What is the name of Metapackage provided by ASP.NET Core?](#what-is-metapackage-what-is-the-name-of-metapackage-provided-by-aspnet-core)
+  - [.NET Core - Dependency Injection, Service Lifetimes, \& Middleware](#net-core---dependency-injection-service-lifetimes--middleware)
+    - [What is Dependency Injection?](#what-is-dependency-injection)
+    - [How to implement Dependency injection in .NET Core?](#how-to-implement-dependency-injection-in-net-core)
+    - [What is the difference between Transient, Scoped, and Singleton lifetime in dependency injection?](#what-is-the-difference-between-transient-scoped-and-singleton-lifetime-in-dependency-injection)
+    - [What are the advantages of Dependency Injection in .NET Core?](#what-are-the-advantages-of-dependency-injection-in-net-core)
+    - [What is Middleware in .NET Core? What is custom middleware?](#what-is-middleware-in-net-core-what-is-custom-middleware)
+  - [Additional Resources and References](#additional-resources-and-references)
 
 
-## .NET Framework - Basics
+## .NET - Basics
 
 ### What are the important components of .NET Framework?
 
@@ -124,9 +193,9 @@ Reflection is a powerful feature in the .NET framework that allows you to inspec
 
 Using reflection, you can perform the following tasks:
 
-- **Type Inspection**: You can retrieve information about a type, such as its name, namespace, base type, implemented interfaces, and member details. Reflection provides classes like *Type* and *MethodInfo* that allow you to programmatically explore the structure of a type.
+- **Type Inspection**: You can retrieve information about a type, such as its name, namespace, base type, implemented interfaces, and member details. Reflection provides classes like `Type` and `MethodInfo` that allow you to programmatically explore the structure of a type.
 - **Object Instantiation**: Reflection enables you to create an instance of a type dynamically. You can invoke constructors and create objects even if you don't know the type at compile time. This is useful in scenarios where you want to create objects based on runtime conditions or dynamically load types from external sources.
-- **Method Invocation**: Reflection allows you to invoke methods on objects dynamically. You can retrieve the MethodInfo of a method and call it using the *Invoke* method. This enables you to execute methods dynamically based on user input or other runtime conditions.
+- **Method Invocation**: Reflection allows you to invoke methods on objects dynamically. You can retrieve the MethodInfo of a method and call it using the `Invoke` method. This enables you to execute methods dynamically based on user input or other runtime conditions.
 - **Property and Field Access**: Reflection provides the ability to get and set the values of properties and fields on objects dynamically. You can retrieve the PropertyInfo or FieldInfo of a property or field and use it to read or modify the value.
 - **Attribute Inspection**: Reflection allows you to examine the attributes applied to a type, method, property, or other elements. You can retrieve the Attribute objects associated with these elements and inspect their properties.
 
@@ -138,8 +207,8 @@ Serialization is the process of converting an object into a format that can be e
 
 In .NET, there are two main types of serialization:
 
-- **Binary Serialization**: Binary serialization converts objects into a binary format, which can be stored in files or transmitted over a network. It preserves the complete state of an object, including its data and the metadata required to reconstruct the object. The .NET framework provides the *BinaryFormatter* class for performing binary serialization. Binary serialization is efficient and suitable for scenarios where interoperability with other programming languages or platforms is not a requirement.
-- **XML Serialization**: XML serialization converts objects into an XML format, which is human-readable and platform-independent. It represents object data as a structured set of XML elements and attributes. XML serialization is commonly used for interoperability scenarios, where objects need to be exchanged with systems or platforms that understand XML. The .NET framework provides the *XmlSerializer* class for XML serialization.
+- **Binary Serialization**: Binary serialization converts objects into a binary format, which can be stored in files or transmitted over a network. It preserves the complete state of an object, including its data and the metadata required to reconstruct the object. The .NET framework provides the `BinaryFormatter` class for performing binary serialization. Binary serialization is efficient and suitable for scenarios where interoperability with other programming languages or platforms is not a requirement.
+- **XML Serialization**: XML serialization converts objects into an XML format, which is human-readable and platform-independent. It represents object data as a structured set of XML elements and attributes. XML serialization is commonly used for interoperability scenarios, where objects need to be exchanged with systems or platforms that understand XML. The .NET framework provides the `XmlSerializer` class for XML serialization.
 
 In addition to these two types, there are other specialized forms of serialization available in .NET, such as JSON serialization using libraries like JSON.NET or System.Text.Json, which convert objects into JSON format. JSON serialization is widely used in web APIs and modern web development.
 
@@ -152,7 +221,7 @@ Serialization is useful in various scenarios, such as:
 
 Deserialization is the reverse process of serialization, where the serialized data is used to recreate the original object. It involves reading the serialized data and reconstructing the object with its original state and behavior.
 
-It's important to note that when working with serialization and deserialization, you need to ensure that the objects being serialized are serializable, i.e., they should be marked with the *[Serializable]* attribute (for binary serialization) or be designed to conform to the XML serialization rules.
+It's important to note that when working with serialization and deserialization, you need to ensure that the objects being serialized are serializable, i.e., they should be marked with the `[Serializable]` attribute (for binary serialization) or be designed to conform to the XML serialization rules.
 
 ### What is meant by Globalization and Localization?
 
@@ -219,14 +288,14 @@ In the .NET Framework, exceptions can be classified into two main categories: sy
 - **System Exceptions**:
   - System exceptions are predefined exceptions provided by the .NET Framework itself.
   - hey are typically related to low-level system operations, such as memory allocation errors, arithmetic errors, or IO operations.
-  - Examples of system exceptions include NullReferenceException, *OutOfMemoryException*, and *DivideByZeroException*.
+  - Examples of system exceptions include NullReferenceException, `OutOfMemoryException`, and `DivideByZeroException`.
   - System exceptions are generally considered unrecoverable and indicate a serious error in the execution of the program.
   - Handling system exceptions is optional, and they can be caught and processed using the same exception handling mechanism as application exceptions.
 - **Application Exceptions**:
   - Application exceptions are exceptions specific to the application's logic and functionality.
   - They are custom exceptions defined by the application developer to represent specific error conditions or exceptional situations within the application.
   - Application exceptions are typically derived from the base Exception class or one of its subclasses.
-  - Examples of application exceptions include InvalidCastException, *FileNotFoundException*, and *CustomApplicationException*.
+  - Examples of application exceptions include InvalidCastException, `FileNotFoundException`, and `CustomApplicationException`.
   - Application exceptions are meant to be caught, processed, and handled by the application's error-handling logic.
   - Handling application exceptions is essential for proper error handling and graceful recovery in the application.
 
@@ -245,6 +314,54 @@ Some key points about XSD:
 - **Interoperability**: XSD is a W3C standard, widely supported by various programming languages, tools, and platforms. It promotes interoperability by providing a common schema language for validating XML data.
 
 XSD is commonly used in various scenarios, such as XML data validation, data exchange between systems, defining web service interfaces (WSDL), and configuration files. It plays a crucial role in ensuring the structure, consistency, and validity of XML data.
+
+### What is In-Memory caching and Distributed Caching?
+
+In-Memory Caching and Distributed Caching are two caching mechanisms used in web applications to improve performance and reduce the load on backend systems. Here's an explanation of each:
+
+- **In-Memory Caching**:
+  - In-Memory Caching involves storing frequently accessed data in memory, closer to the application, for faster retrieval.
+  - The cache resides within the application's memory space and is typically implemented using data structures like dictionaries or key-value stores.
+  - When data is requested, the application checks the cache first. If the data is found, it is returned directly from the cache, eliminating the need to retrieve it from the underlying data source.
+  - In-Memory Caching is suitable for scenarios where the cached data is specific to an instance of the application and does not need to be shared across multiple instances or servers.
+- **Distributed Caching**:
+  - Distributed Caching involves caching data in a shared cache that can be accessed by multiple instances or servers in a distributed system.
+  - The cache is usually implemented as a separate service or server, allowing multiple application instances to access and share the cached data.
+  - Distributed Caching provides a scalable and high-performance caching solution that can handle heavy loads and improve application responsiveness.
+  - It allows multiple instances of the application to share cached data, ensuring consistency and reducing the load on the backend data sources.
+  - Distributed Caching is commonly used in web farms, cloud environments, or applications with high traffic volumes.
+
+Both In-Memory Caching and Distributed Caching have their benefits and use cases. In-Memory Caching is suitable for small-scale applications where data is specific to each instance, while Distributed Caching is more appropriate for larger-scale applications with multiple instances or servers that need to share cached data. The choice between the two depends on factors such as the application architecture, scalability requirements, and data sharing needs.
+
+### What is in-memory cache?
+
+In-memory caching is a technique used in software applications to store frequently accessed data in memory for faster retrieval. It involves storing data in memory, typically in a cache, to reduce the need for repeated expensive operations such as accessing a database or computing a complex calculation.
+
+In the context of ASP.NET Core, the in-memory cache is a built-in caching mechanism provided by the framework. It allows you to store and retrieve data within the application's memory, providing fast access to frequently used data without the need for external storage or computation.
+
+The in-memory cache in ASP.NET Core can be used to store a wide range of data, such as the results of database queries, computed values, or any other data that needs to be accessed frequently. It is a key-value store where data is associated with a unique key, and you can use this key to retrieve the corresponding value from the cache.
+
+Using in-memory caching can significantly improve the performance and responsiveness of your application by reducing the time spent on expensive operations. However, it's important to note that the in-memory cache is limited to the lifetime of the application. Once the application is restarted or recycled, the cached data is lost.
+
+To use the in-memory cache in an ASP.NET Core application, you need to register it as a service in the dependency injection container and then inject it into the desired components or controllers. Once injected, you can use the cache methods, such as `Set`, `Get`, and `Remove`, to store and retrieve data.
+
+It's worth mentioning that in-memory caching is suitable for scenarios where the cached data does not need to be shared across multiple instances of the application or scaled-out environments. If you require a distributed cache that can be shared across multiple instances, you might consider using a distributed caching solution like Redis.
+
+### What is distributed caching?
+
+Distributed caching is a technique used in software applications to store and retrieve data across multiple servers or nodes in a distributed environment. It involves using a caching system that is accessible to multiple instances of an application, allowing them to share and synchronize cached data.
+
+In a distributed caching scenario, the cache is typically hosted on a separate server or a dedicated caching service that is shared among multiple application instances. This allows the cached data to be accessed and updated by different instances of the application, providing a centralized and shared storage for frequently accessed data.
+
+The primary goal of distributed caching is to improve the performance and scalability of an application by reducing the load on backend systems, such as databases or external services. By caching frequently accessed data in a distributed cache, subsequent requests can be served faster, as the data can be retrieved from the cache rather than going through the expensive operations of fetching the data from the original source.
+
+Distributed caching also helps to reduce the network traffic and latency associated with retrieving data from remote sources. Instead of making repeated requests to the backend systems, the data can be retrieved from the cache, which is typically located closer to the application instances.
+
+Some popular distributed caching solutions include Redis, Memcached, and Microsoft's Azure Cache for Redis. These solutions provide features such as data replication, distributed cache management, and support for high availability and fault tolerance.
+
+When using distributed caching, it's important to consider factors such as cache invalidation, cache consistency, and synchronization of data across multiple cache instances. These aspects ensure that the cached data remains accurate and up-to-date across all instances of the application.
+
+Overall, distributed caching is an effective approach for improving the performance, scalability, and responsiveness of applications in distributed and scalable environments. It allows multiple instances of an application to share and access cached data, reducing the reliance on backend systems and improving overall system efficiency.
 
 ## .NET - Garbage Collection (GC)
 
@@ -276,12 +393,12 @@ The use of generational garbage collection takes advantage of the observation th
 
 Generational garbage collection is an effective strategy for managing memory in managed environments like .NET, where short-lived objects are frequent. It helps optimize the efficiency of memory management and contributes to the overall performance of .NET applications.
 
-### What is the difference between *Dispose* and *Finalize*?
+### What is the difference between `Dispose` and `Finalize`?
 
 In .NET, Dispose and Finalize are both related to the cleanup and release of unmanaged resources, but they serve different purposes and have distinct mechanisms. Here's the difference between them:
 
 - **Dispose**:
-  - The Dispose method is part of the *IDisposable* interface in .NET.
+  - The Dispose method is part of the `IDisposable` interface in .NET.
   - It provides a way to explicitly release unmanaged resources held by an object before it goes out of scope.
   - Developers should call the Dispose method when they are finished using an object to ensure timely cleanup of resources.
   - The Dispose method can also be called explicitly by the using statement or in a try-finally block to ensure proper resource cleanup.
@@ -293,11 +410,11 @@ In .NET, Dispose and Finalize are both related to the cleanup and release of unm
   - The Finalize method is intended for cleaning up unmanaged resources if they haven't been properly disposed of.
   - The garbage collector determines when to call the Finalize method, and the timing is not predictable or guaranteed.
   - It is important to note that finalizers should be used sparingly and only when necessary, as they introduce additional overhead and can impact performance.
-  - Finalizers should be implemented using the ~ClassName syntax and should be protected to prevent direct invocation.
+  - Finalizers should be implemented using the `~ClassName` syntax and should be protected to prevent direct invocation.
 
 In summary, the Dispose method is explicitly called by the developer to release unmanaged resources, while the Finalize method is invoked by the garbage collector during the finalization process. It is generally recommended to use Dispose for deterministic resource cleanup and to ensure proper resource management, while finalizers should be used judiciously and as a last resort for handling unmanaged resources.
 
-### What is the difference between *Finalize* and *Finally* methods?
+### What is the difference between `Finalize` and `Finally` methods?
 
 The difference between the Finalize and Finally methods lies in their purpose and usage:
 
@@ -305,7 +422,7 @@ The difference between the Finalize and Finally methods lies in their purpose an
   - Finalize is a special method in .NET called a finalizer.
   - It is automatically called by the garbage collector as part of the finalization process when an object is being garbage collected.
   - The purpose of the Finalize method is to clean up unmanaged resources that an object may hold.
-  - Finalize is defined using the ~ClassName syntax and should be protected to prevent direct invocation.
+  - Finalize is defined using the `~ClassName` syntax and should be protected to prevent direct invocation.
   - It is important to note that the timing of the Finalize method's execution is not guaranteed, as it depends on the garbage collector's workload and other factors.
 - **Finally**:
   - Finally is a keyword used in exception handling in .NET.
@@ -318,9 +435,9 @@ In summary, Finalize is a method used for cleaning up unmanaged resources during
 
 ### Can we force Garbage Collector to run?
 
-In .NET, you cannot directly force the garbage collector (GC) to run as it is managed by the runtime and operates automatically. However, you can suggest the runtime to initiate garbage collection by calling the *GC.Collect()* method.
+In .NET, you cannot directly force the garbage collector (GC) to run as it is managed by the runtime and operates automatically. However, you can suggest the runtime to initiate garbage collection by calling the `GC.Collect()` method.
 
-The *GC.Collect()* method is used to request an immediate garbage collection. However, it's important to note that calling this method does not guarantee an immediate collection, as the GC decides when to run based on its own algorithms and heuristics.
+The `GC.Collect()` method is used to request an immediate garbage collection. However, it's important to note that calling this method does not guarantee an immediate collection, as the GC decides when to run based on its own algorithms and heuristics.
 
 In most scenarios, it is not necessary or recommended to manually force garbage collection, as the GC is designed to optimize memory management automatically. The runtime is usually better at determining the appropriate time to collect garbage based on various factors such as available memory, CPU usage, and object lifetimes.
 
@@ -412,13 +529,13 @@ Synchronous programming refers to a programming model where each operation block
 
 Asynchronous programming, on the other hand, allows multiple operations to execute concurrently without blocking the program's execution. Rather than waiting for an operation to complete, the program can continue with other tasks and handle the results of the asynchronous operation when they become available. This improves the responsiveness and efficiency of the program, especially in scenarios where there are long-running operations or the need to handle multiple concurrent tasks.
 
-In .NET, the *Task* class plays a crucial role in asynchronous programming. It represents an asynchronous operation that can be started, awaited, and completed asynchronously. Tasks provide a way to encapsulate and manage asynchronous operations, allowing developers to write asynchronous code more easily and efficiently.
+In .NET, the `Task` class plays a crucial role in asynchronous programming. It represents an asynchronous operation that can be started, awaited, and completed asynchronously. Tasks provide a way to encapsulate and manage asynchronous operations, allowing developers to write asynchronous code more easily and efficiently.
 
-The *Task* class provides methods like *Task.Run* or *Task.Factory.StartNew* to initiate asynchronous operations. By using *await* on a *Task*, the program can asynchronously wait for the operation to complete without blocking the execution. This enables non-blocking, responsive behavior while performing asynchronous operations.
+The `Task` class provides methods like `Task.Run` or `Task.Factory.StartNew` to initiate asynchronous operations. By using `await` on a `Task`, the program can asynchronously wait for the operation to complete without blocking the execution. This enables non-blocking, responsive behavior while performing asynchronous operations.
 
-Tasks can also be used for composition, allowing multiple tasks to be combined and coordinated using methods like *Task.WhenAll* or *Task.WhenAny*. This enables developers to handle complex asynchronous scenarios, such as waiting for multiple operations to complete or responding to the first completed operation.
+Tasks can also be used for composition, allowing multiple tasks to be combined and coordinated using methods like `Task.WhenAll` or `Task.WhenAny`. This enables developers to handle complex asynchronous scenarios, such as waiting for multiple operations to complete or responding to the first completed operation.
 
-Overall, the use of *Task* and asynchronous programming allows for more efficient utilization of system resources, improved responsiveness, and better handling of concurrent operations in .NET applications.
+Overall, the use of `Task` and asynchronous programming allows for more efficient utilization of system resources, improved responsiveness, and better handling of concurrent operations in .NET applications.
 
 ### What is the difference between Threads and Tasks? What are the advantages of Tasks over Threads?
 
@@ -427,7 +544,7 @@ Threads and Tasks are both mechanisms used for concurrent execution in .NET, but
 - **Threads**:
   - Threads are the smallest unit of execution within an operating system.
   - They are managed by the operating system and scheduled for execution.
-  - Threads can be created and controlled directly using the *Thread* class in .NET.
+  - Threads can be created and controlled directly using the `Thread` class in .NET.
   - Threads have a higher overhead compared to tasks because they require resources such as memory and CPU time to be allocated by the operating system.
   - Threads can be long-lived and persistent, and they are typically used for low-level operations that require direct control over the execution flow.
   - Synchronization and coordination between threads must be manually implemented using techniques like locks, mutexes, and semaphores.
@@ -439,7 +556,7 @@ Threads and Tasks are both mechanisms used for concurrent execution in .NET, but
   - Tasks have lower overhead compared to threads because they reuse existing threads from the thread pool rather than creating new ones.
   - Tasks can be easily created and controlled using the Task class in .NET.
   - Tasks provide built-in support for cancellation, continuation, and exception handling.
-  - Tasks can be combined and coordinated using composition methods like *Task.WhenAll* and *Task.WhenAny*.
+  - Tasks can be combined and coordinated using composition methods like `Task.WhenAll` and `Task.WhenAny`.
   - Tasks can also utilize async/await patterns for writing asynchronous code in a more readable and maintainable way.
 - **Advantages of Tasks over Threads**:
   - **Efficiency**: Tasks utilize a thread pool, allowing for efficient reuse of threads and reducing the overhead associated with creating and managing individual threads.
@@ -451,23 +568,23 @@ Threads and Tasks are both mechanisms used for concurrent execution in .NET, but
 
 ### What is the role of Async and Await? 
 
-The *async* and *await* keywords are used in C# (and other .NET languages) to simplify asynchronous programming. They are part of the async/await pattern, which allows you to write asynchronous code in a more readable and sequential manner, resembling synchronous code.
+The `async` and `await` keywords are used in C# (and other .NET languages) to simplify asynchronous programming. They are part of the async/await pattern, which allows you to write asynchronous code in a more readable and sequential manner, resembling synchronous code.
 
-The role of *async* and *await* can be summarized as follows:
+The role of `async` and `await` can be summarized as follows:
 
 - **async**:
-  - The *async* keyword is used to mark a method as asynchronous. This tells the compiler that the method may perform asynchronous operations and that it should be able to use the *await* keyword within the method.
-  - An async method can have a return type of *void*, *Task*, or *Task&lt;T&gt;*, depending on whether it produces a result or not.
-  - The *async* keyword allows the method to use the *await* keyword inside it.
+  - The `async` keyword is used to mark a method as asynchronous. This tells the compiler that the method may perform asynchronous operations and that it should be able to use the `await` keyword within the method.
+  - An async method can have a return type of `void`, `Task`, or `Task<T>`, depending on whether it produces a result or not.
+  - The `async` keyword allows the method to use the `await` keyword inside it.
 - **await**:
-  - The *await* keyword is used to *await* the completion of an asynchronous operation without blocking the calling thread.
-  - When the *await* keyword is used on an awaitable expression (such as a *Task* or *Task&lt;T&gt;*), it allows the method to asynchronously wait for the completion of the operation and then continue executing the method.
+  - The `await` keyword is used to `await` the completion of an asynchronous operation without blocking the calling thread.
+  - When the `await` keyword is used on an awaitable expression (such as a `Task` or `Task<T>`), it allows the method to asynchronously wait for the completion of the operation and then continue executing the method.
   - While waiting for the completion, the method is suspended, and the control is returned to the calling code or up the call stack.
-  - The *await* keyword can only be used inside an *async* method.
+  - The `await` keyword can only be used inside an `async` method.
 
-By using *async* and *await*, you can write asynchronous code that appears synchronous, making it easier to understand and maintain. The compiler automatically transforms the code into a state machine, allowing the method to resume execution when the awaited operation completes.
+By using `async` and `await`, you can write asynchronous code that appears synchronous, making it easier to understand and maintain. The compiler automatically transforms the code into a state machine, allowing the method to resume execution when the awaited operation completes.
 
-Overall, *async* and *await* play a crucial role in asynchronous programming by simplifying the syntax and control flow, making it easier to write and reason about asynchronous code without explicitly managing threads or callbacks.
+Overall, `async` and `await` play a crucial role in asynchronous programming by simplifying the syntax and control flow, making it easier to write and reason about asynchronous code without explicitly managing threads or callbacks.
 
 ### What are synchronous and asynchronous operations?
 
@@ -520,7 +637,7 @@ It's important to note that while multiple threads can exist within an applicati
 
 ### Which namespace has threading?
 
-The *System.Threading* namespace in .NET provides classes and interfaces for working with threads and performing multi-threading operations. This namespace contains types that enable you to create and manage threads, synchronize thread activities, handle thread exceptions, and perform other threading-related operations.
+The `System.Threading` namespace in .NET provides classes and interfaces for working with threads and performing multi-threading operations. This namespace contains types that enable you to create and manage threads, synchronize thread activities, handle thread exceptions, and perform other threading-related operations.
 
 Some of the commonly used types in the System.Threading namespace include:
 
@@ -532,15 +649,15 @@ Some of the commonly used types in the System.Threading namespace include:
 
 These are just a few examples of the types available in the System.Threading namespace. The namespace offers a wide range of classes and utilities for working with threads and managing multi-threaded operations in .NET applications.
 
-### What is *Thread.Sleep()* in threading?
+### What is `Thread.Sleep()` in threading?
 
-The *Thread.Sleep()* method is a static method provided by the System.Threading namespace in .NET. It allows you to pause the execution of the current thread for a specified duration of time.
+The `Thread.Sleep()` method is a static method provided by the System.Threading namespace in .NET. It allows you to pause the execution of the current thread for a specified duration of time.
 
-When you call *Thread.Sleep(milliseconds)*, the current thread will be suspended for the specified number of milliseconds. This means that the thread will not consume CPU resources during the sleep period, allowing other threads to run.
+When you call `Thread.Sleep(milliseconds)`, the current thread will be suspended for the specified number of milliseconds. This means that the thread will not consume CPU resources during the sleep period, allowing other threads to run.
 
-The *Thread.Sleep()* method can be useful in scenarios where you need to introduce delays or pauses in your code execution, such as simulating time-consuming operations, controlling the rate of processing, or adding a delay between iterations of a loop.
+The `Thread.Sleep()` method can be useful in scenarios where you need to introduce delays or pauses in your code execution, such as simulating time-consuming operations, controlling the rate of processing, or adding a delay between iterations of a loop.
 
-Here's an example usage of *Thread.Sleep()*:
+Here's an example usage of `Thread.Sleep()`:
 
 ``` csharp
 using System;
@@ -564,21 +681,21 @@ class Program
 
 ### What is suspend and resume in threading?
 
-In threading, the *Suspend* and *Resume* methods are used to temporarily suspend and resume the execution of a thread, respectively. However, it's important to note that these methods are considered deprecated and are not recommended for use in modern applications.
+In threading, the `Suspend` and `Resume` methods are used to temporarily suspend and resume the execution of a thread, respectively. However, it's important to note that these methods are considered deprecated and are not recommended for use in modern applications.
 
-The *Suspend* method was used to pause the execution of a thread, while the *Resume* method was used to resume its execution. When *Suspend* is called on a thread, it will be immediately suspended, and its execution will not continue until *Resume* is called.
+The `Suspend` method was used to pause the execution of a thread, while the `Resume` method was used to resume its execution. When `Suspend` is called on a thread, it will be immediately suspended, and its execution will not continue until `Resume` is called.
 
-However, the use of *Suspend* and *Resume* methods can lead to potential issues and bugs, especially when dealing with thread synchronization and resource management. For example, if a thread is suspended while holding a lock, it can cause deadlocks in your application.
+However, the use of `Suspend` and `Resume` methods can lead to potential issues and bugs, especially when dealing with thread synchronization and resource management. For example, if a thread is suspended while holding a lock, it can cause deadlocks in your application.
 
-Instead of using *Suspend* and *Resume*, it is recommended to use other mechanisms provided by the .NET framework, such as *Monitor*, *Mutex*, *Semaphore*, or higher-level synchronization constructs like *lock* or *Monitor.Enter*/*Monitor.Exit*, to manage thread synchronization and coordination in a safe and reliable manner. These mechanisms ensure proper thread synchronization and minimize the chances of deadlocks and other concurrency-related issues.
+Instead of using `Suspend` and `Resume`, it is recommended to use other mechanisms provided by the .NET framework, such as `Monitor`, `Mutex`, `Semaphore`, or higher-level synchronization constructs like `lock` or `Monitor.Enter`/`Monitor.Exit`, to manage thread synchronization and coordination in a safe and reliable manner. These mechanisms ensure proper thread synchronization and minimize the chances of deadlocks and other concurrency-related issues.
 
 ### What the way to stop a long running thread?
 
 To stop a long-running thread, it is generally recommended to use cooperative cancellation mechanisms rather than forcefully terminating the thread. Forcefully terminating a thread can lead to resource leaks, data corruption, and other unexpected issues. Here are some approaches to stopping a long-running thread in a safe and controlled manner:
 
-- **Cancellation Tokens**: Use cancellation tokens to signal the thread to stop its execution. The thread periodically checks the cancellation token's *IsCancellationRequested* property, and if it is *true*, the thread gracefully exits.
+- **Cancellation Tokens**: Use cancellation tokens to signal the thread to stop its execution. The thread periodically checks the cancellation token's `IsCancellationRequested` property, and if it is `true`, the thread gracefully exits.
 - **Volatile Flags**: Use a volatile flag variable that is checked by the thread during its execution. When you want to stop the thread, set the flag to indicate the thread should stop, and the thread will exit its execution loop.
-- **Manual Reset Events**: Use a *ManualResetEvent* or *AutoResetEvent* to signal the thread to stop. The thread waits on the event, and when the event is signaled, the thread exits.
+- **Manual Reset Events**: Use a `ManualResetEvent` or `AutoResetEvent` to signal the thread to stop. The thread waits on the event, and when the event is signaled, the thread exits.
 - **Graceful Loop Termination**: Design the long-running thread to periodically check a termination condition within its execution loop. If the termination condition is met, the thread can gracefully exit the loop and stop its execution.
 
 It is important to handle any cleanup or resource disposal within the thread's code when it is signaled to stop. This ensures that any resources held by the thread are properly released.
@@ -599,7 +716,7 @@ It's important to note that while multi-threading can bring benefits, it also in
 
 ### How to start a thread in C#?
 
-In C#, you can start a thread by creating an instance of the *Thread* class and calling its Start method. Here's an example:
+In C#, you can start a thread by creating an instance of the `Thread` class and calling its Start method. Here's an example:
 
 ``` csharp
 using System;
@@ -642,7 +759,7 @@ class Program
 }
 ```
 
-In this example, the *DoWork* method is executed in a separate thread created by the *Thread* class. The *Start* method is called to start the execution of the thread. The main thread continues its own work while the worker thread is running. The *Join* method is used to wait for the worker thread to complete before the main thread continues.
+In this example, the `DoWork` method is executed in a separate thread created by the `Thread` class. The `Start` method is called to start the execution of the thread. The main thread continues its own work while the worker thread is running. The `Join` method is used to wait for the worker thread to complete before the main thread continues.
 
 ### What is Race condition?
 
@@ -665,6 +782,64 @@ A common example of livelock is the "two knights" problem, where two knights sta
 Livelocks can be caused by improper thread synchronization, incorrect handling of resource allocation, or the design of algorithms that lead to conflicting actions. They can be challenging to identify and resolve, requiring careful analysis and adjustment of the system's logic or behavior.
 
 To mitigate livelocks, it is essential to design systems with clear rules for resource allocation, use proper synchronization mechanisms, and ensure that threads or processes can make progress towards their goals without being hindered by conflicting actions or dependencies.
+
+### What is Task-based Asynchronous Pattern (TAP)?
+
+The Task-based Asynchronous Pattern (TAP) is a design pattern introduced in .NET Framework 4.5 and later versions to simplify asynchronous programming. It provides a standardized way to work with asynchronous operations using the `Task` and `Task<T>` types.
+
+The TAP revolves around the concept of using Tasks to represent asynchronous operations. A `Task` represents the eventual completion or result of an asynchronous operation. It provides methods and properties to check the status of the operation, await its completion, and retrieve the result or handle any exceptions.
+
+The key components of the TAP are:
+
+- **Asynchronous Methods**: TAP encourages the use of asynchronous methods that return a `Task` or `Task<T>`. These methods are typically suffixed with "Async" to indicate their asynchronous nature. By using `async` and `await` keywords, you can write asynchronous code that appears synchronous and is easier to understand and maintain.
+- **Task-based APIs**: TAP encourages the design of APIs that follow the Task-based pattern. Instead of using callbacks or event handlers, these APIs expose asynchronous methods that return Tasks. This allows consumers of the APIs to use `async`/`await` to handle the asynchronous operations in a more natural and sequential manner.
+- **Task Composition**: TAP supports composing multiple asynchronous operations using methods like `Task.WhenAll` and `Task.WhenAny`. These methods allow you to wait for multiple tasks to complete or retrieve the result of the first task that completes.
+
+The benefits of TAP include:
+
+- **Improved Readability**: TAP makes asynchronous code easier to read and write by eliminating the need for callbacks and complex state management.
+- **Simplified Error Handling**: TAP allows you to handle exceptions thrown by asynchronous operations using `try`/`catch` blocks, similar to synchronous code.
+- **Integration with Language Features**: TAP integrates well with language features like `async`/`await`, allowing you to write asynchronous code in a sequential and intuitive manner.
+- **Interoperability**: TAP-based code can be used with other asynchronous programming models, such as Event-based Asynchronous Pattern (EAP) and Asynchronous Programming Model (APM), by using adapter methods provided by the framework.
+
+Overall, the Task-based Asynchronous Pattern (TAP) provides a standardized and more intuitive approach to asynchronous programming in .NET. It simplifies the development of asynchronous code, improves code readability, and enhances the overall performance and responsiveness of applications.
+
+### What is Event-based Asynchronous Pattern (EAP)?
+
+The Event-based Asynchronous Pattern (EAP) is a design pattern introduced in .NET Framework to handle asynchronous operations using events and event handlers. It was commonly used prior to the introduction of the Task-based Asynchronous Pattern (TAP) in .NET Framework 4.5.
+
+The EAP is based on the concept of raising events to notify the consumer of the completion or progress of an asynchronous operation. It typically involves three main components:
+
+- **Event Handler Methods**: These methods are used to handle events raised by asynchronous operations. They have a specific signature that accepts an object representing the sender of the event and an event argument object containing relevant data.
+- **Asynchronous Methods**: Asynchronous methods are suffixed with "Async" to indicate their asynchronous nature. These methods typically raise events to notify the progress or completion of the operation. They also provide methods to cancel the operation if necessary.
+- **Event Model**: The event model includes events that are raised at different stages of the asynchronous operation, such as progress events, completion events, and error events. Consumers of the asynchronous operation can subscribe to these events using event handlers to perform specific actions.
+
+The key characteristics of the Event-based Asynchronous Pattern include:
+
+- Asynchronous operations are typically started by calling an asynchronous method that initiates the operation and returns immediately.
+- Progress events are raised to provide updates on the progress of the operation. These events can include information such as the percentage of completion or the current state of the operation.
+- Completion events are raised when the asynchronous operation has completed, either successfully or with an error. These events provide the result or error information to the consumer.
+- Event handlers can be registered to handle specific events raised by the asynchronous operation.
+
+The Event-based Asynchronous Pattern (EAP) has been widely used in older versions of the .NET Framework to handle asynchronous operations. However, with the introduction of the Task-based Asynchronous Pattern (TAP) in .NET Framework 4.5, TAP has become the recommended approach for asynchronous programming due to its improved readability and integration with language features like `async`/`await`.
+
+### What is Asynchronous Programming Model (APM)?
+
+The Asynchronous Programming Model (APM) is a design pattern used in .NET Framework to handle asynchronous operations. It is an older pattern that was commonly used prior to the introduction of the Task-based Asynchronous Pattern (TAP) and `async`/`await` keywords in .NET Framework 4.5.
+
+The APM is based on the concept of using `BeginXXX` and `EndXXX` methods to initiate and handle asynchronous operations. It involves the following components:
+
+-**Begin Method**: The `BeginXXX` method is used to start an asynchronous operation. It takes a set of input parameters, a callback method, and an optional state object. The Begin method returns an `IAsyncResult` object representing the status of the asynchronous operation.
+- **End Method**: The `EndXXX` method is used to retrieve the result of the asynchronous operation. It takes the `IAsyncResult` object returned by the Begin method and returns the result of the operation. The End method is typically called inside the callback method or another part of the code that handles the completion of the asynchronous operation.
+- **Callback Method**: The callback method is registered with the `BeginXXX` method and is called when the asynchronous operation completes. It takes an `IAsyncResult` object as a parameter and can access the result of the operation using the corresponding `EndXXX` method.
+
+The key characteristics of the Asynchronous Programming Model include:
+
+- **Explicit Begin and End methods**: Asynchronous operations are started by calling the Begin method, and the result is obtained by calling the End method.
+- **Callback-based approach**: The callback method is used to handle the completion of the asynchronous operation. It is responsible for processing the result and performing any necessary post-processing logic.
+- **Manual state management**: The state object can be used to pass additional information or context between the Begin and End methods.
+
+While the Asynchronous Programming Model (APM) was widely used in earlier versions of the .NET Framework, it has been largely superseded by the Task-based Asynchronous Pattern (TAP) and `async`/`await` keywords introduced in .NET Framework 4.5. The TAP provides a more intuitive and readable way to write asynchronous code, making it the recommended approach for asynchronous programming in modern .NET applications.
 
 ## .NET Core - Basics
 
@@ -713,42 +888,42 @@ It's important to note that .NET Standard is a specification, not an implementat
 
 It's worth noting that .NET Framework still has its own strengths, particularly in existing enterprise applications and Windows-specific scenarios. The choice between .NET Core and .NET Framework depends on factors such as platform requirements, ecosystem compatibility, performance needs, and the specific features and APIs required for your application.
 
-### What is the role of *Program.cs* file in ASP.NET Core?
+### What is the role of `Program.cs` file in ASP.NET Core?
 
-The *Program.cs* file plays a significant role in an ASP.NET Core application. It contains the entry point and the configuration of the application. Here are the key roles of the *Program.cs* file:
+The `Program.cs` file plays a significant role in an ASP.NET Core application. It contains the entry point and the configuration of the application. Here are the key roles of the `Program.cs` file:
 
-- **Entry Point**: *Program.cs* serves as the entry point of the ASP.NET Core application. It contains the Main method, which is the starting point of the application. The Main method creates an instance of the WebHostBuilder and configures it to run the ASP.NET Core application.
-- **Configuration**: *Program.cs* is responsible for configuring the application and its services. It sets up the host builder, which is responsible for creating the web host that hosts the application. In the ConfigureServices method, you can configure services such as dependency injection, middleware, logging, and other application-wide services.
-- **Startup Class**: *Program.cs* is also responsible for configuring the startup class, which is typically located in the Startup.cs file. In the ConfigureServices method, you specify the startup class to be used by the application. The startup class defines the middleware pipeline, routes, and other configurations required for the application.
-- **Environment Configuration**: *Program.cs* allows you to configure the environment for the application. The CreateDefaultBuilder method sets up the default configuration based on the environment specified. By default, it looks for appsettings.json files and environment-specific configuration files to configure the application settings.
+- **Entry Point**: `Program.cs` serves as the entry point of the ASP.NET Core application. It contains the Main method, which is the starting point of the application. The Main method creates an instance of the WebHostBuilder and configures it to run the ASP.NET Core application.
+- **Configuration**: `Program.cs` is responsible for configuring the application and its services. It sets up the host builder, which is responsible for creating the web host that hosts the application. In the ConfigureServices method, you can configure services such as dependency injection, middleware, logging, and other application-wide services.
+- **Startup Class**: `Program.cs` is also responsible for configuring the startup class, which is typically located in the Startup.cs file. In the ConfigureServices method, you specify the startup class to be used by the application. The startup class defines the middleware pipeline, routes, and other configurations required for the application.
+- **Environment Configuration**: `Program.cs` allows you to configure the environment for the application. The CreateDefaultBuilder method sets up the default configuration based on the environment specified. By default, it looks for appsettings.json files and environment-specific configuration files to configure the application settings.
 
-In summary, *Program.cs* is responsible for setting up the application's entry point, configuring the application and services, specifying the startup class, and configuring the application environment. It plays a crucial role in the initialization and configuration of an ASP.NET Core application.
+In summary, `Program.cs` is responsible for setting up the application's entry point, configuring the application and services, specifying the startup class, and configuring the application environment. It plays a crucial role in the initialization and configuration of an ASP.NET Core application.
 
 ### What is the role of ConfigureServices method? 
 
-The *ConfigureServices* method is a key method in an ASP.NET Core application's startup class (typically named Startup.cs). Its role is to configure the services that the application will use throughout its lifetime.
+The `ConfigureServices` method is a key method in an ASP.NET Core application's startup class (typically named Startup.cs). Its role is to configure the services that the application will use throughout its lifetime.
 
-Here are the main responsibilities of the *ConfigureServices* method:
+Here are the main responsibilities of the `ConfigureServices` method:
 
-- *Dependency Injection*: The *ConfigureServices* method is where you configure dependency injection for your application. You use the *services* parameter of the method to register the services that your application needs. This allows you to take advantage of dependency injection and promote loose coupling between components.
-- **Service Configuration**: You can use the *ConfigureServices* method to configure various services provided by ASP.NET Core or third-party libraries. For example, you can configure database services, authentication services, logging services, caching services, or any other services required by your application.
-- **Custom Services**: Apart from configuring built-in services, you can also register your own custom services using the *services* parameter. This is where you register interfaces and their corresponding implementations. Once registered, these services can be injected into other components, such as controllers or middleware.
-- **Middleware Configuration**: In addition to services, the *ConfigureServices* method can be used to configure middleware components that require service registration. Middleware components that need to be added to the request pipeline can be configured here.
+- **Dependency Injection**: The `ConfigureServices` method is where you configure dependency injection for your application. You use the `services` parameter of the method to register the services that your application needs. This allows you to take advantage of dependency injection and promote loose coupling between components.
+- **Service Configuration**: You can use the `ConfigureServices` method to configure various services provided by ASP.NET Core or third-party libraries. For example, you can configure database services, authentication services, logging services, caching services, or any other services required by your application.
+- **Custom Services**: Apart from configuring built-in services, you can also register your own custom services using the `services` parameter. This is where you register interfaces and their corresponding implementations. Once registered, these services can be injected into other components, such as controllers or middleware.
+- **Middleware Configuration**: In addition to services, the `ConfigureServices` method can be used to configure middleware components that require service registration. Middleware components that need to be added to the request pipeline can be configured here.
 
-Overall, the *ConfigureServices* method is responsible for setting up the dependency injection container and registering the services required by the application. It plays a crucial role in the application's startup process and allows you to configure and customize the services used by your application.
+Overall, the `ConfigureServices` method is responsible for setting up the dependency injection container and registering the services required by the application. It plays a crucial role in the application's startup process and allows you to configure and customize the services used by your application.
 
 ### What is the role of Configure method? 
 
-The *Configure* method is another important method in an ASP.NET Core application's startup class (typically named Startup.cs). It is responsible for configuring the request pipeline that handles incoming HTTP requests and determines how they are processed.
+The `Configure` method is another important method in an ASP.NET Core application's startup class (typically named Startup.cs). It is responsible for configuring the request pipeline that handles incoming HTTP requests and determines how they are processed.
 
-Here are the main responsibilities of the *Configure* method:
+Here are the main responsibilities of the `Configure` method:
 
-- **Request Pipeline Configuration**: The *Configure* method defines the order and composition of the middleware components in the request pipeline. Middleware components are responsible for handling different aspects of an HTTP request and response, such as routing, authentication, logging, exception handling, and more. By configuring the order and composition of these components, you define how requests are processed and responses are generated.
-- **Route Configuration**: In the *Configure* method, you can define the routes used by your application. Routing determines how incoming requests are matched to specific actions or endpoints within your application. You can configure routing rules to map URLs to specific controllers and actions, define route parameters, and set up route templates.
-- **Application Configuration**: The *Configure* method can also be used to configure other aspects of your application, such as authentication, authorization, session management, caching, error handling, and more. You can add middleware components to handle these features and configure their settings as needed.
-- *Error Handling and Exception Handling*: The *Configure* method is where you can add error handling and exception handling middleware components to handle errors and exceptions that occur during the request processing. You can define how errors are logged, how error responses are generated, and how exceptions are handled and transformed into appropriate HTTP responses.
+- **Request Pipeline Configuration**: The `Configure` method defines the order and composition of the middleware components in the request pipeline. Middleware components are responsible for handling different aspects of an HTTP request and response, such as routing, authentication, logging, exception handling, and more. By configuring the order and composition of these components, you define how requests are processed and responses are generated.
+- **Route Configuration**: In the `Configure` method, you can define the routes used by your application. Routing determines how incoming requests are matched to specific actions or endpoints within your application. You can configure routing rules to map URLs to specific controllers and actions, define route parameters, and set up route templates.
+- **Application Configuration**: The `Configure` method can also be used to configure other aspects of your application, such as authentication, authorization, session management, caching, error handling, and more. You can add middleware components to handle these features and configure their settings as needed.
+- **Error Handling and Exception Handling**: The `Configure` method is where you can add error handling and exception handling middleware components to handle errors and exceptions that occur during the request processing. You can define how errors are logged, how error responses are generated, and how exceptions are handled and transformed into appropriate HTTP responses.
 
-Overall, the *Configure* method is responsible for configuring the request pipeline, defining routes, and setting up middleware components that handle various aspects of request processing. It plays a crucial role in defining the behavior and functionality of your ASP.NET Core application.
+Overall, the `Configure` method is responsible for configuring the request pipeline, defining routes, and setting up middleware components that handle various aspects of request processing. It plays a crucial role in defining the behavior and functionality of your ASP.NET Core application.
 
 ### Describe the complete Request Processing Pipeline for ASP.NET Core MVC?
 
@@ -756,90 +931,179 @@ The Request Processing Pipeline in ASP.NET Core MVC consists of a series of midd
 
 - **HTTP Request**: The pipeline starts when an HTTP request is received by the web server.
 - **Web Server**: The web server, such as Kestrel or IIS, receives the incoming request and forwards it to the ASP.NET Core runtime.
-- **Middleware Components**: The request then goes through a series of middleware components that are registered in the *Configure* method of the startup class (*Startup.cs*).
-  - **Static Files**: If the request is for a static file (e.g., CSS, JavaScript, images), the *UseStaticFiles* middleware serves the file directly from the specified directory.
-  - **Routing**: The *UseRouting* middleware examines the request URL and matches it to a specific route defined in the application's routing configuration. It determines which controller and action should handle the request.
-  - **Endpoint Routing**: The *UseEndpoints* middleware maps the request to a specific endpoint based on the route information determined by the routing middleware. This sets up the execution pipeline for the selected endpoint.
-  - **Authentication**: The *UseAuthentication* middleware authenticates the user based on the provided credentials or tokens. It performs user authentication and sets the identity for the request.
-  - **Authorization**: The *UseAuthorization* middleware checks whether the authenticated user has the necessary permissions to access the requested resource. It enforces access control rules and policies.
-  - **Model Binding**: The *UseModelBinding* middleware extracts the data from the request (e.g., form data, query parameters, JSON payload) and binds it to the corresponding model objects or action parameters.
-  - **Action Execution**: The *UseEndpoints* middleware invokes the selected controller action method, passing the required parameters based on the model binding results.
+- **Middleware Components**: The request then goes through a series of middleware components that are registered in the `Configure` method of the startup class (`Startup.cs`).
+  - **Static Files**: If the request is for a static file (e.g., CSS, JavaScript, images), the `UseStaticFiles` middleware serves the file directly from the specified directory.
+  - **Routing**: The `UseRouting` middleware examines the request URL and matches it to a specific route defined in the application's routing configuration. It determines which controller and action should handle the request.
+  - **Endpoint Routing**: The `UseEndpoints` middleware maps the request to a specific endpoint based on the route information determined by the routing middleware. This sets up the execution pipeline for the selected endpoint.
+  - **Authentication**: The `UseAuthentication` middleware authenticates the user based on the provided credentials or tokens. It performs user authentication and sets the identity for the request.
+  - **Authorization**: The `UseAuthorization` middleware checks whether the authenticated user has the necessary permissions to access the requested resource. It enforces access control rules and policies.
+  - **Model Binding**: The `UseModelBinding` middleware extracts the data from the request (e.g., form data, query parameters, JSON payload) and binds it to the corresponding model objects or action parameters.
+  - **Action Execution**: The `UseEndpoints` middleware invokes the selected controller action method, passing the required parameters based on the model binding results.
   - **Action Filters**: The pipeline may include action filters that run before and after the execution of the action method. These filters perform additional processing or modify the behavior of the action.
-  - **Result Execution**: The selected action method generates a result, such as a view, JSON response, or redirect. The *UseEndpoints* middleware executes the result and generates the appropriate HTTP response.
-  - **Exception Handling**: If an exception occurs during the request processing, the *UseExceptionHandler* middleware catches the exception and generates an error response.
-  - **Response Formatting**: The *UseResponseFormatting* middleware applies the appropriate formatting to the response based on the requested content type (e.g., JSON, XML).
-- HTTP Response: Finally, the formatted response is sent back to the client as an HTTP response.
+  - **Result Execution**: The selected action method generates a result, such as a view, JSON response, or redirect. The `UseEndpoints` middleware executes the result and generates the appropriate HTTP response.
+  - **Exception Handling**: If an exception occurs during the request processing, the `UseExceptionHandler` middleware catches the exception and generates an error response.
+  - **Response Formatting**: The `UseResponseFormatting` middleware applies the appropriate formatting to the response based on the requested content type (e.g., JSON, XML).
+- **HTTP Response**: Finally, the formatted response is sent back to the client as an HTTP response.
 
-> It's important to note that the order of middleware registration in the *Configure* method determines the order of execution in the pipeline. Middleware components can be added, removed, or reordered to customize the request processing behavior and add additional functionality as needed.
+> It's important to note that the order of middleware registration in the `Configure` method determines the order of execution in the pipeline. Middleware components can be added, removed, or reordered to customize the request processing behavior and add additional functionality as needed.
 
 This request processing pipeline ensures that each request goes through a series of stages, allowing various middleware components to handle different aspects of request processing, authentication, authorization, data binding, action execution, and response generation.
 
 ### What is the difference between .NET Core and .NET 5+?
 
+.NET Core was an open-source, cross-platform framework developed by Microsoft. It was designed to be modular, lightweight, and optimized for cloud and mobile applications. Starting with .NET Core 3.0, Microsoft transitioned from using the ".NET Core" name to simply using ".NET" to represent the unified platform. Therefore, .NET 5 is the successor to .NET Core 3.1.
 
+Here are some key differences between .NET Core and .NET 5+:
+
+- **Naming and Versioning**: .NET Core used a versioning scheme that started from 1.0 and went up to 3.1. With .NET 5, Microsoft introduced a new versioning approach, aligning all the major frameworks (e.g., .NET Core, .NET Framework, Xamarin) under a unified version. After .NET 5, subsequent versions like .NET 6, .NET 7, and so on have been released.
+- **Platform Unification**: .NET Core was developed as a cross-platform framework, supporting Windows, Linux, and macOS. However, it had some platform-specific APIs that were not available on all platforms. With .NET 5+, the focus shifted towards unifying the platform, providing a single base class library and API surface across different platforms. This allows developers to build applications that can run on various operating systems without worrying about platform-specific APIs.
+- **Performance and Features**: .NET 5+ introduced several performance improvements and new features compared to .NET Core. It includes enhanced JIT (Just-in-Time) compilation, improved runtime performance, reduced startup time, better support for high-performance scenarios, and expanded APIs and libraries. It also brings in support for new target frameworks, such as Windows Arm64 and WebAssembly.
+- **Long-Term Support (LTS)**: .NET Core had LTS releases that were supported for an extended period, providing stability and backward compatibility. With .NET 5+, Microsoft announced that every even-numbered release will be an LTS release. This means that .NET 6, .NET 8, and so on will receive long-term support, making them suitable for applications that require long-term stability and maintenance.
+- **Compatibility and Migration**: While .NET Core applications can be migrated to .NET 5+, there might be some adjustments required due to changes in APIs or platform behavior. Microsoft has provided migration guidance and tooling to help developers migrate their applications to the latest versions.
+
+Overall, .NET 5+ represents the evolution and unification of the .NET ecosystem, combining the best features of .NET Core, .NET Framework, and Xamarin into a single platform. It offers improved performance, increased platform support, enhanced developer productivity, and a unified development experience across different operating systems.
 
 ### What is Metapackage? What is the name of Metapackage provided by ASP.NET Core?
 
+A metapackage is a package that serves as a convenient way to include a collection of related packages. It allows you to install a group of packages with a single command, simplifying the management of dependencies in your project.
 
+In the context of ASP.NET Core, the metapackage provided by Microsoft is called `Microsoft.AspNetCore.App`. This metapackage includes a set of essential packages and dependencies required to build ASP.NET Core applications. It includes the ASP.NET Core runtime, middleware components, libraries, and tools necessary for developing and running ASP.NET Core applications.
 
-## .NET Core - Dependency Injection
+By referencing the `Microsoft.AspNetCore.App` metapackage in your project, you automatically bring in all the necessary dependencies, such as the ASP.NET Core framework, HTTP handling components, logging, configuration, and more. It provides a convenient way to ensure that your application has all the required packages without the need to manually specify each individual package.
 
+To use the `Microsoft.AspNetCore.App` metapackage, you can include it as a dependency in your project's `.csproj` file:
 
+``` xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.AspNetCore.App" Version="x.x.x" />
+</ItemGroup>
+```
+
+Using the metapackage helps simplify dependency management and ensures that your application stays up to date with the latest recommended packages and versions provided by Microsoft.
+
+## .NET Core - Dependency Injection, Service Lifetimes, & Middleware
 
 ### What is Dependency Injection?
 
+Dependency Injection is a design pattern and a technique used in software development to implement the principle of inversion of control (IoC). It allows the dependencies of a class or component to be provided externally rather than being created or managed by the class itself.
 
+In Dependency Injection, the dependencies are "injected" into a class through its constructor, properties, or method parameters. Instead of creating the dependencies internally, the class relies on an external entity, often referred to as a "container" or "service provider," to provide the necessary dependencies.
+
+The benefits of Dependency Injection include:
+
+- **Loose coupling**: Dependencies are decoupled from the class, allowing for easier maintenance and testing of individual components.
+- **Reusability**: Dependencies can be shared and reused across multiple classes or components.
+- **Testability**: It becomes easier to mock or substitute dependencies during unit testing.
+- **Flexibility**: Dependencies can be easily swapped or updated without modifying the consuming class.
+- **Modular design**: Each component focuses on its specific responsibility, making the system more modular and easier to understand.
+
+By following the Dependency Injection pattern, you can achieve a more maintainable, extensible, and testable codebase. It promotes the separation of concerns and facilitates the use of interfaces and abstractions to decouple dependencies from concrete implementations.
+
+In ASP.NET Core, Dependency Injection is an integral part of the framework, providing a built-in container to manage the dependencies of your application. You can register your services with the container and have them injected into your controllers, services, or other components automatically. This simplifies the management of dependencies and promotes the use of best practices in software architecture.
 
 ### How to implement Dependency injection in .NET Core?
 
+In .NET Core, implementing dependency injection is straightforward and built-in to the framework. Here are the steps to follow:
 
+1. **Define your services/interfaces**: Start by defining the interfaces for the services you want to inject and the corresponding implementations. For example, if you have a service called `IMyService`, define the interface as follows:
+
+    ``` csharp
+    public interface IMyService
+    {
+        void DoSomething();
+    }
+
+    public class MyService : IMyService
+    {
+        public void DoSomething()
+        {
+            // Implementation logic here
+        }
+    }
+    ```
+
+2. **Configure the services**: In the `ConfigureServices` method of your `Startup` class, register the services and their implementations with the built-in dependency injection container. This typically happens in the `ConfigureServices` method of your `Startup` class. For example:
+
+    ``` csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddTransient<IMyService, MyService>();
+        // Register other services as needed
+    }
+    ```
+
+3. **Inject the services**: In the classes or components where you need to use the services, declare them as constructor parameters. The container will automatically resolve and inject the appropriate implementations. For example:
+
+    ``` csharp
+    public class MyController : Controller
+    {
+        private readonly IMyService _myService;
+
+        public MyController(IMyService myService)
+        {
+            _myService = myService;
+        }
+
+        // Use _myService in your controller actions
+    }
+    ```
+
+By following these steps, the .NET Core framework will handle the creation and injection of dependencies for you. This approach promotes loose coupling, testability, and modular design in your application.
+
+> Note: There are different lifetime options available when registering services (`Transient`, `Scoped`, and `Singleton`). Choose the appropriate lifetime based on your application's needs and the behavior you desire for your dependencies.
+
+### What is the difference between Transient, Scoped, and Singleton lifetime in dependency injection?
+
+- **Transient Lifetime**:
+  - A new instance of the service is created every time it is requested.
+  - Suitable for lightweight and stateless services.
+  - Instances are not shared between multiple requests or components.
+- **Scoped Lifetime**:
+  - A single instance is created and shared within the scope of an HTTP request or a unit of work.
+  - Suitable for services that have per-request or per-operation state.
+  - Instances are shared within the same scope but not across different scopes.
+- **Singleton Lifetime**:
+  - A single instance is created and shared across the entire application.
+  - Suitable for services that are stateless or have shared state.
+  - Instances are created once and reused throughout the application's lifetime.
+
+Key Differences:
+
+- **Transient**: New instance per request/component.
+- **Scoped**: Single instance per scope (e.g., per HTTP request).
+- **Singleton**: Single instance shared across the entire application
+- Transient and Scoped instances are disposed when the associated scope ends, while Singleton instances are disposed when the application shuts down.
+- Transient and Scoped services are suitable for scenarios where state or data needs to be isolated, while Singleton services are suitable for stateless or shared state scenarios.
+- Scoped and Singleton services have the potential for more efficient resource usage and improved performance compared to Transient services, which require frequent creation and disposal.
+
+Choosing the appropriate lifetime depends on the specific requirements of the service and its usage within the application.
 
 ### What are the advantages of Dependency Injection in .NET Core?
 
+Dependency Injection (DI) in .NET Core offers several advantages:
 
+- **Loose Coupling**: DI promotes loose coupling between components by removing direct dependencies. Components only rely on abstractions (interfaces), making it easier to replace implementations or introduce new functionalities without impacting the entire system.
+- **Testability**: DI enables easier unit testing by allowing dependencies to be mocked or substituted with test-specific implementations. This isolation of dependencies makes it simpler to write unit tests and verify the behavior of individual components.
+- **Modular and Maintainable Code**: DI encourages modular and maintainable code by breaking down complex systems into smaller, manageable components. Each component has a well-defined responsibility and can be developed, tested, and maintained independently.
+- **Reusability**: DI promotes code reuse by allowing components to be easily shared across different parts of an application or even across multiple applications. By depending on abstractions, components can be easily swapped or extended without impacting the existing codebase.
+- **Flexibility and Extensibility**: DI makes it easier to extend or modify the behavior of an application by introducing new services or replacing existing implementations. It provides flexibility to adapt to changing requirements or integrate with external libraries and frameworks.
+- **Separation of Concerns**: DI helps in achieving a clear separation of concerns by separating the creation and management of dependencies from the business logic. This separation improves the overall maintainability and readability of the codebase.
 
-### How to use Dependency Injection in Views in ASP.NET Core?
+Overall, DI promotes modularity, testability, maintainability, and flexibility in software development, leading to improved code quality and ease of development.
 
-## .NET Core - Service Lifetimes, Middleware & Hosting
+### What is Middleware in .NET Core? What is custom middleware?
 
-### What are the types of Service Lifetimes of an object/ instance in ASP.NET Core?
-### What is AddSingleton, AddScoped and AddTransient method?
-### What is Middleware in ASP.NET Core? What is custom middleware?
-### How ASP.NET Core Middleware is different from HttpModule?
-### What is Request Delegate in .NET Core?
-### What is *Run()*, *Use()* and *Map()* method?
-### What are the types of Hosting in ASP.NET Core? What is In process and Out of process hosting?
-### What is Kestrel? What is the difference between Kestrel and IIS?
+Middleware in .NET Core is a component that sits in the request/response pipeline and processes HTTP requests and responses. It provides a way to handle various operations or behaviors that need to be applied consistently across multiple requests, such as logging, authentication, error handling, routing, and more.
 
-## .NET Core - Routing, Files, CORS & More
+Middleware functions in .NET Core are represented by delegates or classes that implement the `RequestDelegate` signature. The `RequestDelegate` represents a function that takes an HttpContext object as input and returns a `Task` representing the asynchronous processing of the request.
 
-### What is Routing? Explain attribute routing in ASP.NET Core?
-### Explain default project structure in ASP.NET Core application?
-### How ASP.NET Core serve static files?
-### What are the roles of Appsettings.Json and Launchsetting.Json file in ASP.NET Core?
-### What are the various techniques to save configuration settings in ASP.NET Core?
-### What is CORS? Why is CORS restriction is required? How to fix CORS error?
-### What is In-Memory caching & Distributed Caching?
-### How to handle errors in ASP.NET Core?
-### What are Razor pages in .NET Core?
+Custom middleware refers to the development of custom components that can be added to the middleware pipeline to extend or modify the default behavior of the application. Custom middleware allows developers to add their own logic at various stages of the request/response processing and can be used to implement custom functionalities, third-party integrations, or specific application requirements.
 
-### What is host in ASP.NET Core?
-### Describe the generic host and web host?
-### Describe the servers in ASP.NET Core?
-### How configuration works in ASP.NET Core?
-### How to read values from appsettings.json file?
-### What is the options pattern in ASP.NET Core?
-### How to use multiple environments in ASP.NET Core?
-### How ASP.NET Core serve static files?
-### Explain session and state management in ASP.NET Core?
-### Can ASP.NET application be run in docker containers?
-### Explain the caching or response caching in ASP.NET Core?
-### What is in-memory cache?
-### What is distributed caching?
-### What is XSRF or CSRF? How to prevent cross-site request forgery (XSRF/CSRF) attacks in ASP.NET Core?
-### Explain session and state management in ASP.NET Core.
-### How to access httpcontext in ASP.NET Core?
-### Explain the caching and response caching in ASP.NET Core.
+To create custom middleware, you can define a class that implements the `RequestDelegate` signature, or you can use an extension method to create and configure the middleware. Custom middleware can be added to the middleware pipeline using the `UseMiddleware<T>` extension method or the `Use` method of the `IApplicationBuilder` interface.
+
+Custom middleware can perform tasks such as modifying the request or response, logging, authentication, authorization, exception handling, response caching, and much more. It provides a flexible way to customize the behavior of your application without modifying the core framework.
+
+By leveraging custom middleware, developers can modularize their application's functionality and apply specific behaviors to different parts of the request/response pipeline, making it easier to manage and maintain complex applications.
 
 ## Additional Resources and References
 
@@ -852,8 +1116,10 @@ This request processing pipeline ensures that each request goes through a series
 - [Garbage collection and performance](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/performance)
 - [The large object heap on Windows systems](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/large-object-heap)
 - [Cleaning up unmanaged resources](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/unmanaged)
-- []()
 - [Task-based asynchronous pattern (TAP)](https://learn.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
 - [Event-based Asynchronous Pattern (EAP)](https://learn.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/event-based-asynchronous-pattern-eap)
 - [Asynchronous Programming Model (APM)](https://learn.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm)
+- [What is .NET? Introduction and overview](https://learn.microsoft.com/en-us/dotnet/core/introduction)
+- [Dependency injection in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
+- [ASP.NET Core Middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
 - [ChatGPT-3.5](https://openai.com/blog/chatgpt)

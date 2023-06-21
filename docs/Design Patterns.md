@@ -137,7 +137,7 @@ public class Singleton
 }
 ```
 
-In this example, the Singleton class has a private constructor and a static *GetInstance()* method that returns the Singleton instance. The first time *GetInstance()* is called, it creates a new instance of the Singleton class. Subsequent calls to *GetInstance()* return the same instance.
+In this example, the Singleton class has a private constructor and a static `GetInstance()` method that returns the Singleton instance. The first time `GetInstance()` is called, it creates a new instance of the Singleton class. Subsequent calls to `GetInstance()` return the same instance.
 
 > It's important to note that in multi-threaded environments, you may need to consider thread safety and synchronization mechanisms to ensure the Singleton instance is created and accessed correctly.
 
@@ -198,7 +198,7 @@ Here are a few approaches to ensure thread safety:
     }
     ```
 
-- **Using Lazy&lt;T&gt;**: In C#, you can also use the Lazy&lt;T&gt; class to achieve thread safety and lazy initialization of the Singleton instance. The Lazy&lt;T&gt; class handles synchronization internally and ensures that only one instance is created.
+- **Using Lazy<T>**: In C#, you can also use the Lazy<T> class to achieve thread safety and lazy initialization of the Singleton instance. The Lazy<T> class handles synchronization internally and ensures that only one instance is created.
 
     ```csharp
     public class Singleton
@@ -281,9 +281,9 @@ public class ConcreteProductFactoryB : IProductFactory
 }
 ```
 
-In this example, we have an *IProduct* interface representing the common operations that can be performed on products. The *ConcreteProductA* and *ConcreteProductB* classes implement this interface.
+In this example, we have an `IProduct` interface representing the common operations that can be performed on products. The `ConcreteProductA` and `ConcreteProductB` classes implement this interface.
 
-The *IProductFactory* interface declares the factory method *CreateProduct()* responsible for creating *IProduct* instances. The *ConcreteProductFactoryA* and *ConcreteProductFactoryB* classes implement this interface and provide the specific implementation for creating *ConcreteProductA* and *ConcreteProductB* instances, respectively.
+The `IProductFactory` interface declares the factory method `CreateProduct()` responsible for creating `IProduct` instances. The `ConcreteProductFactoryA` and `ConcreteProductFactoryB` classes implement this interface and provide the specific implementation for creating `ConcreteProductA` and `ConcreteProductB` instances, respectively.
 
 Using the factory, client code can create objects without being aware of the specific product types:
 
@@ -370,9 +370,9 @@ public class ConcreteProductFactoryB : IProductFactory
 }
 ```
 
-In this example, we have an *IProduct* interface representing the common operations that can be performed on products. The *ConcreteProductA* and *ConcreteProductB* classes implement this interface.
+In this example, we have an `IProduct` interface representing the common operations that can be performed on products. The `ConcreteProductA` and `ConcreteProductB` classes implement this interface.
 
-The *IProductFactory* interface declares the factory method *CreateProduct()*, responsible for creating *IProduct* instances. The *ConcreteProductFactoryA* and *ConcreteProductFactoryB* classes implement this interface and provide the specific implementation for creating *ConcreteProductA* and *ConcreteProductB* instances, respectively.
+The `IProductFactory` interface declares the factory method `CreateProduct()`, responsible for creating `IProduct` instances. The `ConcreteProductFactoryA` and `ConcreteProductFactoryB` classes implement this interface and provide the specific implementation for creating `ConcreteProductA` and `ConcreteProductB` instances, respectively.
 
 To use the factory, you can instantiate a specific factory and use the factory method to create the desired product:
 
@@ -484,11 +484,11 @@ public class ConcreteFactory2 : IAbstractFactory
 }
 ```
 
-In this example, we have two families of products: Product A and Product B. The *IProductA* and *IProductB* interfaces define the operations that can be performed on products within their respective families.
+In this example, we have two families of products: Product A and Product B. The `IProductA` and `IProductB` interfaces define the operations that can be performed on products within their respective families.
 
-The *ConcreteProductA1*, *ConcreteProductA2*, *ConcreteProductB1*, and *ConcreteProductB2* classes implement the corresponding interfaces, representing concrete products within their families.
+The `ConcreteProductA1`, `ConcreteProductA2`, `ConcreteProductB1`, and `ConcreteProductB2` classes implement the corresponding interfaces, representing concrete products within their families.
 
-The *IAbstractFactory* interface declares factory methods for creating objects of both product families. The *ConcreteFactory1* and *ConcreteFactory2* classes implement this interface and provide the specific implementation for creating objects of the respective product families.
+The `IAbstractFactory` interface declares factory methods for creating objects of both product families. The `ConcreteFactory1` and `ConcreteFactory2` classes implement this interface and provide the specific implementation for creating objects of the respective product families.
 
 To use the abstract factory, you can instantiate a specific factory and use its factory methods to create products:
 
@@ -508,7 +508,7 @@ productA2.OperationA();  // Output: "ConcreteProductA2: OperationA"
 productB2.OperationB();  // Output: "ConcreteProductB2: OperationB"
 ```
 
-In this example, we create two concrete factories, *ConcreteFactory1* and *ConcreteFactory2*, which are responsible for creating products of their respective families. We then use these factories to create instances of *IProductA* and *IProductB*.
+In this example, we create two concrete factories, `ConcreteFactory1` and `ConcreteFactory2`, which are responsible for creating products of their respective families. We then use these factories to create instances of `IProductA` and `IProductB`.
 
 The Abstract Factory pattern allows for creating families of related objects without specifying their concrete classes. By using the abstract factory, the client code can create and work with objects from different families interchangeably, ensuring compatibility and cohesive usage.
 
@@ -602,7 +602,7 @@ Product product = builder.GetProduct();
 Console.WriteLine(product);
 ```
 
-In this example, we have a *Product* class representing the object to be constructed. The *IBuilder* interface defines the methods for setting the properties of the product, and the *ConcreteBuilder* implements this interface to construct the product. The *Director* controls the construction process by interacting with the builder.
+In this example, we have a `Product` class representing the object to be constructed. The `IBuilder` interface defines the methods for setting the properties of the product, and the `ConcreteBuilder` implements this interface to construct the product. The `Director` controls the construction process by interacting with the builder.
 
 By using the Builder pattern, we can separate the construction logic from the product itself and provide a clean and customizable way to create complex objects. It allows the construction process to be more flexible and scalable, enabling the creation of different variations of the same object.
 
@@ -760,7 +760,7 @@ var client = new Client(adapter);
 client.MakeRequest();
 ```
 
-In this example, we have the *ITarget* interface representing the target interface that the client code expects. The *Adaptee* class represents an existing class with an incompatible interface. The *Adapter* class implements the *ITarget* interface and wraps the *Adaptee*, translating the requests to the appropriate method calls. The *Client* class uses the *ITarget* interface and can work with any object that implements it, including the *Adapter* that adapts the *Adaptee* interface.
+In this example, we have the `ITarget` interface representing the target interface that the client code expects. The `Adaptee` class represents an existing class with an incompatible interface. The `Adapter` class implements the `ITarget` interface and wraps the `Adaptee`, translating the requests to the appropriate method calls. The `Client` class uses the `ITarget` interface and can work with any object that implements it, including the `Adapter` that adapts the `Adaptee` interface.
 
 By using the Adapter pattern, we can make classes with incompatible interfaces work together. It enables the reuse of existing code and promotes interoperability between different classes and systems.
 
@@ -859,7 +859,7 @@ var decorator2 = new ConcreteDecorator2(decorator1);
 decorator2.Operation();
 ```
 
-In this example, we have the *IComponent* interface representing the component with the core functionality. The *ConcreteComponent* class represents the original object to which additional behaviors can be added. The *Decorator* class serves as the base class for concrete decorators and maintains a reference to the component. The *ConcreteDecorator1* and *ConcreteDecorator2* classes extend the functionality of the *Decorator* by adding additional operations.
+In this example, we have the `IComponent` interface representing the component with the core functionality. The `ConcreteComponent` class represents the original object to which additional behaviors can be added. The `Decorator` class serves as the base class for concrete decorators and maintains a reference to the component. The `ConcreteDecorator1` and `ConcreteDecorator2` classes extend the functionality of the `Decorator` by adding additional operations.
 
 By using the Decorator pattern, we can dynamically add behaviors or responsibilities to objects at runtime, without modifying their original structure. It allows for flexible composition of objects and promotes the principle of "favor composition over inheritance".
 
@@ -877,7 +877,7 @@ The Decorator pattern offers several advantages over subclassing, including:
 - **Preservation of single responsibility**: Decorators adhere to the Single Responsibility Principle by focusing on a specific responsibility or behavior, instead of creating a new class for each combination of behaviors.
 - **Avoidance of the class explosion problem**: Subclassing can lead to an exponential growth of classes, while decorators can be combined in various ways, reducing the need for a large number of subclasses.
 
-A practical example where the Decorator pattern can be used is in a text processing application. You can have a base *Text* class that represents the core functionality of text manipulation. Decorators can then be used to add additional features like encryption, compression, or formatting. These decorators can be stacked and combined in different ways to achieve the desired behavior without the need for numerous subclasses.
+A practical example where the Decorator pattern can be used is in a text processing application. You can have a base `Text` class that represents the core functionality of text manipulation. Decorators can then be used to add additional features like encryption, compression, or formatting. These decorators can be stacked and combined in different ways to achieve the desired behavior without the need for numerous subclasses.
 
 ### What is Composite design pattern?
 
@@ -945,7 +945,7 @@ composite.Add(leaf2);
 composite.Operation();
 ```
 
-In this example, we have the *IComponent* interface representing the component interface. The *Leaf* class represents individual objects that implement the component interface. The *Composite* class represents composite objects that can contain other objects (both leaf and composite) and implement the component interface. The *Composite* class maintains a list of child components and performs operations on them.
+In this example, we have the `IComponent` interface representing the component interface. The `Leaf` class represents individual objects that implement the component interface. The `Composite` class represents composite objects that can contain other objects (both leaf and composite) and implement the component interface. The `Composite` class maintains a list of child components and performs operations on them.
 
 By using the Composite pattern, we can treat individual objects and compositions of objects uniformly. It simplifies the handling of hierarchical structures and enables the construction of complex object hierarchies with consistent operations across the hierarchy.
 
@@ -1012,7 +1012,7 @@ var proxy = new Proxy();
 proxy.Request();
 ```
 
-In this example, we have the *ISubject* interface representing the common interface for both the *RealSubject* and *Proxy* classes. The *RealSubject* class represents the actual object that performs the requested operation. The *Proxy* class implements the *ISubject* interface and acts as a proxy for the *RealSubject*, controlling access to it and performing additional operations before and after delegating the request.
+In this example, we have the `ISubject` interface representing the common interface for both the `RealSubject` and `Proxy` classes. The `RealSubject` class represents the actual object that performs the requested operation. The `Proxy` class implements the `ISubject` interface and acts as a proxy for the `RealSubject`, controlling access to it and performing additional operations before and after delegating the request.
 
 By using the Proxy pattern, we can control access to an object, add security checks, provide lazy initialization, or perform additional operations around the core functionality of the RealSubject. It allows for transparently substituting the RealSubject with the Proxy, providing a level of indirection and enhancing the object's behavior.
 
@@ -1115,7 +1115,7 @@ var abstraction2 = new RefinedAbstraction(implementation2);
 abstraction2.Operation();
 ```
 
-In this example, we have the *Abstraction* abstract class representing the higher-level abstraction. The *RefinedAbstraction* class extends the abstraction and adds additional features. The *IImplementation* interface represents the lower-level implementation, and the *ConcreteImplementation1* and *ConcreteImplementation2* classes provide the concrete implementations.
+In this example, we have the `Abstraction` abstract class representing the higher-level abstraction. The `RefinedAbstraction` class extends the abstraction and adds additional features. The `IImplementation` interface represents the lower-level implementation, and the `ConcreteImplementation1` and `ConcreteImplementation2` classes provide the concrete implementations.
 
 By using the Bridge pattern, we can decouple the abstractions and implementations, allowing them to vary independently. It promotes flexibility, extensibility, and maintainability by avoiding a rigid and tightly-coupled class hierarchy.
 
@@ -1218,7 +1218,7 @@ client2.Operation("A", "Extrinsic State 3");
 client2.Operation("C", "Extrinsic State 4");
 ```
 
-In this example, we have the *IFlyweight* interface representing the flyweight objects. The *ConcreteFlyweight* class implements the flyweight interface and represents the shared flyweight objects. The *FlyweightFactory* manages the creation and sharing of flyweight objects. The *Client* uses the flyweight objects and optionally maintains the extrinsic state.
+In this example, we have the `IFlyweight` interface representing the flyweight objects. The `ConcreteFlyweight` class implements the flyweight interface and represents the shared flyweight objects. The `FlyweightFactory` manages the creation and sharing of flyweight objects. The `Client` uses the flyweight objects and optionally maintains the extrinsic state.
 
 By using the Flyweight pattern, we can significantly reduce memory consumption when dealing with a large number of objects that share common properties. It allows for efficient sharing of data and promotes performance optimization by separating intrinsic and extrinsic states.
 
@@ -1317,7 +1317,7 @@ var client = new Client(facade);
 client.ExecuteOperation();
 ```
 
-In this example, we have the *SubsystemA*, *SubsystemB*, and *SubsystemC* classes representing the complex subsystem or functionality. The *Facade* class provides a simplified interface that encapsulates the interactions with the subsystem. The *Client* interacts with the facade to perform operations, without needing to know the complexities of the subsystem.
+In this example, we have the `SubsystemA`, `SubsystemB`, and `SubsystemC` classes representing the complex subsystem or functionality. The `Facade` class provides a simplified interface that encapsulates the interactions with the subsystem. The `Client` interacts with the facade to perform operations, without needing to know the complexities of the subsystem.
 
 By using the Facade pattern, we can simplify the usage of a complex subsystem by providing a unified and simplified interface. It reduces the coupling between the client and the subsystem, promoting a more maintainable and modular design. The Facade acts as a mediator between the client and the subsystem, encapsulating the details of the subsystem's implementation.
 
@@ -1368,7 +1368,7 @@ The Observer design pattern is a behavioral design pattern that establishes a on
 In the Observer pattern, there are several key components:
 
 1. **Subject (Observable)**: This is the object that holds the state and maintains a list of observers. It provides methods to register, unregister, and notify observers. When the state changes, the subject notifies all registered observers automatically.
-2. **Observer**: This is the interface or abstract class that defines the contract for receiving update notifications from the subject. It typically includes a method like *update()* that is called by the subject when its state changes.
+2. **Observer**: This is the interface or abstract class that defines the contract for receiving update notifications from the subject. It typically includes a method like `update()` that is called by the subject when its state changes.
 3. **Concrete Observer**: These are the concrete implementations of the Observer interface. Each concrete observer registers with the subject and receives update notifications. It defines the specific actions to be taken when it receives an update.
 
 Here's a simplified example to illustrate the Observer pattern in C#:
@@ -1445,11 +1445,11 @@ subject.State = 10; // Output: Observer 1 received an update. New state: 10, Obs
 subject.State = 20; // Output: Observer 1 received an update. New state: 20, Observer 2 received an update. New state: 20
 ```
 
-In this example, we have the *Subject* class that represents the observable object. It maintains a list of observers and notifies them when its state changes. The *State* property holds the state, and whenever it is modified, the subject automatically notifies all registered observers by calling their *Update()* method.
+In this example, we have the `Subject` class that represents the observable object. It maintains a list of observers and notifies them when its state changes. The `State` property holds the state, and whenever it is modified, the subject automatically notifies all registered observers by calling their `Update()` method.
 
-The *IObserver* interface defines the contract for receiving update notifications from the subject. The *ConcreteObserver* class is a concrete implementation of the *IObserver* interface. Each observer registers itself with the subject and defines its behavior in the *Update()* method.
+The `IObserver` interface defines the contract for receiving update notifications from the subject. The `ConcreteObserver` class is a concrete implementation of the `IObserver` interface. Each observer registers itself with the subject and defines its behavior in the `Update()` method.
 
-In the usage section, we create a subject and two concrete observers. Each observer registers itself with the subject upon creation. When the state of the subject changes, it automatically notifies all registered observers, and they perform their respective actions in the *Update()* method.
+In the usage section, we create a subject and two concrete observers. Each observer registers itself with the subject upon creation. When the state of the subject changes, it automatically notifies all registered observers, and they perform their respective actions in the `Update()` method.
 
 The Observer pattern allows for loosely coupled communication between subjects and observers. It enables multiple observers to react to state changes independently and reduces dependencies between objects. This pattern is particularly useful in scenarios where changes in one object's state should be propagated to other objects without tightly coupling them together.
 
@@ -1527,11 +1527,11 @@ var shoppingCart = new ShoppingCart(fedExStrategy);
 shoppingCart.ShipItems();
 ```
 
-In this example, we have the *IShippingStrategy* interface that defines the common interface for all shipping strategies. The concrete strategies, *FedExShippingStrategy* and *UPSShippingStrategy*, implement the *IShippingStrategy* interface with their specific shipping algorithms.
+In this example, we have the `IShippingStrategy` interface that defines the common interface for all shipping strategies. The concrete strategies, `FedExShippingStrategy` and `UPSShippingStrategy`, implement the `IShippingStrategy` interface with their specific shipping algorithms.
 
-The *ShoppingCart* class represents the context object that uses a selected shipping strategy. It maintains a reference to the chosen strategy and delegates the shipping task to it through the *ShipItems()* method.
+The `ShoppingCart` class represents the context object that uses a selected shipping strategy. It maintains a reference to the chosen strategy and delegates the shipping task to it through the `ShipItems()` method.
 
-By using the Strategy pattern, we can easily switch between different shipping strategies (e.g., FedEx or UPS) by simply changing the strategy passed to the *ShoppingCart* constructor. The client code interacts with the *ShoppingCart* object without being aware of the specific shipping strategy being used.
+By using the Strategy pattern, we can easily switch between different shipping strategies (e.g., FedEx or UPS) by simply changing the strategy passed to the `ShoppingCart` constructor. The client code interacts with the `ShoppingCart` object without being aware of the specific shipping strategy being used.
 
 The Strategy pattern promotes encapsulation, modularity, and flexibility by allowing algorithms to vary independently from the clients that use them. It is especially useful in scenarios where multiple algorithms or behaviors need to be dynamically selected or changed at runtime.
 
@@ -1545,7 +1545,7 @@ The Command design pattern is a behavioral design pattern that aims to encapsula
 
 In the Command pattern, there are several key components:
 
-1. **Command**: This is an interface or abstract class that defines the contract for executing a command. It typically includes a method such as *execute()* or *executeCommand()*.
+1. **Command**: This is an interface or abstract class that defines the contract for executing a command. It typically includes a method such as `execute()` or `executeCommand()`.
 2. **Concrete Command**: These are the concrete implementations of the Command interface. Each concrete command class encapsulates a specific operation or request. It holds the necessary information and references to the receiver to perform the requested action.
 3. **Receiver**: This is the object that performs the actual work associated with a command. It has the knowledge and capability to execute the requested operation.
 4. **Invoker**: This is the object that invokes the command and triggers the execution. It is responsible for maintaining a reference to the command object and knows how to execute it.
@@ -1620,13 +1620,13 @@ Client client = new Client();
 client.Run();
 ```
 
-In this example, we have the *ICommand* interface that defines the *Execute()* method for executing a command. The *ConcreteCommand* class is a concrete implementation of the *ICommand* interface and holds a reference to the receiver (*Receiver*).
+In this example, we have the `ICommand` interface that defines the `Execute()` method for executing a command. The `ConcreteCommand` class is a concrete implementation of the `ICommand` interface and holds a reference to the receiver (`Receiver`).
 
-The *Receiver* class represents the object that performs the actual work associated with a command. In this case, it has a method called *PerformAction()* which performs the desired action.
+The `Receiver` class represents the object that performs the actual work associated with a command. In this case, it has a method called `PerformAction()` which performs the desired action.
 
-The *Invoker* class maintains a reference to the command object and knows how to execute it. It provides methods to set the command and execute it when necessary.
+The `Invoker` class maintains a reference to the command object and knows how to execute it. It provides methods to set the command and execute it when necessary.
 
-The *Client* class creates and configures the command object (*ConcreteCommand*) by providing it with a receiver (*Receiver*). It sets the command object in the invoker (*Invoker*) and executes the command by invoking the *ExecuteCommand()* method.
+The `Client` class creates and configures the command object (`ConcreteCommand`) by providing it with a receiver (`Receiver`). It sets the command object in the invoker (`Invoker`) and executes the command by invoking the `ExecuteCommand()` method.
 
 By using the Command pattern, the sender (client) and receiver (receiver) are decoupled. The client can create and configure commands with different receivers, allowing flexibility in choosing which commands to execute and when. The pattern also enables the queuing of commands, logging of commands, and support for undo/redo operations.
 
@@ -1642,7 +1642,7 @@ The Iterator design pattern is a behavioral design pattern that provides a way t
 
 In the Iterator pattern, there are three key components:
 
-1. **Iterator**: This is the interface that defines the operations for traversing the elements of the collection. It typically includes methods like *next()*, *hasNext()*, *reset()*, and possibly others depending on the specific requirements.
+1. **Iterator**: This is the interface that defines the operations for traversing the elements of the collection. It typically includes methods like `next()`, `hasNext()`, `reset()`, and possibly others depending on the specific requirements.
 2. **Concrete Iterator**: This is the implementation of the Iterator interface for a specific collection. It keeps track of the current position and provides the logic for iterating over the elements.
 3. **Aggregate**: This represents the collection object that holds the elements to be traversed. It provides a method to create an iterator object that can be used to iterate over its elements.
 
@@ -1722,11 +1722,11 @@ while (iterator.HasNext())
 }
 ```
 
-In this example, we have the *IIterator&lt;T&gt;* interface that defines the operations for iterating over elements of a collection. The *ListIterator&lt;T&gt;* class implements this interface specifically for a *List&lt;T&gt;* collection, providing the logic for traversing the list elements.
+In this example, we have the `IIterator<T>` interface that defines the operations for iterating over elements of a collection. The `ListIterator<T>` class implements this interface specifically for a `List<T>` collection, providing the logic for traversing the list elements.
 
-The *ListCollection&lt;T&gt;* class represents the aggregate object, which is the list collection in this case. It provides a method *CreateIterator()* that returns an iterator object (*ListIterator&lt;T&gt;*) for the collection.
+The `ListCollection<T>` class represents the aggregate object, which is the list collection in this case. It provides a method `CreateIterator()` that returns an iterator object (`ListIterator<T>`) for the collection.
 
-By using the Iterator pattern, we can decouple the client code from the specific implementation of the collection. The client code can iterate over the elements using the iterator's *Next()* method and check for the presence of more elements with the *HasNext()* method.
+By using the Iterator pattern, we can decouple the client code from the specific implementation of the collection. The client code can iterate over the elements using the iterator's `Next()` method and check for the presence of more elements with the `HasNext()` method.
 
 The Iterator pattern provides a standardized and consistent way to traverse collections, regardless of their underlying structure. It enhances the flexibility and reusability of the code, allows for easy extension with new collection types, and keeps the collection structure hidden from the client code.
 
@@ -1799,9 +1799,9 @@ context.Request(); // Outputs "State B is handling the request."
 context.Request(); // Outputs "State A is handling the request."
 ```
 
-In this example, we have the *IState* interface that defines the common method *Handle()* for all states. The concrete state classes, *StateA* and *StateB*, implement the *IState* interface with their specific behavior. Each state class can also modify the state of the context if necessary.
+In this example, we have the `IState` interface that defines the common method `Handle()` for all states. The concrete state classes, `StateA` and `StateB`, implement the `IState` interface with their specific behavior. Each state class can also modify the state of the context if necessary.
 
-The *Context* class represents the object whose behavior is affected by the state. It maintains a reference to the current state object and delegates the handling of requests to that state object.
+The `Context` class represents the object whose behavior is affected by the state. It maintains a reference to the current state object and delegates the handling of requests to that state object.
 
 By using the State pattern, the behavior of the context object can vary depending on its internal state. The state transitions are managed by the state objects themselves, providing a more modular and flexible approach to handle complex behavior. The context object remains unaware of the specific states and their transitions, which leads to cleaner and more maintainable code.
 
@@ -1882,13 +1882,13 @@ var concreteClass = new ConcreteClass();
 concreteClass.TemplateMethod();
 ```
 
-In this example, we have the *AbstractClass* that represents the abstract class defining the template method. The template method itself (*TemplateMethod()*) defines the algorithm's structure by calling various operations in a specific order.
+In this example, we have the `AbstractClass` that represents the abstract class defining the template method. The template method itself (`TemplateMethod()`) defines the algorithm's structure by calling various operations in a specific order.
 
-The *AbstractClass* also declares *Operation1()* and *Operation2()* as abstract methods that subclasses must implement. These methods represent the steps of the algorithm that require customization.
+The `AbstractClass` also declares `Operation1()` and `Operation2()` as abstract methods that subclasses must implement. These methods represent the steps of the algorithm that require customization.
 
-The *Operation3()* method is declared with a default implementation in the abstract class. Subclasses can choose to override this method if they want to provide a custom implementation, but it is not mandatory.
+The `Operation3()` method is declared with a default implementation in the abstract class. Subclasses can choose to override this method if they want to provide a custom implementation, but it is not mandatory.
 
-The *ConcreteClass* inherits from the AbstractClass and provides its own implementations for *Operation1()* and *Operation2()*. It also overrides *Operation3()* to provide a custom implementation.
+The `ConcreteClass` inherits from the AbstractClass and provides its own implementations for `Operation1()` and `Operation2()`. It also overrides `Operation3()` to provide a custom implementation.
 
 By using the Template Method pattern, you can define the overall algorithm in the abstract class while allowing subclasses to customize specific steps. This promotes code reuse, avoids code duplication, and provides a standardized structure for related algorithms.
 
@@ -1984,11 +1984,11 @@ handlerA.HandleRequest(25); // Output: ConcreteHandlerC handled the request: 25
 handlerA.HandleRequest(35); // No handler can handle the request
 ```
 
-In this example, we have the *Handler* abstract class that defines the common interface for all handlers. It includes a reference to the next handler in the chain and the *HandleRequest()* method to handle the request or pass it to the next handler.
+In this example, we have the `Handler` abstract class that defines the common interface for all handlers. It includes a reference to the next handler in the chain and the `HandleRequest()` method to handle the request or pass it to the next handler.
 
-The concrete handler classes, *ConcreteHandlerA*, *ConcreteHandlerB*, and *ConcreteHandlerC*, inherit from the *Handler* class and provide their own implementations for handling the request. If a handler cannot handle the request, it passes the request to the next handler in the chain using the NextHandler reference.
+The concrete handler classes, `ConcreteHandlerA`, `ConcreteHandlerB`, and `ConcreteHandlerC`, inherit from the `Handler` class and provide their own implementations for handling the request. If a handler cannot handle the request, it passes the request to the next handler in the chain using the NextHandler reference.
 
-The client object sends requests to the first handler (*handlerA* in this case) without knowing the specific handlers in the chain. Each handler in the chain decides whether to handle the request or pass it to the next handler.
+The client object sends requests to the first handler (`handlerA` in this case) without knowing the specific handlers in the chain. Each handler in the chain decides whether to handle the request or pass it to the next handler.
 
 By using the Chain of Responsibility pattern, you can achieve loose coupling between senders and receivers of a request. The sender does not need to know which handler will handle the request, and the receiver does not need to know which handler sent the request. This allows for flexible and dynamic handling of requests, as well as the ability to modify or extend the chain without affecting the client code.
 
@@ -2090,11 +2090,11 @@ var visitor = new ConcreteVisitor();
 objectStructure.AcceptVisitor(visitor);
 ```
 
-In this example, we have the *IVisitor* interface that defines the visit methods for each element type. The *ConcreteVisitor* class implements the *IVisitor* interface and provides the actual implementation of the visit methods.
+In this example, we have the `IVisitor` interface that defines the visit methods for each element type. The `ConcreteVisitor` class implements the `IVisitor` interface and provides the actual implementation of the visit methods.
 
-The *IElement* interface represents the elements in the data structure and defines the *Accept()* method to accept a visitor. The *ElementA* and *ElementB* classes are concrete implementations of the *IElement* interface and implement the *Accept()* method by passing themselves as a parameter to the visitor's visit method.
+The `IElement` interface represents the elements in the data structure and defines the `Accept()` method to accept a visitor. The `ElementA` and `ElementB` classes are concrete implementations of the `IElement` interface and implement the `Accept()` method by passing themselves as a parameter to the visitor's visit method.
 
-The *ObjectStructure* class represents the collection of elements. It allows elements to be added or removed and provides a method to accept a visitor, which invokes the *Accept()* method on each element.
+The `ObjectStructure` class represents the collection of elements. It allows elements to be added or removed and provides a method to accept a visitor, which invokes the `Accept()` method on each element.
 
 By using the Visitor pattern, you can separate the logic of operations from the elements themselves. New operations can be added by implementing new visitors without modifying the existing elements. This promotes extensibility, flexibility, and maintainability of the codebase.
 
@@ -2110,7 +2110,7 @@ The Interpreter design pattern is a behavioral design pattern that defines a rep
 
 The Interpreter pattern involves the following key components:
 
-1. **Abstract Expression**: This is an interface or abstract class that defines the common methods for interpreting and executing expressions in the language. It typically includes an *interpret()* method that takes an input and performs the interpretation.
+1. **Abstract Expression**: This is an interface or abstract class that defines the common methods for interpreting and executing expressions in the language. It typically includes an `interpret()` method that takes an input and performs the interpretation.
 2. **Terminal Expression**: These are concrete implementations of the abstract expression that represent the terminal symbols in the language grammar. They perform the actual interpretation or execution of specific elements in the language.
 3. **Non-Terminal Expression**: These are concrete implementations of the abstract expression that represent the non-terminal symbols in the language grammar. They typically encapsulate multiple terminal and non-terminal expressions and define the interpretation or execution logic for complex language constructs.
 4. **Context**: This is the object that contains the context or state in which the expressions are evaluated. It provides the necessary data or variables required for the interpretation process.
@@ -2177,13 +2177,13 @@ Client client = new Client();
 client.Interpret(context);
 ```
 
-In this example, we have the *IExpression* interface that defines the *Interpret()* method for interpreting and executing expressions in the language. The *TerminalExpression* and *NonTerminalExpression* classes are concrete implementations of the *IExpression* interface, representing the terminal and non-terminal symbols in the language grammar, respectively.
+In this example, we have the `IExpression` interface that defines the `Interpret()` method for interpreting and executing expressions in the language. The `TerminalExpression` and `NonTerminalExpression` classes are concrete implementations of the `IExpression` interface, representing the terminal and non-terminal symbols in the language grammar, respectively.
 
-The *Context* class represents the context or state in which the expressions are evaluated. It holds the necessary data or variables required for interpretation.
+The `Context` class represents the context or state in which the expressions are evaluated. It holds the necessary data or variables required for interpretation.
 
-The *Client* class is responsible for building the abstract syntax tree (AST) by composing the terminal and non-terminal expressions based on the language grammar. It triggers the interpretation or execution process by calling the *Interpret()* method on the expression.
+The `Client` class is responsible for building the abstract syntax tree (AST) by composing the terminal and non-terminal expressions based on the language grammar. It triggers the interpretation or execution process by calling the `Interpret()` method on the expression.
 
-When the *Interpret()* method is invoked, the appropriate expressions interpret the context or perform their specific actions based on the language grammar.
+When the `Interpret()` method is invoked, the appropriate expressions interpret the context or perform their specific actions based on the language grammar.
 
 The Interpreter pattern is useful in scenarios where you need to define and interpret a DSL, evaluate complex expressions, or perform language-based processing. It separates the concerns of parsing and executing the language and allows for the addition of new expressions or rules without modifying the client code.
 
@@ -2281,9 +2281,9 @@ mediator.RegisterColleague(colleague2);
 colleague1.Send("Hello!"); // Output: Received: Hello!
 ```
 
-In this example, we have the *IMediator* interface that defines the contract for communication between objects. The *ConcreteMediator* class is a concrete implementation of the Mediator interface and manages the communication logic. It maintains a list of colleagues and facilitates message passing between them.
+In this example, we have the `IMediator` interface that defines the contract for communication between objects. The `ConcreteMediator` class is a concrete implementation of the Mediator interface and manages the communication logic. It maintains a list of colleagues and facilitates message passing between them.
 
-The *Colleague* class represents the objects that need to communicate with each other but do so indirectly through the Mediator. Each colleague holds a reference to the Mediator and uses it to send and receive messages.
+The `Colleague` class represents the objects that need to communicate with each other but do so indirectly through the Mediator. Each colleague holds a reference to the Mediator and uses it to send and receive messages.
 
 In the usage section, we create a concrete mediator and two concrete colleagues. We register the colleagues with the mediator and demonstrate communication by having one colleague send a message, which is received by the other colleague.
 
@@ -2386,11 +2386,11 @@ originator.SetMemento(caretaker.GetMemento());
 Console.WriteLine("Restored state: " + originator.State);
 ```
 
-In this example, we have the *Originator* class that represents an object with an internal state that needs to be captured and restored. It has a *State* property that holds the current state and provides methods to create a memento of its state (*CreateMemento()*) and set its state from a memento (*SetMemento()*).
+In this example, we have the `Originator` class that represents an object with an internal state that needs to be captured and restored. It has a `State` property that holds the current state and provides methods to create a memento of its state (`CreateMemento()`) and set its state from a memento (`SetMemento()`).
 
-The *Memento* class represents the captured state of the originator. It has a *GetState()* method to retrieve the state but does not expose any methods to modify the state directly.
+The `Memento` class represents the captured state of the originator. It has a `GetState()` method to retrieve the state but does not expose any methods to modify the state directly.
 
-The *Caretaker* class is responsible for storing and managing the mementos. It can request a memento from the originator (*SetMemento()*) and later retrieve the memento (*GetMemento()*) to pass it back to the originator for state restoration.
+The `Caretaker` class is responsible for storing and managing the mementos. It can request a memento from the originator (`SetMemento()`) and later retrieve the memento (`GetMemento()`) to pass it back to the originator for state restoration.
 
 In the usage section, we create an originator and a caretaker. We set the state of the originator to "State 1" and create a memento. Then, we modify the state to "State 2". We can see the current state of the originator.
 

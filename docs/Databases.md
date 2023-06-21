@@ -112,7 +112,7 @@ Primary Key:
   )
   ```
 
-  In this example, the *EmployeeID* column is the primary key. It uniquely identifies each employee record in the *Employees* table.
+  In this example, the `EmployeeID` column is the primary key. It uniquely identifies each employee record in the `Employees` table.
 
 Unique Key:
 
@@ -132,7 +132,7 @@ Unique Key:
   )
   ```
 
-  In this example, the *SKU* column is defined as a unique key. It ensures that each product in the *Products* table has a unique *SKU* value.
+  In this example, the `SKU` column is defined as a unique key. It ensures that each product in the `Products` table has a unique `SKU` value.
 
 In summary, the primary key uniquely identifies each record in a table and has additional constraints like non-nullity, while a unique key enforces uniqueness but allows null values in the specified columns.
 
@@ -163,7 +163,7 @@ One-to-One (1:1) Relationship:
   )
   ```
 
-  In this example, each employee has a unique address, and the *EmployeeID* and *AddressID* columns establish a one-to-one relationship between the *Employees* and *Addresses* tables.
+  In this example, each employee has a unique address, and the `EmployeeID` and `AddressID` columns establish a one-to-one relationship between the `Employees` and `Addresses` tables.
 
 One-to-Many (1:N) Relationship:
 
@@ -186,7 +186,7 @@ One-to-Many (1:N) Relationship:
   )
   ```
 
-  In this example, each employee belongs to one department, but a department can have multiple employees. The *DepartmentID* column in the *Employees* table establishes a one-to-many relationship with the *Departments* table.
+  In this example, each employee belongs to one department, but a department can have multiple employees. The `DepartmentID` column in the `Employees` table establishes a one-to-many relationship with the `Departments` table.
 
 Many-to-Many (N:M) Relationship:
 
@@ -214,7 +214,7 @@ Many-to-Many (N:M) Relationship:
   )
   ```
 
-  In this example, multiple students can be enrolled in multiple courses. The *Enrollment* table acts as a bridge between the *Students* and *Courses* tables, establishing a many-to-many relationship.
+  In this example, multiple students can be enrolled in multiple courses. The `Enrollment` table acts as a bridge between the `Students` and `Courses` tables, establishing a many-to-many relationship.
 
 These relationships help establish data integrity, improve data organization, and enable efficient data retrieval through join operations. The choice of relationship type depends on the nature of the data and the business requirements of the database design.
 
@@ -236,12 +236,12 @@ In SQL, a trigger is a database object that is associated with a table and autom
 
 Here are the types of triggers commonly used:
 
-- **Before Triggers** (or Before Insert/Update/Delete Triggers): These triggers are executed before the corresponding *INSERT*, *UPDATE*, or *DELETE* operation occurs on a table.
+- **Before Triggers** (or Before Insert/Update/Delete Triggers): These triggers are executed before the corresponding `INSERT`, `UPDATE`, or `DELETE` operation occurs on a table.
 They can be used to validate or modify the incoming data or perform certain actions before the operation takes place.
-- **After Triggers** (or After Insert/Update/Delete Triggers): These triggers are executed after the corresponding *INSERT*, *UPDATE*, or *DELETE* operation is completed on a table. They can be used to perform additional tasks, such as logging changes, updating related tables, or triggering other actions.
-- **Instead of Triggers**: Instead of triggers are commonly used with views. When an *INSERT*, *UPDATE*, or *DELETE* operation is performed on a view, instead of triggers are fired instead of the default behavior. They allow for custom logic and handling of the operations performed on the view.
+- **After Triggers** (or After Insert/Update/Delete Triggers): These triggers are executed after the corresponding `INSERT`, `UPDATE`, or `DELETE` operation is completed on a table. They can be used to perform additional tasks, such as logging changes, updating related tables, or triggering other actions.
+- **Instead of Triggers**: Instead of triggers are commonly used with views. When an `INSERT`, `UPDATE`, or `DELETE` operation is performed on a view, instead of triggers are fired instead of the default behavior. They allow for custom logic and handling of the operations performed on the view.
 
-Triggers can be defined using SQL statements and are associated with specific events, such as *INSERT*, *UPDATE*, or *DELETE* operations. They are powerful tools for automating database actions and enforcing business rules.
+Triggers can be defined using SQL statements and are associated with specific events, such as `INSERT`, `UPDATE`, or `DELETE` operations. They are powerful tools for automating database actions and enforcing business rules.
 
 ### What is a View?
 
@@ -259,13 +259,13 @@ Views are widely used in SQL for various purposes, including data security, data
 
 ### What is the difference between Having clause and Where clause?
 
-The *HAVING* clause and *WHERE* clause are both used in SQL queries to filter and conditionally retrieve data from a table. However, there are key differences between the two:
+The `HAVING` clause and `WHERE` clause are both used in SQL queries to filter and conditionally retrieve data from a table. However, there are key differences between the two:
 
-*WHERE* clause:
+`WHERE` clause:
 
-- The *WHERE* clause is used in the *SELECT*, *UPDATE*, *DELETE*, or *INSERT* statements to filter rows based on specific conditions.
+- The `WHERE` clause is used in the `SELECT`, `UPDATE`, `DELETE`, or `INSERT` statements to filter rows based on specific conditions.
 - It is applied before the grouping and aggregation operations (if any) in the query.
-- The *WHERE* clause filters individual rows based on column values and is used with comparison operators (e.g., =, >, <) or logical operators (e.g., AND, OR).
+- The `WHERE` clause filters individual rows based on column values and is used with comparison operators (e.g., =, >, <) or logical operators (e.g., AND, OR).
 - It is primarily used to filter rows based on specific criteria before retrieving them from the table.
 - For example:
 
@@ -274,13 +274,13 @@ The *HAVING* clause and *WHERE* clause are both used in SQL queries to filter an
   WHERE Salary > 50000;
   ```
 
-  In this example, the *WHERE* clause filters the *Employees* table and selects only the rows where the *Salary* is greater than 50000.
+  In this example, the `WHERE` clause filters the `Employees` table and selects only the rows where the `Salary` is greater than 50000.
 
-*HAVING* clause:
+`HAVING` clause:
 
-- The *HAVING* clause is used specifically with the *GROUP BY* clause in SELECT statements to filter grouped data based on conditions.
+- The `HAVING` clause is used specifically with the `GROUP BY` clause in SELECT statements to filter grouped data based on conditions.
 - It is applied after the grouping and aggregation operations.
-- The *HAVING* clause filters groups of rows based on aggregate function results, such as *SUM*, *AVG*, *COUNT*, etc.
+- The `HAVING` clause filters groups of rows based on aggregate function results, such as `SUM`, `AVG`, `COUNT`, etc.
 - It is primarily used to filter the results of aggregate functions for grouped data.
 - For example:
 
@@ -291,9 +291,9 @@ The *HAVING* clause and *WHERE* clause are both used in SQL queries to filter an
   HAVING AVG(Salary) > 50000;
   ```
 
-  In this example, the *HAVING* clause filters the grouped data and selects only the groups (departments) where the average salary is greater than 50000.
+  In this example, the `HAVING` clause filters the grouped data and selects only the groups (departments) where the average salary is greater than 50000.
 
-In summary, the *WHERE* clause is used to filter individual rows based on conditions before grouping, while the *HAVING* clause is used to filter groups of rows based on aggregate function results after grouping.
+In summary, the `WHERE` clause is used to filter individual rows based on conditions before grouping, while the `HAVING` clause is used to filter groups of rows based on aggregate function results after grouping.
 
 ### What is Subquery or Nested query or Inner query in SQL?
 
@@ -302,8 +302,8 @@ A subquery, also known as a nested query or inner query, is a query nested withi
 Here are some key points about subqueries:
 
 - **Purpose**: Subqueries are used to retrieve data based on a condition or criteria derived from another query. The inner query is executed first to generate a result set, which is then used by the outer query to perform additional operations.
-- **Syntax**: Subqueries can be placed in different parts of a query, such as the *SELECT*, *FROM*, *WHERE*, or *HAVING* clauses. The specific syntax and placement depend on the intended purpose and logic of the subquery.
-- **Relationship with Outer Query**: The subquery is typically used as a condition or filter within the outer query. It can be compared with a single value or a result set, and it can also be used with operators like *IN*, *ANY*, *ALL*, *EXISTS*, etc.
+- **Syntax**: Subqueries can be placed in different parts of a query, such as the `SELECT`, `FROM`, `WHERE`, or `HAVING` clauses. The specific syntax and placement depend on the intended purpose and logic of the subquery.
+- **Relationship with Outer Query**: The subquery is typically used as a condition or filter within the outer query. It can be compared with a single value or a result set, and it can also be used with operators like `IN`, `ANY`, `ALL`, `EXISTS`, etc.
 - **Limitations**: Subqueries can impact performance if not properly optimized. They can also introduce complexity, especially when dealing with large datasets or multiple levels of nesting. It's important to consider the efficiency and readability of the query when using subqueries.
 
 Subqueries provide a powerful tool for performing complex queries by breaking them down into smaller, more manageable parts. They enable you to write queries that leverage the results of other queries, allowing for more dynamic and flexible data retrieval and manipulation.
@@ -312,9 +312,9 @@ Subqueries provide a powerful tool for performing complex queries by breaking th
 
 Subqueries, also known as nested queries or inner queries, are queries that are embedded within another query. They are used to retrieve data based on conditions or criteria derived from another query. Subqueries can be categorized into several types based on their usage and placement within a query. Here are the common types of subqueries:
 
-- **Scalar Subquery**: A scalar subquery is a subquery that returns a single value, such as a single column or an aggregated result. It is typically used within a *SELECT* statement or as an expression in a WHERE or *HAVING* clause.
-- **Single-Row Subquery**: A single-row subquery is a subquery that returns a single row of data. It is used in situations where you need to retrieve data from one table based on a condition derived from another table. The subquery is usually placed within a comparison operator, such as *=*, *>*, or *IN*.
-- **Multiple-Row Subquery**: A multiple-row subquery is a subquery that returns multiple rows of data. It is used when you need to retrieve a set of rows from one table based on a condition derived from another table. The subquery is typically used with the *IN* or *EXISTS* operator.
+- **Scalar Subquery**: A scalar subquery is a subquery that returns a single value, such as a single column or an aggregated result. It is typically used within a `SELECT` statement or as an expression in a WHERE or `HAVING` clause.
+- **Single-Row Subquery**: A single-row subquery is a subquery that returns a single row of data. It is used in situations where you need to retrieve data from one table based on a condition derived from another table. The subquery is usually placed within a comparison operator, such as `=`, `>`, or `IN`.
+- **Multiple-Row Subquery**: A multiple-row subquery is a subquery that returns multiple rows of data. It is used when you need to retrieve a set of rows from one table based on a condition derived from another table. The subquery is typically used with the `IN` or `EXISTS` operator.
 - **Correlated Subquery**: A correlated subquery is a subquery that refers to a column from the outer query. It is used when you need to perform a calculation or filter based on data from the outer query. The subquery is executed for each row of the outer query, making it less efficient but more flexible.
 - **Nested Subquery**: A nested subquery is a subquery that contains another subquery. It is used when you need to perform multiple levels of nesting to retrieve the desired data. Each level of nesting can refer to the results of the previous level.
 
@@ -325,11 +325,11 @@ These subquery types provide flexibility and enable complex data retrieval and m
 In SQL Server, an auto-increment column, also known as an identity column, is a column that automatically generates a unique numeric value for each new row inserted into a table. It provides a convenient way to assign a unique identifier to each record without requiring manual intervention. Here are some key points about auto-increment/identity columns:
 
 - **Purpose**: The auto-increment/identity column is primarily used as a surrogate key, which is a unique identifier for each row in a table. It simplifies the management of primary keys by automatically generating a unique value for each new record.
-- **Data Type**: The data type of an auto-increment/identity column is typically *INTEGER*, *BIGINT*, or a similar numeric type. The values generated are usually sequential integers starting from a defined seed value and incrementing by a specified increment value.
-- **Property Definition**: To designate a column as an auto-increment/identity column, you need to define it with the *IDENTITY* property. This property ensures that the column value is automatically generated by the database engine.
+- **Data Type**: The data type of an auto-increment/identity column is typically `INTEGER`, `BIGINT`, or a similar numeric type. The values generated are usually sequential integers starting from a defined seed value and incrementing by a specified increment value.
+- **Property Definition**: To designate a column as an auto-increment/identity column, you need to define it with the `IDENTITY` property. This property ensures that the column value is automatically generated by the database engine.
 - **Uniqueness and Order**: Each value generated by the auto-increment/identity column is unique within the table. However, the order of generated values may not necessarily reflect the order of insertions or updates.
 - **Use in Primary Key**: Auto-increment/identity columns are commonly used as the primary key of a table, providing a unique identifier for each record.
-- **Retrieving Generated Values**: After inserting a new row with an auto-increment/identity column, you can retrieve the generated value using the *SCOPE_IDENTITY()* or the *OUTPUT* clause.
+- **Retrieving Generated Values**: After inserting a new row with an auto-increment/identity column, you can retrieve the generated value using the `SCOPE_IDENTITY()` or the `OUTPUT` clause.
 
 Auto-increment/identity columns offer a convenient way to generate unique identifiers for records in a table without manual intervention. They simplify primary key management and ensure data integrity by providing a unique and automatically generated value for each new row.
 
@@ -534,7 +534,7 @@ FROM Employees e
 JOIN Employees m ON e.ManagerID = m.EmployeeID;
 ```
 
-In this example, the *Employees* table is joined with itself using the aliases "e" and "m". The join condition specifies that the *ManagerID* of an employee should match the *EmployeeID* of the corresponding manager. This allows us to retrieve the names of employees along with the names of their respective managers.
+In this example, the `Employees` table is joined with itself using the aliases "e" and "m". The join condition specifies that the `ManagerID` of an employee should match the `EmployeeID` of the corresponding manager. This allows us to retrieve the names of employees along with the names of their respective managers.
 
 Self-joins can be useful in scenarios where a hierarchical relationship exists within a single table, such as an employee reporting structure or a parent-child relationship. By leveraging self-joins, you can query and retrieve data that involves comparisons or relationships within the same table.
 
@@ -544,7 +544,7 @@ A cross join, also known as a Cartesian join, is a type of join operation in SQL
 
 Here's an example to illustrate a cross join:
 
-Let's consider two tables: *TableA* and *TableB*.
+Let's consider two tables: `TableA` and `TableB`.
 
 TableA:
 
@@ -565,7 +565,7 @@ B
 C
 ```
 
-When we perform a cross join between *TableA* and *TableB*, the result will contain all possible combinations of rows from both tables:
+When we perform a cross join between `TableA` and `TableB`, the result will contain all possible combinations of rows from both tables:
 
 Result:
 
@@ -580,7 +580,7 @@ ColA  ColB
 2     C
 ```
 
-As shown in the result, each row from *TableA* is paired with every row from *TableB*, resulting in a total of 6 rows (2 rows from *TableA* multiplied by 3 rows from *TableB*).
+As shown in the result, each row from `TableA` is paired with every row from `TableB`, resulting in a total of 6 rows (2 rows from `TableA` multiplied by 3 rows from `TableB`).
 
 Cross joins are typically used when there is a need to generate all possible combinations between two tables, but they can result in a large number of output rows, especially when the tables involved have many rows. Therefore, it's important to use cross joins judiciously and consider the potential impact on performance and the intended result set.
 
@@ -659,7 +659,7 @@ In summary, the main difference between clustered and non-clustered indexes is t
 
 ### How to create Clustered and Non-Clustered index in a table?
 
-To create a clustered or non-clustered index in a table, you can use the *CREATE INDEX* statement in SQL. Here's an overview of how to create each type of index:
+To create a clustered or non-clustered index in a table, you can use the `CREATE INDEX` statement in SQL. Here's an overview of how to create each type of index:
 
 Creating a Clustered Index:
 
@@ -722,19 +722,19 @@ The main differences between stored procedures and functions in SQL are:
   - **Stored Procedure**: Stored procedures are mainly used to perform actions or operations on the database. They can contain a series of SQL statements and other programming logic.
   - **Function**: Functions are designed to return a single value or a table result. They are used to perform calculations, transformations, or lookups and can be called within SQL statements.
 - **Return Value**:
-  - **Stored Procedure**: Stored procedures do not necessarily return a value. They can perform actions, modify data, or generate output using *OUTPUT* parameters.
+  - **Stored Procedure**: Stored procedures do not necessarily return a value. They can perform actions, modify data, or generate output using `OUTPUT` parameters.
   - **Function**: Functions must return a value. They can return a scalar value, a table result, or a table variable.
 - **Usage in Queries**:
   - **Stored Procedure**: Stored procedures are not directly used within queries. They are executed as standalone units and can be called from other procedures or applications.
-  - **Function**: Functions can be used within queries like any other column or value. They can be part of the *SELECT* statement, used in conditions, or joined with other tables.
+  - **Function**: Functions can be used within queries like any other column or value. They can be part of the `SELECT` statement, used in conditions, or joined with other tables.
 - **Transaction Handling**:
   - **Stored Procedure**: Stored procedures can be part of a transaction. They can be used to perform multiple database operations as a single unit, allowing for atomicity and consistency.
   - **Function**: Functions cannot start or manage transactions. They are meant to be deterministic and should not modify data.
 - **Error Handling**:
-  - **Stored Procedure**: Stored procedures can have error handling mechanisms using *TRY...CATCH* blocks to catch and handle exceptions.
-  - **Function**: Functions do not support *TRY...CATCH* blocks. They rely on error handling at the caller's level.
+  - **Stored Procedure**: Stored procedures can have error handling mechanisms using `TRY...CATCH` blocks to catch and handle exceptions.
+  - **Function**: Functions do not support `TRY...CATCH` blocks. They rely on error handling at the caller's level.
 - **Execution**:
-  - **Stored Procedure**: Stored procedures are executed using the *EXECUTE* or *EXEC* statement.
+  - **Stored Procedure**: Stored procedures are executed using the `EXECUTE` or `EXEC` statement.
   - **Function**: Functions are typically used within SQL statements directly.
 
 It's important to choose between stored procedures and functions based on their intended purpose and the specific requirements of your application. Stored procedures are more suitable for performing complex operations and actions, while functions are useful for calculations and returning values.
@@ -743,13 +743,13 @@ It's important to choose between stored procedures and functions based on their 
 
 To optimize a stored procedure or SQL query in SQL Server, you can follow these specific strategies:
 
-- **Use Indexes**: Ensure that the relevant tables have appropriate indexes on the columns used in the query's *WHERE* clause, *JOIN* conditions, and *ORDER BY* clause. Analyze the execution plan to identify missing indexes and create them accordingly.
-- **Update Statistics**: Regularly update statistics on tables and indexes to provide the query optimizer with accurate information about data distribution. You can use the *UPDATE STATISTICS* command or enable the automatic update of statistics.
+- **Use Indexes**: Ensure that the relevant tables have appropriate indexes on the columns used in the query's `WHERE` clause, `JOIN` conditions, and `ORDER BY` clause. Analyze the execution plan to identify missing indexes and create them accordingly.
+- **Update Statistics**: Regularly update statistics on tables and indexes to provide the query optimizer with accurate information about data distribution. You can use the `UPDATE STATISTICS` command or enable the automatic update of statistics.
 - **Avoid Cursors**: Whenever possible, avoid using cursors as they can have a negative impact on performance. Instead, consider using set-based operations or alternative techniques like temporary tables or table variables.
-- **Optimize JOIN Operations**: Ensure that *JOIN* operations are properly optimized. Use appropriate *JOIN* types (e.g., *INNER JOIN*, *LEFT JOIN*) based on the relationship between tables. Consider breaking down complex JOINs into smaller steps or using derived tables or common table expressions (CTEs) to simplify and optimize the query.
-- **Minimize Data Transfer**: Only select the columns needed for the query result. Avoid using *SELECT* and retrieve only the necessary data. This reduces network traffic and improves query performance.
-- **Use Query Hints**: Apply query hints, such as *OPTION (RECOMPILE)* or *OPTION (HASH JOIN)*, to guide the query optimizer's behavior and enforce specific execution plans. However, use query hints with caution and only when necessary.
-- **Review and Rewrite Queries**: Analyze the query execution plan and identify any costly or inefficient operations. Consider rewriting the queries to use optimized approaches like subqueries, *EXISTS/NOT EXISTS*, or *APPLY* operators instead of inefficient operations like correlated subqueries or scalar functions.
+- **Optimize JOIN Operations**: Ensure that `JOIN` operations are properly optimized. Use appropriate `JOIN` types (e.g., `INNER JOIN`, `LEFT JOIN`) based on the relationship between tables. Consider breaking down complex JOINs into smaller steps or using derived tables or common table expressions (CTEs) to simplify and optimize the query.
+- **Minimize Data Transfer**: Only select the columns needed for the query result. Avoid using `SELECT` and retrieve only the necessary data. This reduces network traffic and improves query performance.
+- **Use Query Hints**: Apply query hints, such as `OPTION (RECOMPILE)` or `OPTION (HASH JOIN)`, to guide the query optimizer's behavior and enforce specific execution plans. However, use query hints with caution and only when necessary.
+- **Review and Rewrite Queries**: Analyze the query execution plan and identify any costly or inefficient operations. Consider rewriting the queries to use optimized approaches like subqueries, `EXISTS/NOT EXISTS`, or `APPLY` operators instead of inefficient operations like correlated subqueries or scalar functions.
 - **Consider Partitioning**: If dealing with large tables, consider partitioning them based on specific criteria to improve query performance. Partitioning allows the database engine to scan only relevant partitions, reducing the amount of data accessed.
 - **Manage Transactions**: Optimize transaction management by keeping transactions as short as possible and minimizing the use of explicit transactions where not required. Use appropriate isolation levels to balance transaction concurrency and data consistency.
 - **Regular Database Maintenance**: Perform routine maintenance tasks like index defragmentation, updating statistics, and managing database file sizes to keep the database in optimal condition.
@@ -774,20 +774,20 @@ However, there may be specific cases where cursors are necessary, such as when p
 
 ### What is the difference between SCOPE_IDENTITY and @@IDENTITY?
 
-In SQL Server, both *SCOPE_IDENTITY()* and *@@IDENTITY* are used to retrieve the last identity value generated within a specific scope. However, there are some differences between them:
+In SQL Server, both `SCOPE_IDENTITY()` and `@@IDENTITY` are used to retrieve the last identity value generated within a specific scope. However, there are some differences between them:
 
-- *SCOPE_IDENTITY()*: This function returns the last identity value generated in the current scope, which means it only considers the identity value generated within the current session and current scope. It is typically used within triggers, stored procedures, or functions to obtain the identity value of the recently inserted row in the same scope.
-- *@@IDENTITY*: This system function returns the last identity value generated, regardless of the scope. It retrieves the most recent identity value generated within the current session, even if it was generated by a different scope or by a trigger. It can be used in a broader context to get the identity value regardless of the scope.
+- `SCOPE_IDENTITY()`: This function returns the last identity value generated in the current scope, which means it only considers the identity value generated within the current session and current scope. It is typically used within triggers, stored procedures, or functions to obtain the identity value of the recently inserted row in the same scope.
+- `@@IDENTITY`: This system function returns the last identity value generated, regardless of the scope. It retrieves the most recent identity value generated within the current session, even if it was generated by a different scope or by a trigger. It can be used in a broader context to get the identity value regardless of the scope.
 
 Here's a summary of the differences between the two:
 
-- *SCOPE_IDENTITY()* returns the last identity value generated within the current scope, considering only the current session.
-- *@@IDENTITY* returns the last identity value generated within the current session, regardless of the scope.
-- *SCOPE_IDENTITY()* is preferred over *@@IDENTITY* in most cases because it ensures you get the identity value within the intended scope, avoiding any potential interference from triggers or other concurrent sessions.
-- If a trigger or another session inserts a row that generates an identity value before your query, *@@IDENTITY* may return an incorrect value.
-- It is recommended to use *SCOPE_IDENTITY()* when you specifically need the identity value of the recently inserted row within the same scope.
+- `SCOPE_IDENTITY()` returns the last identity value generated within the current scope, considering only the current session.
+- `@@IDENTITY` returns the last identity value generated within the current session, regardless of the scope.
+- `SCOPE_IDENTITY()` is preferred over `@@IDENTITY` in most cases because it ensures you get the identity value within the intended scope, avoiding any potential interference from triggers or other concurrent sessions.
+- If a trigger or another session inserts a row that generates an identity value before your query, `@@IDENTITY` may return an incorrect value.
+- It is recommended to use `SCOPE_IDENTITY()` when you specifically need the identity value of the recently inserted row within the same scope.
 
-In general, it is safer to use *SCOPE_IDENTITY()* to retrieve the most accurate identity value in most scenarios, especially when dealing with concurrent database operations or triggers that may affect the identity value.
+In general, it is safer to use `SCOPE_IDENTITY()` to retrieve the most accurate identity value in most scenarios, especially when dealing with concurrent database operations or triggers that may affect the identity value.
 
 ### What is CTE in SQL Server?
 
@@ -832,15 +832,15 @@ FROM
     JOIN SalesData AS sd ON c.CustomerID = sd.CustomerID
 ```
 
-In this example, the CTE named *SalesData* retrieves sales data from the *Sales* table based on a specified date range. The main query then joins the CTE with the *Customers* table to fetch customer-specific sales information.
+In this example, the CTE named `SalesData` retrieves sales data from the `Sales` table based on a specified date range. The main query then joins the CTE with the `Customers` table to fetch customer-specific sales information.
 
 CTEs provide a powerful and flexible way to simplify complex queries and improve code maintainability in SQL Server.
 
 ### What is the difference between Delete, Truncate and Drop commands?
 
-The *Delete*, *Truncate*, and *Drop* commands are all used in SQL for different purposes:
+The `Delete`, `Truncate`, and `Drop` commands are all used in SQL for different purposes:
 
-- **DELETE**: The *DELETE* command is used to remove one or more rows from a table based on a specified condition. It allows for selective deletion of data while preserving the structure of the table. The *DELETE* command is typically used with a *WHERE* clause to specify the condition for deleting specific rows.
+- **DELETE**: The `DELETE` command is used to remove one or more rows from a table based on a specified condition. It allows for selective deletion of data while preserving the structure of the table. The `DELETE` command is typically used with a `WHERE` clause to specify the condition for deleting specific rows.
 
   Example:
 
@@ -848,9 +848,9 @@ The *Delete*, *Truncate*, and *Drop* commands are all used in SQL for different 
   DELETE FROM Employees WHERE Salary < 50000;
   ```
 
-  This example deletes all rows from the *Employees* table where the salary is less than 50,000.
+  This example deletes all rows from the `Employees` table where the salary is less than 50,000.
 
-- **TRUNCATE**: The *TRUNCATE* command is used to remove all rows from a table, effectively deleting all the data. Unlike the *DELETE* command, which removes individual rows, *TRUNCATE* removes all rows in a more efficient way by deallocating the data pages associated with the table. However, it does not provide the option to specify a condition or retrieve the deleted data. The structure of the table remains intact.
+- **TRUNCATE**: The `TRUNCATE` command is used to remove all rows from a table, effectively deleting all the data. Unlike the `DELETE` command, which removes individual rows, `TRUNCATE` removes all rows in a more efficient way by deallocating the data pages associated with the table. However, it does not provide the option to specify a condition or retrieve the deleted data. The structure of the table remains intact.
 
   Example:
 
@@ -858,9 +858,9 @@ The *Delete*, *Truncate*, and *Drop* commands are all used in SQL for different 
   TRUNCATE TABLE Employees;
   ```
 
-  This example removes all rows from the *Employees* table, leaving the table structure intact.
+  This example removes all rows from the `Employees` table, leaving the table structure intact.
 
-- **DROP**: The *DROP* command is used to remove an entire database object, such as a table, view, index, or stored procedure, from the database. It permanently removes the object and its associated data from the database. Unlike *DELETE* and *TRUNCATE*, which operate on rows within a table, *DROP* operates on the entire object itself.
+- **DROP**: The `DROP` command is used to remove an entire database object, such as a table, view, index, or stored procedure, from the database. It permanently removes the object and its associated data from the database. Unlike `DELETE` and `TRUNCATE`, which operate on rows within a table, `DROP` operates on the entire object itself.
 
   Example:
 
@@ -868,13 +868,13 @@ The *Delete*, *Truncate*, and *Drop* commands are all used in SQL for different 
   DROP TABLE Employees;
   ```
 
-  This example drops the *Employees* table from the database, removing it entirely.
+  This example drops the `Employees` table from the database, removing it entirely.
 
 In summary, the key differences between these commands are:
 
-- *DELETE* is used to remove specific rows based on a condition.
-- *TRUNCATE* is used to remove all rows from a table, but the table structure remains intact.
-- *DROP* is used to remove an entire database object, including the table and its structure.
+- `DELETE` is used to remove specific rows based on a condition.
+- `TRUNCATE` is used to remove all rows from a table, but the table structure remains intact.
+- `DROP` is used to remove an entire database object, including the table and its structure.
 
 > It's important to note that all these commands permanently delete data and should be used with caution, taking proper backups and considering their impact on the database.
 
@@ -905,26 +905,26 @@ ORDER BY Salary DESC
 OFFSET N-1 ROWS FETCH NEXT 1 ROW ONLY; -- replace N with the desired rank of the salary you want to retrieve
 ```
 
-This query sorts the *Salary* column in descending order using the *ORDER BY* clause. The *OFFSET N-1 ROWS* skips the first *N-1* rows in the sorted result, and the *FETCH NEXT 1 ROW ONLY* limits the result to a single row, which is the Nth highest salary.
+This query sorts the `Salary` column in descending order using the `ORDER BY` clause. The `OFFSET N-1 ROWS` skips the first `N-1` rows in the sorted result, and the `FETCH NEXT 1 ROW ONLY` limits the result to a single row, which is the Nth highest salary.
 
 > Note: The syntax for limiting the number of rows may vary depending on the database system you are using. The above example is based on the SQL Server syntax.
 
 ### How can you create an empty table from an existing table?
 
-To create an empty table from an existing table structure, you can use the *CREATE TABLE* statement with the *LIKE* clause. Here's an example:
+To create an empty table from an existing table structure, you can use the `CREATE TABLE` statement with the `LIKE` clause. Here's an example:
 
 ```sql
 CREATE TABLE NewTable
 LIKE ExistingTable;
 ```
 
-The *LIKE* clause allows you to copy the structure of the existing table to the new table, including column names, data types, constraints, and indexes. However, the new table will not have any data.
+The `LIKE` clause allows you to copy the structure of the existing table to the new table, including column names, data types, constraints, and indexes. However, the new table will not have any data.
 
-Once you execute this query, the new table *NewTable* will be created with the same structure as the existing table *ExistingTable*. You can then use the new table for further data operations and modifications.
+Once you execute this query, the new table `NewTable` will be created with the same structure as the existing table `ExistingTable`. You can then use the new table for further data operations and modifications.
 
 ### How to fetch common records from two tables?
 
-To fetch common records from two tables, you can use the *INNER JOIN* clause in SQL. Here's an example:
+To fetch common records from two tables, you can use the `INNER JOIN` clause in SQL. Here's an example:
 
 ```sql
 SELECT *
@@ -932,9 +932,9 @@ FROM Table1
 INNER JOIN Table2 ON Table1.CommonColumn = Table2.CommonColumn;
 ```
 
-The *INNER JOIN* clause combines rows from both tables where the values in the common column match. Only the matching records will be returned in the result set. You can customize the columns you want to retrieve by specifying them explicitly instead of using * to select all columns.
+The `INNER JOIN` clause combines rows from both tables where the values in the common column match. Only the matching records will be returned in the result set. You can customize the columns you want to retrieve by specifying them explicitly instead of using `*` to select all columns.
 
-> Note: For the *INNER JOIN* to work correctly, the common column should have the same data type and hold matching values in both tables.
+> Note: For the `INNER JOIN` to work correctly, the common column should have the same data type and hold matching values in both tables.
 
 ### How to fetch alternate records from a table?
 
@@ -949,7 +949,7 @@ FROM (
 WHERE RowNumber % 2 = 0;
 ```
 
-The *ROW_NUMBER()* function assigns a unique number to each row in the subquery result set based on the specified ordering. The outer query selects only the rows where the *RowNumber* is even (*RowNumber % 2 = 0*), effectively fetching alternate records.
+The `ROW_NUMBER()` function assigns a unique number to each row in the subquery result set based on the specified ordering. The outer query selects only the rows where the `RowNumber` is even (`RowNumber % 2 = 0`), effectively fetching alternate records.
 
 > Note that the concept of "alternating" records may depend on the specific ordering of the column used. Adjust the ordering as needed to achieve the desired result.
 
@@ -964,9 +964,9 @@ SELECT DISTINCT column1, column2, ...
 FROM YourTable;
 ```
 
-The *DISTINCT* keyword eliminates duplicate rows from the result set, returning only the unique records based on the specified columns. It compares the values in the specified columns and returns only the distinct combinations.
+The `DISTINCT` keyword eliminates duplicate rows from the result set, returning only the unique records based on the specified columns. It compares the values in the specified columns and returns only the distinct combinations.
 
-> Note that the *DISTINCT* keyword applies to all the selected columns collectively. If you specify multiple columns, it considers the combination of values in those columns to determine uniqueness.
+> Note that the `DISTINCT` keyword applies to all the selected columns collectively. If you specify multiple columns, it considers the combination of values in those columns to determine uniqueness.
 
 This query will retrieve the unique records from the specified columns in the table, ensuring that each combination of values appears only once in the result set.
 
@@ -979,17 +979,17 @@ SELECT SUBSTRING(column, 1, 5) AS FirstFiveCharacters
 FROM YourTable;
 ```
 
-The *SUBSTRING* function takes three arguments: the column or expression from which you want to extract the substring, the starting position of the substring (in this case, 1), and the length of the substring (in this case, 5). The function returns the substring of the specified length starting from the specified position.
+The `SUBSTRING` function takes three arguments: the column or expression from which you want to extract the substring, the starting position of the substring (in this case, 1), and the length of the substring (in this case, 5). The function returns the substring of the specified length starting from the specified position.
 
-The result of the query will be a new column named *FirstFiveCharacters* that contains the first 5 characters of each string value in the specified column.
+The result of the query will be a new column named `FirstFiveCharacters` that contains the first 5 characters of each string value in the specified column.
 
 ### What are all types of user defined functions?
 
 In SQL, there are three types of user-defined functions (UDFs):
 
-- **Scalar Functions**: Scalar functions return a single value based on the input parameters. They can be used in *SELECT*, *WHERE*, and other clauses to perform calculations or manipulate data. Examples of scalar functions include string manipulation functions (e.g., *LEN*, *LEFT*, *RIGHT*), mathematical functions (e.g., *ABS*, *ROUND*), and date/time functions (e.g., *GETDATE*, *DATEADD*).
-- **Table-Valued Functions (TVFs)**: TVFs return a table as the result. They can be used in the FROM clause or *JOIN* operations to produce a table-like output that can be further manipulated. TVFs can be of two types: Inline Table-Valued Functions (ITVFs) and Multi-Statement Table-Valued Functions (MTVFs). ITVFs are defined using a single *SELECT* statement, while MTVFs are defined using *BEGIN...END* block and can contain multiple statements.
-- **Aggregate Functions**: Aggregate functions perform calculations on a set of values and return a single result. They are used in conjunction with the *GROUP BY* clause to perform calculations on groups of data. Common aggregate functions include *SUM*, *COUNT*, *AVG*, *MAX*, and *MIN*.
+- **Scalar Functions**: Scalar functions return a single value based on the input parameters. They can be used in `SELECT`, `WHERE`, and other clauses to perform calculations or manipulate data. Examples of scalar functions include string manipulation functions (e.g., `LEN`, `LEFT`, `RIGHT`), mathematical functions (e.g., `ABS`, `ROUND`), and date/time functions (e.g., `GETDATE`, `DATEADD`).
+- **Table-Valued Functions (TVFs)**: TVFs return a table as the result. They can be used in the FROM clause or `JOIN` operations to produce a table-like output that can be further manipulated. TVFs can be of two types: Inline Table-Valued Functions (ITVFs) and Multi-Statement Table-Valued Functions (MTVFs). ITVFs are defined using a single `SELECT` statement, while MTVFs are defined using `BEGIN...END` block and can contain multiple statements.
+- **Aggregate Functions**: Aggregate functions perform calculations on a set of values and return a single result. They are used in conjunction with the `GROUP BY` clause to perform calculations on groups of data. Common aggregate functions include `SUM`, `COUNT`, `AVG`, `MAX`, and `MIN`.
 
 By using these types of user-defined functions, you can encapsulate frequently used calculations, data manipulations, or complex operations, and reuse them across queries or within other functions.
 
@@ -997,7 +997,7 @@ By using these types of user-defined functions, you can encapsulate frequently u
 
 In SQL, aggregate functions and scalar functions are two different types of functions used for data manipulation and calculations:
 
-**Aggregate Functions**: Aggregate functions operate on a set of values and return a single value as the result. They are typically used in conjunction with the *GROUP BY* clause to perform calculations on groups of data. Common aggregate functions include:
+**Aggregate Functions**: Aggregate functions operate on a set of values and return a single value as the result. They are typically used in conjunction with the `GROUP BY` clause to perform calculations on groups of data. Common aggregate functions include:
 
 - **SUM**: Calculates the sum of a set of values.
 - **COUNT**: Counts the number of values in a set.
@@ -1007,11 +1007,11 @@ In SQL, aggregate functions and scalar functions are two different types of func
 
 > Aggregate functions are useful for obtaining summary information about data, such as total sales, average salary, or highest/lowest values within a group.
 
-**Scalar Functions**: Scalar functions operate on a single value or a set of input parameters and return a single value as the result. They are used for calculations, data manipulation, and transformation at the row level. Scalar functions can be used in *SELECT*, *WHERE*, and other clauses to perform various operations. Examples of scalar functions include:
+**Scalar Functions**: Scalar functions operate on a single value or a set of input parameters and return a single value as the result. They are used for calculations, data manipulation, and transformation at the row level. Scalar functions can be used in `SELECT`, `WHERE`, and other clauses to perform various operations. Examples of scalar functions include:
 
-- **String functions**: *LEN*, *LEFT*, *RIGHT*, *CONCAT*, etc.
-- **Mathematical functions**: *ABS*, *ROUND*, *CEILING*, etc.
-- **Date and time functions**: *GETDATE*, *DATEADD*, *DATEDIFF*, etc.
+- **String functions**: `LEN`, `LEFT`, `RIGHT`, `CONCAT`, etc.
+- **Mathematical functions**: `ABS`, `ROUND`, `CEILING`, etc.
+- **Date and time functions**: `GETDATE`, `DATEADD`, `DATEDIFF`, etc.
 
 > Scalar functions are applied to individual rows of a table or result set, performing calculations or manipulations on a per-row basis.
 
@@ -1019,9 +1019,9 @@ Both aggregate functions and scalar functions are essential in SQL for performin
 
 ### Which operator is used in query for pattern matching?
 
-In SQL, the operator used for pattern matching is the *LIKE* operator. The *LIKE* operator is used to match a specific pattern within a string column value. It is commonly used in the *WHERE* clause of a query to filter rows based on specific patterns.
+In SQL, the operator used for pattern matching is the `LIKE` operator. The `LIKE` operator is used to match a specific pattern within a string column value. It is commonly used in the `WHERE` clause of a query to filter rows based on specific patterns.
 
-The *LIKE* operator allows for the use of wildcard characters to represent unknown or variable parts of the pattern. The two wildcard characters commonly used are:
+The `LIKE` operator allows for the use of wildcard characters to represent unknown or variable parts of the pattern. The two wildcard characters commonly used are:
 
 - "%" (percent sign): Represents any sequence of characters (zero or more characters).
 - "_" (underscore): Represents a single character.

@@ -826,14 +826,14 @@ Designing a caching mechanism in a .NET application can significantly improve pe
 
 - **In-Memory Caching**:
   - In-memory caching stores frequently accessed data directly in the application's memory.
-  - .NET provides built-in support for in-memory caching with the *MemoryCache* class.
+  - .NET provides built-in support for in-memory caching with the `MemoryCache` class.
   - In-memory caching is fast, suitable for small to medium-sized data sets, and can be easily implemented using key-value pairs.
   - However, in-memory caching is limited to a single instance of the application and doesn't provide data persistence.
 - **Distributed Caching with Redis**:
   - Redis is a popular open-source, in-memory data store that can be used as a distributed caching solution.
   - Redis provides advanced features like data persistence, clustering, and support for various data structures.
   - It allows you to distribute the cache across multiple nodes, enabling scalability and fault tolerance.
-  - The *StackExchange.Redis* library is commonly used in .NET applications to interact with Redis.
+  - The `StackExchange.Redis` library is commonly used in .NET applications to interact with Redis.
 - **Cache Invalidation and Expiration**:
   - Cache invalidation is crucial to ensure that cached data remains consistent and up to date.
   - Manual Invalidation: Explicitly invalidate the cache when the underlying data changes. This can be done by removing or updating the corresponding cache entries.
@@ -908,7 +908,7 @@ Designing a secure authentication and authorization system is crucial for protec
   - JWTs are self-contained tokens that contain claims about the authenticated user and are digitally signed to ensure their integrity.
   - When a user successfully logs in, a JWT is generated and sent back to the client, which includes information such as the user's identity and authorization scopes.
   - The client sends the JWT with subsequent requests, allowing the server to authenticate and authorize the user based on the token's contents.
-  - .NET provides libraries like *System.IdentityModel.Tokens.Jwt* to generate, validate, and handle JWTs.
+  - .NET provides libraries like `System.IdentityModel.Tokens.Jwt` to generate, validate, and handle JWTs.
 - **Role-Based Access Control (RBAC)**:
   - RBAC is a widely adopted authorization model that provides access control based on roles assigned to users.
   - Roles define sets of permissions or privileges that determine what actions a user can perform within the application.
