@@ -196,6 +196,5 @@ What is the difference between First and FirstOrDefault methods in LINQ?
 - []()
 - []()
 - []()
-- 
 - []()
 - [ChatGPT-3.5](https://openai.com/blog/chatgpt)

@@ -1,8 +1,8 @@
-# ADO.NET & Entity Framework & Dapper
+# ADO.NET, Entity Framework & Dapper
 
 ## Contents
 
-- [ADO.NET \& Entity Framework \& Dapper](#adonet--entity-framework--dapper)
+- [ADO.NET, Entity Framework \& Dapper](#adonet-entity-framework--dapper)
   - [Contents](#contents)
   - [ADO.NET](#adonet)
     - [What are the main components of ADO.NET?](#what-are-the-main-components-of-adonet)
@@ -41,6 +41,7 @@
     - [Explain the concept of Dynamic Parameters in Dapper.](#explain-the-concept-of-dynamic-parameters-in-dapper)
     - [How does Dapper handle database transactions?](#how-does-dapper-handle-database-transactions)
     - [Can you explain the concept of Query Multiple in Dapper and when would you use it?](#can-you-explain-the-concept-of-query-multiple-in-dapper-and-when-would-you-use-it)
+  - [Additional Resources and References](#additional-resources-and-references)
 
 ## ADO.NET
 
@@ -972,3 +973,16 @@ By using "Query Multiple" in Dapper, you can reduce the number of database round
 
 > Please note that the specific syntax and usage may vary depending on your specific database provider and requirements.
 
+## Additional Resources and References
+
+- [ADO.NET Architecture](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-architecture)
+- [ADO.NET Technology Options and Guidelines](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-technology-options-and-guidelines)
+- [LINQ and ADO.NET](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/linq-and-ado-net)
+- [ADO.NET DataSets](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-datasets)
+- [Compare EF Core & EF6](https://learn.microsoft.com/en-us/ef/efcore-and-ef6/)
+- [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/)
+- [DbContext Lifetime, Configuration, and Initialization](https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/)
+- [Creating and Configuring a Model](https://learn.microsoft.com/en-us/ef/core/modeling/)
+- [Querying Data](https://learn.microsoft.com/en-us/ef/core/querying/)
+- [Dapper, Entity Framework and Hybrid Apps](https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/may/data-points-dapper-entity-framework-and-hybrid-apps)
+- [ChatGPT-3.5](https://openai.com/blog/chatgpt)
