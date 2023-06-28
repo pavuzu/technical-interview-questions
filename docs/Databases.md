@@ -5,7 +5,7 @@
 
 - [Databases](#databases)
   - [Contents](#contents)
-  - [Questions and Answers: SQL - Basics and Concepts](#questions-and-answers-sql---basics-and-concepts)
+  - [Questions and Answers: SQL - Fundamentals](#questions-and-answers-sql---fundamentals)
     - [What is the difference between DBMS and RDBMS?](#what-is-the-difference-between-dbms-and-rdbms)
     - [What is the difference between Primary key and Unique key?](#what-is-the-difference-between-primary-key-and-unique-key)
     - [What is a relationship and what are they?](#what-is-a-relationship-and-what-are-they)
@@ -59,7 +59,7 @@
     - [What are aggregate and scalar functions?](#what-are-aggregate-and-scalar-functions)
     - [Which operator is used in query for pattern matching?](#which-operator-is-used-in-query-for-pattern-matching)
     - [Define magic tables in SQL server?](#define-magic-tables-in-sql-server)
-  - [Questions and Answers: NoSQL - Basics and Concepts](#questions-and-answers-nosql---basics-and-concepts)
+  - [Questions and Answers: NoSQL - Fundamentals](#questions-and-answers-nosql---fundamentals)
     - [What is NoSQL and how does it differ from traditional relational databases?](#what-is-nosql-and-how-does-it-differ-from-traditional-relational-databases)
     - [What are the advantages and disadvantages of using NoSQL databases?](#what-are-the-advantages-and-disadvantages-of-using-nosql-databases)
     - [What are the different types of NoSQL databases, and when would you use each type?](#what-are-the-different-types-of-nosql-databases-and-when-would-you-use-each-type)
@@ -70,7 +70,7 @@
     - [What are the best practices for ensuring data durability and data integrity in NoSQL databases?](#what-are-the-best-practices-for-ensuring-data-durability-and-data-integrity-in-nosql-databases)
   - [Additional Resources and References](#additional-resources-and-references)
 
-## Questions and Answers: SQL - Basics and Concepts
+## Questions and Answers: SQL - Fundamentals
 
 ### What is the difference between DBMS and RDBMS?
 
@@ -94,7 +94,7 @@ In summary, while DBMS is a general term for any database management system, RDB
 
 The difference between a Primary Key and a Unique Key in SQL is as follows:
 
-Primary Key:
+**Primary Key**:
 
 - A primary key is a column or a combination of columns that uniquely identifies each record in a table.
 - There can be only one primary key per table.
@@ -112,9 +112,7 @@ Primary Key:
   )
   ```
 
-  In this example, the `EmployeeID` column is the primary key. It uniquely identifies each employee record in the `Employees` table.
-
-Unique Key:
+**Unique Key**:
 
 - A unique key is a column or a combination of columns that enforces uniqueness, similar to the primary key.
 - Unlike the primary key, a table can have multiple unique keys.
@@ -131,8 +129,6 @@ Unique Key:
       Name VARCHAR(100)
   )
   ```
-
-  In this example, the `SKU` column is defined as a unique key. It ensures that each product in the `Products` table has a unique `SKU` value.
 
 In summary, the primary key uniquely identifies each record in a table and has additional constraints like non-nullity, while a unique key enforces uniqueness but allows null values in the specified columns.
 
@@ -163,8 +159,6 @@ One-to-One (1:1) Relationship:
   )
   ```
 
-  In this example, each employee has a unique address, and the `EmployeeID` and `AddressID` columns establish a one-to-one relationship between the `Employees` and `Addresses` tables.
-
 One-to-Many (1:N) Relationship:
 
 - In a one-to-many relationship, one record in a table is associated with multiple records in another table, but each record in the second table is associated with only one record in the first table.
@@ -185,8 +179,6 @@ One-to-Many (1:N) Relationship:
       FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
   )
   ```
-
-  In this example, each employee belongs to one department, but a department can have multiple employees. The `DepartmentID` column in the `Employees` table establishes a one-to-many relationship with the `Departments` table.
 
 Many-to-Many (N:M) Relationship:
 
@@ -213,8 +205,6 @@ Many-to-Many (N:M) Relationship:
       FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
   )
   ```
-
-  In this example, multiple students can be enrolled in multiple courses. The `Enrollment` table acts as a bridge between the `Students` and `Courses` tables, establishing a many-to-many relationship.
 
 These relationships help establish data integrity, improve data organization, and enable efficient data retrieval through join operations. The choice of relationship type depends on the nature of the data and the business requirements of the database design.
 
@@ -274,8 +264,6 @@ The `HAVING` clause and `WHERE` clause are both used in SQL queries to filter an
   WHERE Salary > 50000;
   ```
 
-  In this example, the `WHERE` clause filters the `Employees` table and selects only the rows where the `Salary` is greater than 50000.
-
 `HAVING` clause:
 
 - The `HAVING` clause is used specifically with the `GROUP BY` clause in SELECT statements to filter grouped data based on conditions.
@@ -290,8 +278,6 @@ The `HAVING` clause and `WHERE` clause are both used in SQL queries to filter an
   GROUP BY Department
   HAVING AVG(Salary) > 50000;
   ```
-
-  In this example, the `HAVING` clause filters the grouped data and selects only the groups (departments) where the average salary is greater than 50000.
 
 In summary, the `WHERE` clause is used to filter individual rows based on conditions before grouping, while the `HAVING` clause is used to filter groups of rows based on aggregate function results after grouping.
 
@@ -533,8 +519,6 @@ SELECT e.FirstName AS EmployeeName, m.FirstName AS ManagerName
 FROM Employees e
 JOIN Employees m ON e.ManagerID = m.EmployeeID;
 ```
-
-In this example, the `Employees` table is joined with itself using the aliases "e" and "m". The join condition specifies that the `ManagerID` of an employee should match the `EmployeeID` of the corresponding manager. This allows us to retrieve the names of employees along with the names of their respective managers.
 
 Self-joins can be useful in scenarios where a hierarchical relationship exists within a single table, such as an employee reporting structure or a parent-child relationship. By leveraging self-joins, you can query and retrieve data that involves comparisons or relationships within the same table.
 
@@ -832,8 +816,6 @@ FROM
     JOIN SalesData AS sd ON c.CustomerID = sd.CustomerID
 ```
 
-In this example, the CTE named `SalesData` retrieves sales data from the `Sales` table based on a specified date range. The main query then joins the CTE with the `Customers` table to fetch customer-specific sales information.
-
 CTEs provide a powerful and flexible way to simplify complex queries and improve code maintainability in SQL Server.
 
 ### What is the difference between Delete, Truncate and Drop commands?
@@ -1068,7 +1050,7 @@ END;
 
 Magic tables provide a convenient way to access the old and new values during trigger execution, allowing you to implement custom logic based on the changes happening in the table.
 
-## Questions and Answers: NoSQL - Basics and Concepts
+## Questions and Answers: NoSQL - Fundamentals
 
 ### What is NoSQL and how does it differ from traditional relational databases?
 

@@ -782,8 +782,6 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-In the example above, we establish a connection to the database, write a SQL query to select customers from a specific country, execute the query using the Query method, and map the results to a list of Customer objects.
-
 Remember to dispose of the connection object when you're done to release the database resources.
 
 ### How do you map query results to objects using Dapper?
@@ -800,8 +798,6 @@ To map query results to objects using Dapper, you have two options: manual mappi
         Name = r.Name
     }).ToList();
     ```
-
-    In the example above, the query returns a result set with columns `Id` and `Name`. We use the `Query` method to execute the query and obtain the result. Then, we manually map the properties from the query result to the `Product` object.
 
 2. **Automatic Mapping**: Dapper also supports automatic mapping based on property names. You can use the `Query` method with a type parameter, and Dapper will automatically map the query results to the properties of the specified type.
 

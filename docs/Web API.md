@@ -4,7 +4,7 @@
 
 - [Web API, REST, WCF, GraphQL \& gRPC](#web-api-rest-wcf-graphql--grpc)
   - [Contents](#contents)
-  - [Web API - Basics](#web-api---basics)
+  - [Web API - Fundamentals](#web-api---fundamentals)
     - [What is Web API? What is the purpose of Web API?](#what-is-web-api-what-is-the-purpose-of-web-api)
     - [What are Web API advantages over WCF and web serivces?](#what-are-web-api-advantages-over-wcf-and-web-serivces)
     - [What are HTTP verbs or HTTP methods?](#what-are-http-verbs-or-http-methods)
@@ -89,7 +89,7 @@
     - [How can you secure gRPC communication using SSL/TLS on .NET?](#how-can-you-secure-grpc-communication-using-ssltls-on-net)
   - [Additional Resources and References](#additional-resources-and-references)
 
-## Web API - Basics
+## Web API - Fundamentals
 
 ### What is Web API? What is the purpose of Web API?
 
@@ -593,8 +593,6 @@ public class MyController : ApiController
 }
 ```
 
-In the example above, `MyController` is a class that inherits from `ApiController`, which is typically used for building Web APIs. However, if you want to return a view instead of a typical API response, you can use the `View` method to return the desired view.
-
 Make sure to provide the name of the view as a parameter to the `View` method, such as `"MyView"`. The framework will then search for a view with that name in the appropriate view folders (e.g., `Views` folder).
 
 > Note that returning a view from a Web API method may not be a common scenario, as Web APIs are primarily used for providing data or services rather than rendering HTML views. Views are typically associated with MVC (Model-View-Controller) pattern, where controllers handle requests and return views. If you need to return views in an API-like scenario, consider using an MVC controller instead of an API controller.
@@ -667,8 +665,6 @@ public class MyController : ApiController
     // ...
 }
 ```
-
-In the example above, the `HttpGet`, `HttpPost`, and `HttpPut` attributes are used to restrict access to the corresponding methods based on the HTTP verb used in the request. For example, the `Get` method will only be accessible via GET requests, the `Post` method via POST requests, and the `Put` method via PUT requests.
 
 By using these attributes, you ensure that the methods are only invoked when the appropriate HTTP verb is used, providing a simple and straightforward way to restrict access based on HTTP semantics.
 

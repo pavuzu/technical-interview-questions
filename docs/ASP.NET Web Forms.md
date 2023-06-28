@@ -4,7 +4,7 @@
 
 - [ASP.NET Web Forms](#aspnet-web-forms)
   - [Contents](#contents)
-  - [ASP.NET - Basics](#aspnet---basics)
+  - [ASP.NET - Fundamentals](#aspnet---fundamentals)
     - [What are the events in Page Life Cycle? In which event are the controls fully loaded?](#what-are-the-events-in-page-life-cycle-in-which-event-are-the-controls-fully-loaded)
     - [What is the difference between Server.Transfer() and Response.Redirect()?](#what-is-the-difference-between-servertransfer-and-responseredirect)
     - [What are the different types of Caching?](#what-are-the-different-types-of-caching)
@@ -50,7 +50,7 @@
     - [What is cross page posting?](#what-is-cross-page-posting)
 
 
-## ASP.NET - Basics
+## ASP.NET - Fundamentals
 
 ### What are the events in Page Life Cycle? In which event are the controls fully loaded?
 ### What is the difference between Server.Transfer() and Response.Redirect()?

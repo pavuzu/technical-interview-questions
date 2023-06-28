@@ -4,7 +4,7 @@
 
 - [ASP.NET MVC \& .NET Core](#aspnet-mvc--net-core)
   - [Contents](#contents)
-  - [ASP.NET MVC - Basics](#aspnet-mvc---basics)
+  - [ASP.NET MVC - Fundamentals](#aspnet-mvc---fundamentals)
     - [What is ASP.NET MVC? Explain MVC Life cycle.](#what-is-aspnet-mvc-explain-mvc-life-cycle)
     - [What are the advantages of MVC over Web Forms?](#what-are-the-advantages-of-mvc-over-web-forms)
     - [What are the different return types of a controller Action method?](#what-are-the-different-return-types-of-a-controller-action-method)
@@ -72,7 +72,7 @@
     - [What is data annotation validator attributes in MVC?](#what-is-data-annotation-validator-attributes-in-mvc)
     - [What are the exception filters in MVC?](#what-are-the-exception-filters-in-mvc)
     - [Which approach provides better support for Test Driven Development – ASP.NET MVC or ASP.NET WebForms?](#which-approach-provides-better-support-for-test-driven-development--aspnet-mvc-or-aspnet-webforms)
-  - [ASP.NET Core - Basics](#aspnet-core---basics)
+  - [ASP.NET Core - Fundamentals](#aspnet-core---fundamentals)
     - [How to access HttpContext in ASP.NET Core?](#how-to-access-httpcontext-in-aspnet-core)
     - [Explain the caching and response caching in ASP.NET Core.](#explain-the-caching-and-response-caching-in-aspnet-core)
     - [What is the options pattern in ASP.NET Core?](#what-is-the-options-pattern-in-aspnet-core)
@@ -109,7 +109,7 @@
   - [Additional Resources and References](#additional-resources-and-references)
 
 
-## ASP.NET MVC - Basics
+## ASP.NET MVC - Fundamentals
 
 ### What is ASP.NET MVC? Explain MVC Life cycle.
 
@@ -520,8 +520,6 @@ public static void RegisterRoutes(RouteCollection routes)
 }
 ```
 
-In the example above, the `MapRoute` method is used to define the default route with the pattern `/{controller}/{action}/{id}`. It specifies that if no specific controller and action are specified in the URL, the `HomeController` and `Index` action method will be used as the defaults.
-
 You can customize the routing rules based on your application's requirements. You can define additional routes, specify constraints on route parameters, and handle different URL patterns.
 
 By modifying the `RouteConfig.cs` file, you can define how incoming requests are mapped to the appropriate controllers and actions in your ASP.NET MVC application.
@@ -719,8 +717,6 @@ In the above example, the `RegisterRoutes` method is called during application s
 
 The `MapRoute` method is used to define a route. It takes in parameters such as the route name, URL pattern, and default values for the controller, action, and any additional parameters.
 
-In the example, the default route maps URLs of the format `/{controller}/{action}/{id}` to the appropriate controller and action method. If no controller, action, or id is specified in the URL, the default values specified in the `defaults` parameter will be used.
-
 You can add additional routes by calling the `MapRoute` method multiple times with different URL patterns and default values.
 
 Remember to call the `RegisterRoutes` method in the `Application_Start` method of the `Global.asax.cs` file to ensure that the route table is properly initialized during application startup.
@@ -743,7 +739,7 @@ The default route is typically defined in the `RouteConfig.cs` file in the `App_
 Here's the significance of the default route:
 
 - `{controller}`: This segment of the URL is mapped to the name of the controller that will handle the request. For example, if the URL is `/Home/Index`, the `Home` controller will be invoked.
-- `{action}`: This segment is mapped to the name of the action method within the controller that will be executed. In the example above, the `Index` action method will be called.
+- `{action}`: This segment is mapped to the name of the action method within the controller that will be executed. 
 - `{id}`: This optional segment is typically used to pass additional parameters to the action method. It can be any value that you want to pass as an identifier or parameter to the action method.
 
 The default route allows for a clean and intuitive URL structure by mapping segments of the URL to the corresponding controller and action. It is the most commonly used route in an ASP.NET MVC application and provides a consistent and predictable way of handling requests.
@@ -1071,8 +1067,6 @@ To invoke the child action from a view, you can use the `Html.Action` or `Html.R
 </div>
 ```
 
-In this example, the `Html.Action` method is used to invoke the `ChildAction` method of the `HomeController`.
-
 Child actions are useful when you need to encapsulate a reusable piece of view logic that can be rendered in multiple views. They provide a way to modularize your views and promote code reuse.
 
 ### Can I use Razor code in JavaScript in ASP.NET MVC?
@@ -1182,8 +1176,6 @@ public JsonResult MyAction()
 }
 ```
 
-In this example, the `Json` method is used to serialize the `customers` collection to JSON and return it as the response content.
-
 Returning JSON from an action method is useful in scenarios where you want to send structured data to the client, which can be easily consumed by JavaScript or other clients.
 
 ### Give an example for authorization filters in an ASP.NET MVC application?
@@ -1223,8 +1215,6 @@ In ASP.NET MVC, you can use authorization filters to restrict access to certain 
     }
     ```
 
-    In this example, the `CustomAuthorizeAttribute` is applied to the `MySecureAction` method. When a user requests this action, the `AuthorizeCore` method of the `CustomAuthorizeAttribute` is called to perform the authorization check. If the user is not authorized, the `HandleUnauthorizedRequest` method is called to handle the unauthorized request.
-
     You can also apply the authorization filter at the controller level:
 
     ```csharp
@@ -1262,8 +1252,6 @@ Data Annotation is a set of attributes that you can apply to model properties to
         public int Age { get; set; }
     }
     ```
-
-    In this example, the `Name` property is marked as required and must have a maximum length of 50 characters. The `Age` property must be within the range of 18 to 100.
 
 2. In the controller, check the validity of the model using the `ModelState` property:
 
@@ -1356,8 +1344,6 @@ Here's an example of using the `ValidationSummary` helper in a view:
     <button type="submit" class="btn btn-primary">Submit</button>
 }
 ```
-
-In the example above, the `ValidationSummary` helper is used within an HTML form. The first parameter (`true`) specifies that only model-level errors should be included in the summary. The second parameter (`""`) represents the title of the summary (which is left empty in this case). The third parameter (`new { @class = "text-danger" }`) sets the CSS class for styling the summary element.
 
 By default, the `ValidationSummary` helper displays both model-level and field-level errors. However, you can customize its behavior by modifying the parameters passed to the helper method.
 
@@ -1825,7 +1811,7 @@ While it is possible to perform TDD with ASP.NET Web Forms, the event-driven and
 
 > Note: Test-driven development is a development approach where tests are written before the actual code to ensure that the code meets the desired functionality and passes the tests.
 
-## ASP.NET Core - Basics
+## ASP.NET Core - Fundamentals
 
 ### How to access HttpContext in ASP.NET Core?
 
@@ -2466,8 +2452,6 @@ public class MyService
 }
 ```
 
-In this example, the `IConfiguration` instance is injected into the `MyService` class, and the configuration values are accessed using the provided methods (`GetConnectionString` and `GetValue`). This allows you to use the configuration values in a type-safe manner throughout your application.
-
 ## ASP.NET Core - Routing, Files, CORS & More
 
 ### What is Routing? Explain attribute routing in ASP.NET Core?
@@ -2935,8 +2919,6 @@ app.Use(async (context, next) =>
     await next.Invoke();
 });
 ```
-
-In the example above, the lambda expression takes an `HttpContext` object as the `context` parameter and a `next` delegate that represents the next middleware in the pipeline. It can perform custom request processing logic and optionally call the `next` delegate to pass the request to the next middleware component.
 
 The Request Delegate plays a critical role in ASP.NET Core as it allows developers to define custom request processing logic and control the flow of the middleware pipeline. It provides the flexibility to handle requests, modify the response, perform authentication, logging, and other tasks required for building web applications.
 

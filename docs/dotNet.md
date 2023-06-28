@@ -5,7 +5,7 @@
 
 - [.NET Framework \& .NET Core \& .NET 5+](#net-framework--net-core--net-5)
   - [Contents](#contents)
-  - [.NET - Basics](#net---basics)
+  - [.NET - Fundamentals](#net---fundamentals)
     - [What are the important components of .NET Framework?](#what-are-the-important-components-of-net-framework)
     - [What is JIT?](#what-is-jit)
     - [What is MSIL?](#what-is-msil)
@@ -55,7 +55,7 @@
     - [What is Task-based Asynchronous Pattern (TAP)?](#what-is-task-based-asynchronous-pattern-tap)
     - [What is Event-based Asynchronous Pattern (EAP)?](#what-is-event-based-asynchronous-pattern-eap)
     - [What is Asynchronous Programming Model (APM)?](#what-is-asynchronous-programming-model-apm)
-  - [.NET Core - Basics](#net-core---basics)
+  - [.NET Core - Fundamentals](#net-core---fundamentals)
     - [What is .NET Core?](#what-is-net-core)
     - [What is .NET Standard?](#what-is-net-standard)
     - [What are the advantages of .NET Core over .NET Framework?](#what-are-the-advantages-of-net-core-over-net-framework)
@@ -74,7 +74,7 @@
   - [Additional Resources and References](#additional-resources-and-references)
 
 
-## .NET - Basics
+## .NET - Fundamentals
 
 ### What are the important components of .NET Framework?
 
@@ -759,8 +759,6 @@ class Program
 }
 ```
 
-In this example, the `DoWork` method is executed in a separate thread created by the `Thread` class. The `Start` method is called to start the execution of the thread. The main thread continues its own work while the worker thread is running. The `Join` method is used to wait for the worker thread to complete before the main thread continues.
-
 ### What is Race condition?
 
 A race condition is a situation that occurs when two or more threads or processes access shared data or resources concurrently, and the final outcome depends on the relative timing of their execution. In other words, the behavior of the program becomes unpredictable because the order of execution of instructions is not guaranteed.
@@ -841,7 +839,7 @@ The key characteristics of the Asynchronous Programming Model include:
 
 While the Asynchronous Programming Model (APM) was widely used in earlier versions of the .NET Framework, it has been largely superseded by the Task-based Asynchronous Pattern (TAP) and `async`/`await` keywords introduced in .NET Framework 4.5. The TAP provides a more intuitive and readable way to write asynchronous code, making it the recommended approach for asynchronous programming in modern .NET applications.
 
-## .NET Core - Basics
+## .NET Core - Fundamentals
 
 ### What is .NET Core?
 
