@@ -12,6 +12,7 @@ The repository covers various topics within the .NET, including but not limited 
 - [ASP.NET Web Forms](docs/ASP.NET%20Web%20Forms.md)
 - [ASP.NET MVC & .NET Core](docs/ASP.NET%20MVC.md)
 - [Web API, REST, WCF, GraphQL & gRPC](docs/Web%20API.md)
+- [Javascript, React & Angular](docs/Javascript.md)
 - [Databases](docs/Databases.md)
 - [ADO.NET, Entity Framework & Dapper](docs/ADO.NET%20%26%20EF.md)
 - [SOLID and Other Principles](docs/SOLID%20Principles.md)
