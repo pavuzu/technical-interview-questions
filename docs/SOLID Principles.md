@@ -30,7 +30,7 @@ Here's a brief overview of each SOLID principle:
 
 - **Single Responsibility Principle (SRP)**: A class should have only one reason to change. It states that a class should have a single responsibility or purpose and should not be responsible for multiple unrelated tasks. This principle helps in creating highly cohesive and loosely coupled classes.
 - **Open-Closed Principle (OCP)**: Software entities (classes, modules, functions) should be open for extension but closed for modification. It suggests that software components should be designed in a way that allows them to be easily extended without modifying their existing code. This principle promotes code reuse, maintainability, and stability.
-- **Liskov Substitution Principle (LSP)**: Subtypes should be substitutable for their base types. It states that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program. This principle ensures that inheritance hierarchies are well-defined, consistent, and don't violate the expected behavior of the program.
+- **Liskov Substitution Principle (LSP)**: Subtypes should be substitutable for their base types. It states that objects of a base class should be replaceable with objects of its derived classes without affecting the correctness of the program. This principle ensures that inheritance hierarchies are well-defined, consistent, and don't violate the expected behavior of the program.
 - **Interface Segregation Principle (ISP)**: Clients should not be forced to depend on interfaces they do not use. It suggests that interfaces should be fine-grained and specific to the requirements of clients. Clients should only depend on the methods that are relevant to their needs, and larger, monolithic interfaces should be split into smaller, more focused interfaces.
 - **Dependency Inversion Principle (DIP)**: High-level modules should not depend on low-level modules. Both should depend on abstractions. This principle promotes loose coupling and states that high-level modules should depend on abstractions (interfaces or abstract classes) rather than concrete implementations. It allows for flexibility, extensibility, and testability by inverting the dependency flow.
 
@@ -104,15 +104,15 @@ By designing software entities with the Open-Closed Principle in mind, developer
 
 ### What is Liskov Substitution Principle?
 
-The Liskov Substitution Principle (LSP) is a principle in object-oriented programming (OOP) that states that objects of a superclass should be replaceable with objects of their subclasses without affecting the correctness of the program.
+The Liskov Substitution Principle (LSP) is a principle in object-oriented programming (OOP) that states that objects of a base class should be replaceable with objects of their derived classes without affecting the correctness of the program.
 
-In simpler terms, if a class A is a subtype of class B, then objects of class B can be replaced with objects of class A without causing any errors or unexpected behavior in the program. This principle ensures that derived classes (subclasses) adhere to the contract established by the base class (superclass) and do not violate the expected behavior.
+In simpler terms, if a class A is a subtype of class B, then objects of class B can be replaced with objects of class A without causing any errors or unexpected behavior in the program. This principle ensures that derived classes (derived classes) adhere to the contract established by the base class (superclass) and do not violate the expected behavior.
 
 Key aspects of the Liskov Substitution Principle:
 
-- **Subtyping**: The LSP deals with the relationship between a superclass and its subclasses, where the subclasses inherit or specialize the behavior of the superclass.
-- **Behavioral Compatibility**: Subclasses must be behaviorally compatible with the superclass, meaning they should fulfill the same expectations and exhibit similar behavior as the superclass.
-- **Inheritance Contracts**: The LSP emphasizes that subclasses should not introduce new behaviors that are not compatible with the superclass. They should adhere to the interface and behavior specified by the superclass.
+- **Subtyping**: The LSP deals with the relationship between a base class and its derived classes, where the derived classes inherit or specialize the behavior of the base class.
+- **Behavioral Compatibility**: Derived classes must be behaviorally compatible with the base class, meaning they should fulfill the same expectations and exhibit similar behavior as the base class.
+- **Inheritance Contracts**: The LSP emphasizes that derived classes should not introduce new behaviors that are not compatible with the base class. They should adhere to the interface and behavior specified by the base class.
 
 Benefits of the Liskov Substitution Principle:
 
@@ -120,7 +120,7 @@ Benefits of the Liskov Substitution Principle:
 - **Polymorphism**: The LSP is a fundamental principle for achieving polymorphism in OOP. It enables the use of a common interface to interact with objects of different classes, providing flexibility and extensibility.
 - **Robustness and Reliability**: The LSP ensures that substituting objects in the program will not cause unexpected errors or violate the program's correctness. It helps maintain the integrity and reliability of the codebase.
 
-By following the Liskov Substitution Principle, developers can design class hierarchies that are flexible, maintainable, and scalable. It encourages the creation of robust and reliable software systems by ensuring that derived classes conform to the expected behavior established by their base classes. Violating the LSP can lead to bugs, unexpected behavior, and a breakdown of the design's integrity, so it's important to carefully consider the design and behavior of subclasses when extending a superclass.
+By following the Liskov Substitution Principle, developers can design class hierarchies that are flexible, maintainable, and scalable. It encourages the creation of robust and reliable software systems by ensuring that derived classes conform to the expected behavior established by their base classes. Violating the LSP can lead to bugs, unexpected behavior, and a breakdown of the design's integrity, so it's important to carefully consider the design and behavior of derived classes when extending a base class.
 
 ### What is Interface Segregation Principle?
 
