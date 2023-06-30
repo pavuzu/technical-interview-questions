@@ -553,7 +553,7 @@ By default, Web API sends an HTTP response with a status code of 500 (Internal S
 
 When an uncaught exception occurs during the processing of a Web API request, the framework automatically handles it and generates an HTTP response with a 500 status code. Along with the status code, the response may also include additional error details, such as an error message or stack trace, depending on the configuration and error handling settings in the Web API application.
 
-It is important to note that this default behavior can be customized and overridden by implementing custom exception handling in Web API. Developers have the flexibility to catch specific exceptions, handle them differently, and return appropriate HTTP status codes and error responses based on the application's requirements.
+> It is important to note that this default behavior can be customized and overridden by implementing custom exception handling in Web API. Developers have the flexibility to catch specific exceptions, handle them differently, and return appropriate HTTP status codes and error responses based on the application's requirements.
 
 ### What is the benefit of using REST in Web API?
 

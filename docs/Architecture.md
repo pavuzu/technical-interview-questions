@@ -125,7 +125,7 @@ When designing a distributed system, there are several architectural patterns or
 - **Event Sourcing and CQRS**: Event sourcing involves storing a sequence of events that capture changes to the system's state, enabling easy auditing, replay, and reconstruction of the system's state. Command Query Responsibility Segregation (CQRS) separates read and write operations, optimizing each for performance and scalability.
 - **Hybrid Architecture**: A hybrid architecture combines different architectural patterns or approaches to suit the specific needs of the system. For example, combining microservices with event-driven messaging or integrating a monolithic system with select microservices to leverage scalability and maintainability benefits.
 
-It's important to note that the choice of architecture depends on factors such as system complexity, scalability requirements, team expertise, and specific use cases. Sometimes, a combination of patterns may be appropriate to address different aspects of the system. It's crucial to analyze the requirements, consider trade-offs, and choose the most suitable architectural pattern(s) that align with the system's goals and constraints.
+> It's important to note that the choice of architecture depends on factors such as system complexity, scalability requirements, team expertise, and specific use cases. Sometimes, a combination of patterns may be appropriate to address different aspects of the system. It's crucial to analyze the requirements, consider trade-offs, and choose the most suitable architectural pattern(s) that align with the system's goals and constraints.
 
 ### What is Clean architecture?
 
@@ -315,7 +315,7 @@ Key characteristics of Peer-to-Peer architecture include:
 - **Security Considerations**: P2P networks present unique security challenges, as there is no centralized control or authority. Ensuring data integrity, authentication, and privacy becomes crucial in P2P architectures.
 P2P architecture is commonly used in applications that require decentralized communication, resource sharing, or collaborative functionality. Examples include file-sharing networks like BitTorrent, decentralized cryptocurrency systems like Bitcoin, and real-time collaboration tools.
 
-It's important to note that P2P architecture has certain limitations, such as potential scalability issues with large networks, difficulties in managing network dynamics, and increased complexity in maintaining consistency and security. Therefore, the suitability of P2P architecture depends on the specific requirements and constraints of the application.
+> It's important to note that P2P architecture has certain limitations, such as potential scalability issues with large networks, difficulties in managing network dynamics, and increased complexity in maintaining consistency and security. Therefore, the suitability of P2P architecture depends on the specific requirements and constraints of the application.
 
 ### What is Distributed Database architecture?
 
@@ -397,7 +397,7 @@ Designing the architecture for a real-time streaming application that handles la
 - **Scalability and Resilience**: In a high-volume streaming application, scalability and resilience are crucial. The architecture should be designed to scale horizontally by adding more processing nodes or workers as the data volume increases. Techniques like data partitioning, load balancing, and fault tolerance mechanisms should be employed to ensure high availability and fault tolerance.
 - **Monitoring and Alerting**: Monitoring tools like Prometheus, Grafana, or ELK Stack (Elasticsearch, Logstash, Kibana) can be used to monitor the health, performance, and data processing metrics of the streaming application. Alerting mechanisms can be set up to notify stakeholders about any anomalies or issues.
 
-It's important to note that the specific architecture may vary based on the application requirements, the nature of the data, and the available technologies. The above-described architecture provides a general framework for designing a real-time streaming application capable of processing and analyzing large volumes of data in near real-time.
+> It's important to note that the specific architecture may vary based on the application requirements, the nature of the data, and the available technologies. The above-described architecture provides a general framework for designing a real-time streaming application capable of processing and analyzing large volumes of data in near real-time.
 
 ### How would you ensure fault tolerance and scalability in a streaming system?
 
@@ -812,7 +812,7 @@ Designing a scalable and efficient database schema for a high-volume transaction
   - Regularly review database statistics and performance metrics to identify areas that require tuning or schema modifications.
   - Consider using database-specific optimization techniques, such as query hints, query plan analysis, or stored procedures, to enhance performance.
 
-It's important to note that the optimal database schema design depends on the specific requirements, workload characteristics, and expected growth of the high-volume transactional system. Regular monitoring, performance analysis, and ongoing maintenance are essential to ensure the database schema remains scalable, efficient, and well-suited to the system's evolving needs.
+> It's important to note that the optimal database schema design depends on the specific requirements, workload characteristics, and expected growth of the high-volume transactional system. Regular monitoring, performance analysis, and ongoing maintenance are essential to ensure the database schema remains scalable, efficient, and well-suited to the system's evolving needs.
 
 ### Can you describe the principles and techniques of load balancing and its importance in ensuring scalability and availability in distributed systems?
 

@@ -807,7 +807,7 @@ To map query results to objects using Dapper, you have two options: manual mappi
 
     In this case, Dapper matches the column names in the query results (`Id` and `Name`) with the property names in the `Product` class and automatically maps the values.
 
-Note that the property names in your object should match the column names in the query results for automatic mapping to work correctly.
+> Note that the property names in your object should match the column names in the query results for automatic mapping to work correctly.
 
 Choose the mapping approach that best fits your scenario based on the complexity of the query and the desired level of control over the mapping process.
 

@@ -400,7 +400,7 @@ By following these steps and registering the area, you can define custom routing
 
 Remember to call `AreaRegistration.RegisterAllAreas()` in the `Application_Start` method of your `Global.asax.cs` file to ensure that the areas are properly registered and the routing rules are applied.
 
-Note: The above example assumes that you have an area named `Admin`. You can replace it with the appropriate name of your area.
+> Note: The above example assumes that you have an area named `Admin`. You can replace it with the appropriate name of your area.
 
 Once registered, the controllers and views within the area can be accessed using the specified routing pattern, such as `/Admin/Controller/Action`.
 
@@ -493,7 +493,7 @@ You can customize the route configuration based on your application's requiremen
 
 The route configuration is typically defined in the `RouteConfig.cs` file within the `App_Start` folder of an MVC project. You can modify the route configuration to match your desired URL patterns and controller-action mappings.
 
-Note that ASP.NET Core MVC has a different way of configuring routes using the `Startup.cs` file, but the concept of routes and default routes remains similar.
+> Note that ASP.NET Core MVC has a different way of configuring routes using the `Startup.cs` file, but the concept of routes and default routes remains similar.
 
 By defining routes and the default route in MVC, you can create clean and meaningful URLs that map to specific controller actions and provide a clear and logical structure to your application's routing system.
 
@@ -537,7 +537,7 @@ Razor and ASPX are two different view engines available in ASP.NET MVC. Here are
 
 Overall, Razor view engine is the recommended choice for new ASP.NET MVC projects due to its clean syntax, better code readability, and improved development experience. However, ASPX view engine is still supported for backward compatibility with existing applications or specific requirements.
 
-It's important to note that the choice of view engine is a matter of personal preference and project requirements. You can switch between Razor and ASPX view engines by configuring the appropriate view engine in your ASP.NET MVC application.
+> It's important to note that the choice of view engine is a matter of personal preference and project requirements. You can switch between Razor and ASPX view engines by configuring the appropriate view engine in your ASP.NET MVC application.
 
 ### What are the main Razor Syntax rules?
 
@@ -654,7 +654,7 @@ Here's how RenderSection works:
 
 RenderSection is particularly useful when you want to have consistent layout structure but also allow flexibility for individual views to inject their own content into specific sections. It promotes separation of concerns and reusability of layout components.
 
-It's important to note that sections are optional, meaning that views can choose not to provide content for certain sections. In such cases, the corresponding `@RenderSection` directive in the layout file will be empty.
+> It's important to note that sections are optional, meaning that views can choose not to provide content for certain sections. In such cases, the corresponding `@RenderSection` directive in the layout file will be empty.
 
 ### What is the significance of NonActionAttribute?
 
@@ -1014,7 +1014,7 @@ public ActionResult Action2()
 
 In the above example, when `Action1` is called, it sets a value in `TempData` with the key "Message" and redirects to `Action2`. In `Action2`, the value is retrieved from `TempData` and can be used as needed. However, if we try to access `TempData["Message"]` in a subsequent request, it will be `null` as the data has been cleared.
 
-It's important to note that TempData should be used with caution and for scenarios where data needs to be preserved between redirects. It is not intended for long-term data storage and should not be relied upon for maintaining data across multiple requests.
+> It's important to note that TempData should be used with caution and for scenarios where data needs to be preserved between redirects. It is not intended for long-term data storage and should not be relied upon for maintaining data across multiple requests.
 
 ### Explain Peek method in TempData in ASP.NET MVC?
 
@@ -1033,7 +1033,7 @@ public ActionResult Action()
 
 In the above example, the `Peek` method is called on `TempData` with the key `"Message"` to retrieve the value. The value can then be used in the action or passed to the view without being removed from `TempData`.
 
-It's important to note that using `Peek` does not remove the value from `TempData`. If you need to remove the value after accessing it, you can use the regular indexing syntax `TempData["Message"]` or the `Remove` method.
+> It's important to note that using `Peek` does not remove the value from `TempData`. If you need to remove the value after accessing it, you can use the regular indexing syntax `TempData["Message"]` or the `Remove` method.
 
 The Peek method is useful when you want to access the value stored in TempData temporarily without altering its state. It allows you to retrieve the value for display or processing without removing it, so it can still be accessed in subsequent requests if needed.
 
@@ -1092,7 +1092,7 @@ Here is an example:
 
 In the above example, the Razor code `@Model.Name` is used to output a value from the model, and `@User.Identity.Name` is used to output the current user's name.
 
-It's important to note that Razor code is executed on the server-side and generates the JavaScript code that is sent to the client. Once the JavaScript is executed on the client-side, it no longer has any connection to the server or the Razor engine.
+> It's important to note that Razor code is executed on the server-side and generates the JavaScript code that is sent to the client. Once the JavaScript is executed on the client-side, it no longer has any connection to the server or the Razor engine.
 
 Using Razor code in JavaScript can be helpful for dynamically generating JavaScript code based on server-side values, such as model data or user information.
 
@@ -2392,7 +2392,7 @@ In ASP.NET Core, there are several server implementations available that can be 
 4. **Other Servers**:
    - ASP.NET Core also supports other servers like Apache, Nginx, and Docker containers, allowing you to host your application in different environments and platforms.
 
-It's important to note that in ASP.NET Core, you can use multiple servers together in a hosting environment. For example, you can use Kestrel as the primary web server and leverage IIS or Nginx as a reverse proxy or load balancer.
+> It's important to note that in ASP.NET Core, you can use multiple servers together in a hosting environment. For example, you can use Kestrel as the primary web server and leverage IIS or Nginx as a reverse proxy or load balancer.
 
 When choosing a server for your ASP.NET Core application, consider factors like performance, scalability, platform compatibility, and the specific requirements of your application. Each server has its own strengths and features, so choose the one that best fits your needs.
 

@@ -221,7 +221,7 @@ Serialization is useful in various scenarios, such as:
 
 Deserialization is the reverse process of serialization, where the serialized data is used to recreate the original object. It involves reading the serialized data and reconstructing the object with its original state and behavior.
 
-It's important to note that when working with serialization and deserialization, you need to ensure that the objects being serialized are serializable, i.e., they should be marked with the `[Serializable]` attribute (for binary serialization) or be designed to conform to the XML serialization rules.
+> It's important to note that when working with serialization and deserialization, you need to ensure that the objects being serialized are serializable, i.e., they should be marked with the `[Serializable]` attribute (for binary serialization) or be designed to conform to the XML serialization rules.
 
 ### What is meant by Globalization and Localization?
 
@@ -625,7 +625,7 @@ In a typical thread lifecycle, a thread can exist in several states. The exact s
 - **Sleeping**: The thread is intentionally put into a sleep or wait state for a specified period. It is inactive during this time, and it will automatically transition to the runnable/ready state once the sleep period is over.
 - **Terminated/Dead**: The thread has completed its execution or explicitly terminated. Once a thread is terminated, it cannot be restarted or resumed.
 
-It's important to note that different programming languages and threading libraries may have variations in the terminology or specific states, but the general concept of thread states remains consistent.
+> It's important to note that different programming languages and threading libraries may have variations in the terminology or specific states, but the general concept of thread states remains consistent.
 
 ### Can we have multiple threads in one app domain?
 
@@ -633,7 +633,7 @@ Yes, it is possible to have multiple threads in one application domain. An appli
 
 Each thread within an application domain can execute independently and concurrently with other threads. Threads can perform different tasks simultaneously or work together to achieve a common goal. By utilizing multiple threads, you can take advantage of parallel processing, improve performance, and utilize available CPU resources more efficiently.
 
-It's important to note that while multiple threads can exist within an application domain, proper synchronization and coordination mechanisms should be used to ensure thread safety and avoid issues such as race conditions or data corruption.
+> It's important to note that while multiple threads can exist within an application domain, proper synchronization and coordination mechanisms should be used to ensure thread safety and avoid issues such as race conditions or data corruption.
 
 ### Which namespace has threading?
 
@@ -712,7 +712,7 @@ Multi-threading is useful in projects for several reasons:
 - **Parallel Processing**: Certain tasks can be divided into smaller subtasks that can be executed in parallel. Multi-threading allows you to parallelize the execution of these subtasks, thereby reducing the overall processing time. This is particularly beneficial for tasks that involve data processing, mathematical computations, or image/video rendering.
 - **Scalability**: Multi-threading provides scalability by allowing you to scale the application's processing capacity based on the available hardware resources. You can increase the number of threads or allocate thread pools dynamically to handle increased workloads or concurrent requests.
 
-It's important to note that while multi-threading can bring benefits, it also introduces complexities such as thread synchronization, data sharing, and potential concurrency issues. Proper design, synchronization mechanisms, and error handling techniques must be employed to ensure thread safety and avoid race conditions or other threading-related bugs.
+> It's important to note that while multi-threading can bring benefits, it also introduces complexities such as thread synchronization, data sharing, and potential concurrency issues. Proper design, synchronization mechanisms, and error handling techniques must be employed to ensure thread safety and avoid race conditions or other threading-related bugs.
 
 ### How to start a thread in C#?
 
@@ -870,7 +870,7 @@ The benefits of using .NET Standard include:
 - **Code reuse**: Libraries targeting .NET Standard can be used across different projects and platforms, promoting code reuse and reducing development effort.
 - **Ecosystem compatibility**: .NET Standard ensures compatibility with the broader .NET ecosystem, including tools, frameworks, and libraries.
 
-It's important to note that .NET Standard is a specification, not an implementation. Developers still need to choose a specific .NET implementation, such as .NET Core or .NET Framework, to run their applications. The choice of the .NET implementation depends on factors like platform support, performance requirements, and specific feature sets needed for the application.
+> It's important to note that .NET Standard is a specification, not an implementation. Developers still need to choose a specific .NET implementation, such as .NET Core or .NET Framework, to run their applications. The choice of the .NET implementation depends on factors like platform support, performance requirements, and specific feature sets needed for the application.
 
 ### What are the advantages of .NET Core over .NET Framework?
 

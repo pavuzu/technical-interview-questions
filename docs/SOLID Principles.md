@@ -78,7 +78,7 @@ Benefits of the Single Responsibility Principle:
 
 Applying the Single Responsibility Principle involves analyzing the responsibilities of each class and ensuring that they align with a single, well-defined purpose. If a class has multiple responsibilities, it's recommended to extract separate classes for each responsibility, delegating specific tasks to specialized classes.
 
-It's important to note that the Single Responsibility Principle should not be interpreted too narrowly. It doesn't mean that a class should only have a few lines of code or that every method should be extremely concise. Instead, it emphasizes the need for logical separation of responsibilities and ensuring that a class is focused on a single concern, making the codebase more maintainable, flexible, and easier to extend over time.
+> It's important to note that the Single Responsibility Principle should not be interpreted too narrowly. It doesn't mean that a class should only have a few lines of code or that every method should be extremely concise. Instead, it emphasizes the need for logical separation of responsibilities and ensuring that a class is focused on a single concern, making the codebase more maintainable, flexible, and easier to extend over time.
 
 ### What is Open-closed Principle?
 

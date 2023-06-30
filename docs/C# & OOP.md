@@ -223,7 +223,7 @@ While Object-Oriented Programming (OOP) offers numerous advantages, it also has 
 
 8. **Lack of Standardization**: While OOP concepts are widely adopted, there is no strict standardization of how OOP should be implemented across different programming languages and frameworks. This can lead to inconsistencies and variations in the application and interpretation of OOP principles.
 
-It's important to note that these limitations can be mitigated through good software design practices, proper understanding of OOP principles, and judicious use of OOP concepts based on the specific requirements of the application. Other programming paradigms, such as procedural programming or functional programming, may provide alternative solutions to some of the limitations of OOP.
+> It's important to note that these limitations can be mitigated through good software design practices, proper understanding of OOP principles, and judicious use of OOP concepts based on the specific requirements of the application. Other programming paradigms, such as procedural programming or functional programming, may provide alternative solutions to some of the limitations of OOP.
 
 ### What are Classes and Objects?
 
@@ -761,7 +761,7 @@ namespace MyNamespace
 }
 ```
 
-It's important to note that the default access modifier may vary depending on the context. For example, if a class is defined within a namespace that has an explicit access modifier (e.g., `public`), the default access modifier within that namespace will align with the explicit access modifier.
+> It's important to note that the default access modifier may vary depending on the context. For example, if a class is defined within a namespace that has an explicit access modifier (e.g., `public`), the default access modifier within that namespace will align with the explicit access modifier.
 
 The default `internal` access modifier in a class promotes encapsulation and modular design by limiting the accessibility of the class to within the same assembly. It helps in maintaining code integrity and preventing unwanted dependencies from external code.
 
@@ -792,7 +792,7 @@ object boxedNumber = (object)number; // Boxing
 int unboxedNumber = (int)boxedNumber; // Unboxing
 ```
 
-It's important to note that boxing and unboxing operations have performance implications and should be used judiciously. Unnecessary boxing and unboxing operations can impact performance and increase memory usage. Whenever possible, it is recommended to work with value types directly to avoid the need for boxing and unboxing.
+> It's important to note that boxing and unboxing operations have performance implications and should be used judiciously. Unnecessary boxing and unboxing operations can impact performance and increase memory usage. Whenever possible, it is recommended to work with value types directly to avoid the need for boxing and unboxing.
 
 Boxing and unboxing are useful when you need to work with value types as reference types, such as storing them in collections or passing them to APIs that expect reference types. However, it is important to be mindful of their performance implications and use them appropriately.
 
@@ -833,7 +833,7 @@ Boxing and unboxing operations in C# can have performance implications, and it i
 
 - **Alternative Approaches**: In some cases, alternative approaches like generics or specialized collection types can be used to avoid the need for boxing and unboxing. For example, using generic collections like `List<int>` instead of `List<object>` can eliminate the need for boxing when working with value types.
 
-It's important to note that the performance impact of boxing and unboxing operations can vary based on the specific scenario and the frequency of such operations. In certain cases, the impact may be negligible, while in others, it can significantly affect performance.
+> It's important to note that the performance impact of boxing and unboxing operations can vary based on the specific scenario and the frequency of such operations. In certain cases, the impact may be negligible, while in others, it can significantly affect performance.
 
 When performance is a critical consideration, it's recommended to minimize unnecessary boxing and unboxing operations, optimize data structures and algorithms, and choose alternative approaches that avoid the need for boxing and unboxing when possible.
 
@@ -1397,7 +1397,7 @@ The `using` keyword in C# is not limited to just `DBConnection` or database-rela
   }
   ```
 
-It's important to note that you can use the `using` keyword with any class that implements `IDisposable`, regardless of its specific functionality. By using the `using` keyword, you ensure that resources are properly managed, regardless of the type of class or resource involved.
+> It's important to note that you can use the `using` keyword with any class that implements `IDisposable`, regardless of its specific functionality. By using the `using` keyword, you ensure that resources are properly managed, regardless of the type of class or resource involved.
 
 Always refer to the documentation of a specific class to determine whether it implements `IDisposable` and should be used with the `using` keyword for proper resource cleanup.
 
@@ -1561,7 +1561,7 @@ The `var` and `dynamic` keywords in C# are both used to declare variables, but t
   - Use `var` when the type is known or can be easily inferred from the initialization expression. It improves code readability and reduces redundancy.
   - Use `dynamic` when working with dynamic data, dynamic languages, or dynamic APIs that require late binding and dynamic dispatch.
 
-It's important to note that while `var` and `dynamic` offer flexibility in variable declaration and typing, excessive use of `dynamic` can lead to loss of compile-time type safety and potentially impact performance. Therefore, it's recommended to use `dynamic` judiciously when specifically needed, and rely on static typing (`var` or explicit types) as much as possible.
+> It's important to note that while `var` and `dynamic` offer flexibility in variable declaration and typing, excessive use of `dynamic` can lead to loss of compile-time type safety and potentially impact performance. Therefore, it's recommended to use `dynamic` judiciously when specifically needed, and rely on static typing (`var` or explicit types) as much as possible.
 
 ### What is `Enum` keyword used for?
 
@@ -4526,7 +4526,7 @@ catch (Exception ex)
 
 When an exception occurs, the runtime will evaluate the type of the exception and execute the first matching `catch` block. If the exception type matches `ExceptionType1`, the corresponding `catch` block will handle it. If the exception type matches `ExceptionType2`, the second `catch` block will handle it. If none of the specific exception types match, the catch-all `catch (Exception ex)` block will handle the exception.
 
-It's important to note that the order of `catch` blocks matters. If multiple `catch` blocks can handle the same exception type, the first matching block encountered in the order of declaration will execute.
+> It's important to note that the order of `catch` blocks matters. If multiple `catch` blocks can handle the same exception type, the first matching block encountered in the order of declaration will execute.
 
 By using multiple `catch` blocks, you can handle different types of exceptions separately and provide specific error-handling logic for each exception type, enhancing the robustness of your application's exception handling.
 
@@ -4790,7 +4790,7 @@ int result = MyMethod();
 Console.WriteLine(result); // Output: 42 (Value returned by the method)
 ```
 
-It's important to note that if an exception is thrown within the `try` block and not caught, the `finally` block will still be executed before the exception propagates up the call stack.
+> It's important to note that if an exception is thrown within the `try` block and not caught, the `finally` block will still be executed before the exception propagates up the call stack.
 
 ### What you mean by inner exception?
 
