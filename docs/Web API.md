@@ -217,7 +217,7 @@ To consume a Web API from a .NET MVC application, follow these steps:
 
 Example: 
 
-``` csharp
+```csharp
 using (HttpClient client = new HttpClient())
 {
     client.BaseAddress = new Uri("http://API.example.com");

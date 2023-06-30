@@ -659,7 +659,7 @@ The `Thread.Sleep()` method can be useful in scenarios where you need to introdu
 
 Here's an example usage of `Thread.Sleep()`:
 
-``` csharp
+```csharp
 using System;
 using System.Threading;
 
@@ -718,7 +718,7 @@ It's important to note that while multi-threading can bring benefits, it also in
 
 In C#, you can start a thread by creating an instance of the `Thread` class and calling its Start method. Here's an example:
 
-``` csharp
+```csharp
 using System;
 using System.Threading;
 
@@ -1005,7 +1005,7 @@ In .NET Core, implementing dependency injection is straightforward and built-in 
 
 1. **Define your services/interfaces**: Start by defining the interfaces for the services you want to inject and the corresponding implementations. For example, if you have a service called `IMyService`, define the interface as follows:
 
-    ``` csharp
+    ```csharp
     public interface IMyService
     {
         void DoSomething();
@@ -1022,7 +1022,7 @@ In .NET Core, implementing dependency injection is straightforward and built-in 
 
 2. **Configure the services**: In the `ConfigureServices` method of your `Startup` class, register the services and their implementations with the built-in dependency injection container. This typically happens in the `ConfigureServices` method of your `Startup` class. For example:
 
-    ``` csharp
+    ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddTransient<IMyService, MyService>();
@@ -1032,7 +1032,7 @@ In .NET Core, implementing dependency injection is straightforward and built-in 
 
 3. **Inject the services**: In the classes or components where you need to use the services, declare them as constructor parameters. The container will automatically resolve and inject the appropriate implementations. For example:
 
-    ``` csharp
+    ```csharp
     public class MyController : Controller
     {
         private readonly IMyService _myService;

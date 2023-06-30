@@ -114,7 +114,7 @@ Common use cases for the Singleton pattern include scenarios where you need to h
 
 Here's a basic example of implementing a Singleton in C#:
 
-``` csharp
+```csharp
 public class Singleton
 {
     private static Singleton instance;
@@ -167,7 +167,7 @@ Here are a few approaches to ensure thread safety:
 
 - **Double-Checked Locking**: Double-checked locking is a technique that combines laziness of instantiation with thread safety. It uses a lock to ensure that only one thread creates the instance, while allowing subsequent threads to access the instance without acquiring the lock.
 
-    ``` csharp
+    ```csharp
     public class Singleton
     {
         private static Singleton instance;
@@ -233,7 +233,7 @@ Key components of the Factory pattern:
 
 Here's a basic example of implementing a Factory pattern in C#:
 
-``` csharp
+```csharp
 // Product interface
 public interface IProduct
 {
@@ -287,7 +287,7 @@ The `IProductFactory` interface declares the factory method `CreateProduct()` re
 
 Using the factory, client code can create objects without being aware of the specific product types:
 
-``` csharp
+```csharp
 IProductFactory factory = new ConcreteProductFactoryA();
 IProduct product = factory.CreateProduct();
 product.PerformAction(); // Outputs: "Performing action for Product A"
@@ -322,7 +322,7 @@ To implement the Factory Method pattern, follow these steps:
 
 Here's a simplified example of implementing the Factory Method pattern in C#:
 
-``` csharp
+```csharp
 // Step 1: Define the product interface or base class
 public interface IProduct
 {
@@ -376,7 +376,7 @@ The `IProductFactory` interface declares the factory method `CreateProduct()`, r
 
 To use the factory, you can instantiate a specific factory and use the factory method to create the desired product:
 
-``` csharp
+```csharp
 IProductFactory factory = new ConcreteProductFactoryA();
 IProduct product = factory.CreateProduct();
 product.SomeOperation();  // Output: "ConcreteProductA: SomeOperation"
@@ -399,7 +399,7 @@ Key components of the Abstract Factory pattern:
 
 Here's a basic example of implementing the Abstract Factory pattern in C#:
 
-``` csharp
+```csharp
 // Abstract Product A
 public interface IProductA
 {
@@ -492,7 +492,7 @@ The `IAbstractFactory` interface declares factory methods for creating objects o
 
 To use the abstract factory, you can instantiate a specific factory and use its factory methods to create products:
 
-``` csharp
+```csharp
 IAbstractFactory factory1 = new ConcreteFactory1();
 IProductA productA1 = factory1.CreateProductA();
 IProductB productB1 = factory1.CreateProductB();
@@ -528,7 +528,7 @@ Key components of the Builder pattern:
 1. **Director**: Controls the construction process and interacts with the builder to build the product. It knows the specific steps and sequence required to create the product.
 Here's a simplified example to illustrate the Builder pattern in C#:
 
-``` csharp
+```csharp
 // Product
 public class Product
 {
@@ -620,7 +620,7 @@ Key components of the Prototype pattern:
 
 Here's a simplified example to illustrate the Prototype pattern in C#:
 
-``` csharp
+```csharp
 // Prototype
 public abstract class Prototype
 {
@@ -704,7 +704,7 @@ Key components of the Adapter pattern:
 
 Here's a simplified example to illustrate the Adapter pattern in C#:
 
-``` csharp
+```csharp
 // Target
 public interface ITarget
 {
@@ -791,7 +791,7 @@ Key components of the Decorator pattern:
 
 Here's a simplified example to illustrate the Decorator pattern in C#:
 
-``` csharp
+```csharp
 // Component
 public interface IComponent
 {
@@ -893,7 +893,7 @@ Key components of the Composite pattern:
 
 Here's a simplified example to illustrate the Composite pattern in C#:
 
-``` csharp
+```csharp
 // Component
 public interface IComponent
 {
@@ -969,7 +969,7 @@ Key components of the Proxy pattern:
 
 Here's a simplified example to illustrate the Proxy pattern in C#:
 
-``` csharp
+```csharp
 // Subject
 public interface ISubject
 {
@@ -1053,7 +1053,7 @@ Key components of the Bridge pattern:
 
 Here's a simplified example to illustrate the Bridge pattern in C#:
 
-``` csharp
+```csharp
 // Abstraction
 public abstract class Abstraction
 {
@@ -1152,7 +1152,7 @@ Key components of the Flyweight pattern:
 
 Here's a simplified example to illustrate the Flyweight pattern in C#:
 
-``` csharp
+```csharp
 // Flyweight
 public interface IFlyweight
 {
@@ -1245,7 +1245,7 @@ Key components of the Facade pattern:
 
 Here's a simplified example to illustrate the Facade pattern in C#:
 
-``` csharp
+```csharp
 // Subsystem classes
 public class SubsystemA
 {
@@ -1373,7 +1373,7 @@ In the Observer pattern, there are several key components:
 
 Here's a simplified example to illustrate the Observer pattern in C#:
 
-``` csharp
+```csharp
 // Subject (Observable)
 public class Subject
 {
@@ -1477,7 +1477,7 @@ Key components of the Strategy pattern:
 
 Here's a simplified example to illustrate the Strategy pattern in C#:
 
-``` csharp
+```csharp
 // Strategy interface
 public interface IShippingStrategy
 {
@@ -1553,7 +1553,7 @@ In the Command pattern, there are several key components:
 
 Here's a simplified example to illustrate the Command pattern in C#:
 
-``` csharp
+```csharp
 // Command interface
 public interface ICommand
 {
@@ -1648,7 +1648,7 @@ In the Iterator pattern, there are three key components:
 
 Here's a simplified example to illustrate the Iterator pattern in C#:
 
-``` csharp
+```csharp
 // Iterator interface
 public interface IIterator<T>
 {
@@ -1746,7 +1746,7 @@ In the State pattern, there are several key components:
 
 Here's a simplified example to illustrate the State pattern in C#:
 
-``` csharp
+```csharp
 // State interface
 public interface IState
 {
@@ -1832,7 +1832,7 @@ In the Template Method pattern, there are two key components:
 
 Here's a simplified example to illustrate the Template Method pattern in C#:
 
-``` csharp
+```csharp
 // Abstract class
 public abstract class AbstractClass
 {
@@ -1910,7 +1910,7 @@ In the Chain of Responsibility pattern, there are several key components:
 
 Here's a simplified example to illustrate the Chain of Responsibility pattern in C#:
 
-``` csharp
+```csharp
 // Handler interface
 public abstract class Handler
 {
@@ -2012,7 +2012,7 @@ In the Visitor pattern, there are several key components:
 
 Here's a simplified example to illustrate the Visitor pattern in C#:
 
-``` csharp
+```csharp
 // Visitor interface
 public interface IVisitor
 {
@@ -2118,7 +2118,7 @@ The Interpreter pattern involves the following key components:
 
 Here's a simplified example to illustrate the Interpreter pattern in C#:
 
-``` csharp
+```csharp
 // Abstract Expression
 public interface IExpression
 {
@@ -2207,7 +2207,7 @@ The Mediator pattern involves the following key components:
 
 Here's a simplified example to illustrate the Mediator pattern in C#:
 
-``` csharp
+```csharp
 // Mediator interface
 public interface IMediator
 {
@@ -2315,7 +2315,7 @@ The Memento pattern involves the following key components:
 
 Here's a simplified example to illustrate the Memento pattern in C#:
 
-``` csharp
+```csharp
 // Originator
 public class Originator
 {

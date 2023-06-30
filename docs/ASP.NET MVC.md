@@ -198,7 +198,7 @@ To implement output caching in MVC, you can use the `OutputCache` attribute at t
 
 - **Action-Level Output Caching**: Apply the `OutputCache` attribute to the specific action method that you want to cache.
 
-   ``` csharp
+   ```csharp
    [OutputCache(Duration = 3600)] // Cache the output for 1 hour
    public ActionResult Index()
    {
@@ -211,7 +211,7 @@ To implement output caching in MVC, you can use the `OutputCache` attribute at t
 
 - **Controller-Level Output Caching**: Apply the `OutputCache` attribute at the controller level to cache the output of all actions within that controller.
 
-    ``` csharp
+    ```csharp
     [OutputCache(Duration = 3600)] // Cache the output for 1 hour
     public class HomeController : Controller
     {
@@ -235,7 +235,7 @@ The routing system follows a hierarchical order to match the incoming URL with t
 
 Here's an example of a basic route configuration:
 
-``` csharp
+```csharp
 public class RouteConfig
 {
     public static void RegisterRoutes(RouteCollection routes)
@@ -547,7 +547,7 @@ Razor is a markup syntax used in ASP.NET MVC views to combine server-side code w
 - **Expressions:** Expressions are used to output values directly into the HTML markup. They are also denoted by the `@` symbol. For example: `@Model.Property`.
 - **Conditional Statements:** Razor supports if, else if, and else statements for conditional logic. They can be written using the `@if`, `@else if`, and `@else` keywords. For example:
 
-   ``` csharp
+   ```csharp
    @if (condition)
    {
        // code here
@@ -564,7 +564,7 @@ Razor is a markup syntax used in ASP.NET MVC views to combine server-side code w
 
 - **Loops**: Razor provides syntax for loops such as `for`, `foreach`, and `while`. They can be written using the `@for`, `@foreach`, and `@while` keywords. For example:
 
-    ``` csharp
+    ```csharp
     @foreach (var item in collection)
     {
         // code here
@@ -864,7 +864,7 @@ To specify which view engine to use in an ASP.NET MVC application, you can confi
 
 In Razor views, you use the `@` symbol to denote the start of a code block or to switch to code execution mode. The `@` symbol is followed by C# code or Razor syntax that you want to execute. For example:
 
-``` csharp
+```csharp
 <p>Hello, @Model.Name!</p>
 ```
 
@@ -874,7 +874,7 @@ In the above example, `@Model.Name` is a code block that accesses the `Name` pro
 
 In ASPX views, you use the `<%` symbol to denote the start of a code block. The `<%` symbol is followed by C# code or ASP.NET server-side code that you want to execute. For example:
 
-``` csharp
+```csharp
 <p>Hello, <%= Model.Name %></p>
 ```
 In the above example, `<%= Model.Name %>` is a code block that renders the value of the `Name` property of the `Model` object.
@@ -885,7 +885,7 @@ Sections in ASP.NET MVC allow you to define placeholders in your layout or view,
 
 To define a section, you use the `@section` directive followed by a unique section name. For example:
 
-``` csharp
+```csharp
 @section Scripts {
 <script src="myscript.js"></script>
 }
@@ -895,7 +895,7 @@ In the above example, the `@section Scripts` defines a section named "Scripts" a
 
 In your layout or view, you can render the section content using the `@RenderSection` directive. For example:
 
-``` csharp
+```csharp
 @RenderSection("Scripts", required: false)
 ```
 
@@ -923,7 +923,7 @@ By using the `MapPageRoute` method in the `RouteConfig` class, you can define ro
 
 Here's an example of how to configure a route for a WebForms page in the `RouteConfig.cs` file:
 
-``` csharp
+```csharp
 public static void RegisterRoutes(RouteCollection routes)
 {
     routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -980,7 +980,7 @@ In the above example, we define two bundles: one for CSS files and another for J
 
 To use the bundles in views or layout files, we can reference them using the `@Styles.Render()` and `@Scripts.Render()` helper methods. For example:
 
-``` csharp
+```csharp
 @Styles.Render("~/bundles/css")
 @Scripts.Render("~/bundles/js")
 ```
@@ -1061,7 +1061,7 @@ In the above example, the `ChildAction` method is decorated with the `[ChildActi
 
 To invoke the child action from a view, you can use the `Html.Action` or `Html.RenderAction` helper methods. Here is an example:
 
-``` csharp
+```csharp
 <div>
     @Html.Action("ChildAction", "Home")
 </div>
@@ -1126,7 +1126,7 @@ In both cases, the returned string will be sent as the response content and rend
 
 You can also specify the content type and encoding if needed:
 
-``` csharp
+```csharp
 public ActionResult MyAction()
 {
     string myString = "Hello, World!";
@@ -1275,7 +1275,7 @@ Data Annotation is a set of attributes that you can apply to model properties to
 
 3. In the view, display validation error messages using the `ValidationMessageFor` helper:
 
-    ``` csharp
+    ```csharp
     @model MyModel
 
     @Html.LabelFor(m => m.Name)
@@ -1326,7 +1326,7 @@ The `ValidationSummary` helper generates an HTML element that can be placed in a
 
 Here's an example of using the `ValidationSummary` helper in a view:
 
-``` csharp
+```csharp
 @model MyViewModel
 
 @using (Html.BeginForm())
@@ -1405,7 +1405,7 @@ To implement forms authentication in an MVC application, follow these steps:
 
 3. Create a Login View:
 
-    ``` csharp
+    ```csharp
     @model LoginViewModel
 
     @using (Html.BeginForm())
@@ -1544,7 +1544,7 @@ In MVC, server-side validation is typically performed in the controller action m
 
     Example:
 
-    ``` csharp
+    ```csharp
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
@@ -1601,7 +1601,7 @@ Here's how you can implement remote validation in MVC:
 
     Example:
 
-    ``` csharp
+    ```csharp
     <div class="form-group">
         @Html.LabelFor(m => m.Email)
         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
@@ -1819,7 +1819,7 @@ In ASP.NET Core, you can access the current HttpContext through the `HttpContext
 
 1. **Controller**:
 
-    ``` csharp
+    ```csharp
     public class MyController : Controller
     {
         public IActionResult MyAction()
@@ -1833,7 +1833,7 @@ In ASP.NET Core, you can access the current HttpContext through the `HttpContext
 
 2. **Middleware**:
 
-    ``` csharp
+    ```csharp
     public class MyMiddleware
     {
         private readonly RequestDelegate _next;
@@ -1854,7 +1854,7 @@ In ASP.NET Core, you can access the current HttpContext through the `HttpContext
 
 3. **Service/Dependency Injection**:
 
-    ``` csharp
+    ```csharp
     public class MyService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -1874,7 +1874,7 @@ In ASP.NET Core, you can access the current HttpContext through the `HttpContext
 
     To access `HttpContext`, make sure you have registered the `HttpContextAccessor` service in your application's dependency injection container. You can do this in the `ConfigureServices` method of your `Startup` class:
 
-    ``` csharp
+    ```csharp
     services.AddHttpContextAccessor();
     ```
 
@@ -2770,13 +2770,13 @@ In ASP.NET Core, views can also benefit from Dependency Injection (DI) to resolv
 
 1. **Configure Services**: In the ConfigureServices method of your Startup class, register the required services and dependencies using the services parameter. For example:
 
-    ``` csharp
+    ```csharp
     services.AddTransient<IMyService, MyService>();
     ```
 
 2. **Inject Services into Controllers**: Inject the required services into your controllers using constructor injection. For example:
 
-    ``` csharp
+    ```csharp
     public class MyController : Controller
     {
         private readonly IMyService _myService;
@@ -2792,13 +2792,13 @@ In ASP.NET Core, views can also benefit from Dependency Injection (DI) to resolv
 
 3. Use `@inject` Directive in Views: To use dependencies in your views, you can utilize the `@inject` directive. Place the directive at the top of your view file to inject the required service. For example:
 
-    ``` csharp
+    ```csharp
     @inject IMyService MyService
     ```
 
 4. **Access Services in Views**: Once the service is injected into the view, you can access its properties and methods directly. For example:
 
-    ``` csharp
+    ```csharp
     @{
         var result = MyService.GetData();
     }
@@ -2842,7 +2842,7 @@ In ASP.NET Core, the AddSingleton, AddScoped, and AddTransient methods are exten
 
 Here's an example of how these methods can be used:
 
-``` csharp
+```csharp
 services.AddSingleton<ISingletonService, MySingletonService>();
 services.AddScoped<IScopedService, MyScopedService>();
 services.AddTransient<ITransientService, MyTransientService>();
@@ -2864,7 +2864,7 @@ To create custom middleware in ASP.NET Core, you need to implement a class that 
 
 Here's an example of a custom middleware class that logs request information:
 
-``` csharp
+```csharp
 public class RequestLoggingMiddleware : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
@@ -2886,7 +2886,7 @@ public class RequestLoggingMiddleware : IMiddleware
 
 To use this custom middleware, you can add it to the pipeline in the Configure method of the Startup class:
 
-``` csharp
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     // Other middleware configurations...
@@ -2909,7 +2909,7 @@ The Request Delegate can be defined as a lambda expression, an anonymous method,
 
 Here's an example of a Request Delegate defined as a lambda expression:
 
-``` csharp
+```csharp
 app.Use(async (context, next) =>
 {
     // Handle the request
@@ -2928,7 +2928,7 @@ In ASP.NET Core, the `Run()`, `Use()`, and `Map()` methods are used to add middl
 
 - **Run() method**: The `Run()` method is used to add a terminal middleware to the pipeline. It is typically used to handle the request and generate a response, without calling any subsequent middleware components. The `Run()` method takes a `RequestDelegate` parameter, which represents the request processing logic for that specific middleware. Here's an example:
 
-  ``` csharp
+  ```csharp
   app.Run(async (context) =>
   {
       await context.Response.WriteAsync("Hello, World!");
@@ -2939,7 +2939,7 @@ In ASP.NET Core, the `Run()`, `Use()`, and `Map()` methods are used to add middl
 
 - **Use() method**: The `Use()` method is used to add middleware components to the pipeline that can process the request and optionally call the next middleware in the pipeline. It allows for custom request processing logic and enables building a chain of middleware components. Here's an example:
 
-  ``` csharp
+  ```csharp
   app.Use(async (context, next) =>
   {
       // Perform some logic before calling the next middleware
@@ -2953,7 +2953,7 @@ In ASP.NET Core, the `Run()`, `Use()`, and `Map()` methods are used to add middl
 
 - **Map() method**: The `Map()` method is used to branch the request pipeline based on a specific request path. It allows different middleware components to be executed for different URL paths or routes. Here's an example:
 
-  ``` csharp
+  ```csharp
   app.Map("/api", apiApp =>
   {
       // Add middleware specific to the "/api" path
